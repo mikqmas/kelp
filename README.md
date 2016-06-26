@@ -132,11 +132,13 @@ which has its own `Index` view.
 - [ ] Add modals, transitions, and other styling flourishes.
 
 ### Bonus Features (TBD)
+- [ ] Mark reviews funny, cool, useful etc.
 - [ ] Search through reviews for blocks of text
 - [ ] Pagination / infinite scroll for Business Index
-- [ ] Set stars on review
-- [ ] Changelogs for Reviews
+- [ ] Profile
+- [ ] Friends
 - [ ] Multiple sessions
+
 
 [phase-one]: docs/phases/phase1.md
 [phase-two]: docs/phases/phase2.md
