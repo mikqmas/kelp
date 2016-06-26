@@ -1,29 +1,30 @@
-# FresherNote
+# Kelp
 
-[Heroku link][heroku] **Note:** This should be a link to your production site
+[Heroku link][heroku]
 
-[heroku]: http://www.herokuapp.com
+[heroku]: https://k3lp.herokuapp.com/
 
 ## Minimum Viable Product
 
-FresherNote is a web application inspired by Evernote that will be build using Ruby on Rails and React.js.  By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
+Kelp is a web application inspired by Yelp that will be build using Ruby on Rails and React.js.  By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
 
 - [ ] Hosting on Heroku
 - [ ] New account creation, login, and guest/demo login
-- [ ] A production README, replacing this README (**NB**: check out the [sample production README](docs/production_readme.md) -- you'll write this later)
-- [ ] Notes
-  - [ ] Smooth, bug-free navigation
+- [ ] A production README, replacing this README
+- [ ] Business Page
+  - [ ] Intuitive business profile layout taking cues from FB
+  - [ ] Populate using Yelp api to demonstrate the site's features
+  - [ ] Adequate CSS styling
+- [ ] Search / filters
+  - [ ] Intuitive searching and filtering options
+  - [ ] Quick async ajax, bug-free search
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
-- [ ] Notebooks for organizing notes
-  - [ ] Smooth, bug-free navigation
+- [ ] Reviews / ratings
+  - [ ] Easy to use review form using react-quill
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
-- [ ] Tags for notes
-  - [ ] Smooth, bug-free navigation
-  - [ ] Adequate seed data to demonstrate the site's features
-  - [ ] Adequate CSS styling
-- [ ] Rich Text Editing of notes
+- [ ] Map
   - [ ] Smooth, bug-free navigation
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
@@ -53,31 +54,31 @@ FresherNote is a web application inspired by Evernote that will be build using R
 - [ ] user signup/signin pages
 - [ ] blank landing page after signin
 
-### Phase 2: Notes Model, API, and basic APIUtil (1.5 days, W1 Th 12pm)
+### Phase 2: Review Model, API, and basic APIUtil (1.5 days, W1 Th 12pm)
 
-**Objective:** Notes can be created, read, edited and destroyed through
+**Objective:** Reviews can be created, read, edited and destroyed through
 the API.
 
-- [ ] create `Note` model
+- [ ] create `Review` model
 - [ ] seed the database with a small amount of test data
-- [ ] CRUD API for notes (`NotesController`)
-- [ ] jBuilder views for notes
+- [ ] CRUD API for Review (`ReviewsController`)
+- [ ] jBuilder views for reviews
 - [ ] setup Webpack & Flux scaffold
 - [ ] setup `APIUtil` to interact with the API
 - [ ] test out API interaction in the console.
 
 ### Phase 3: Flux Architecture and Router (1.5 days, W1 F 6pm)
 
-**Objective:** Notes can be created, read, edited and destroyed with the
+**Objective:** Reviews can be created, read, edited and destroyed with the
 user interface.
 
 - [ ] setup the flux loop with skeleton files
 - [ ] setup React Router
-- implement each note component, building out the flux loop as needed.
-  - [ ] `NotesIndex`
-  - [ ] `NoteIndexItem`
-  - [ ] `NoteForm`
-- [ ] save Notes to the DB when the form loses focus or is left idle
+- implement each review component, building out the flux loop as needed.
+  - [ ] `ReviewsIndex`
+  - [ ] `ReviewIndexItem`
+  - [ ] `ReviewForm`
+- [ ] save Reviews to the DB when the form loses focus or is left idle
   after editing.
 
 ### Phase 4: Start Styling (0.5 days, W2 M 12pm)
@@ -88,36 +89,35 @@ user interface.
 - [ ] position elements on the page
 - [ ] add basic colors & styles
 
-### Phase 5: Notebooks (1 day, W2 Tu 12pm)
+### Phase 5: Businesses (1 day, W2 Tu 12pm)
 
-**Objective:** Notes belong to Notebooks, and can be viewed by notebook.
+**Objective:** Reviews belong to Businesses, and can be viewed by Business.
 
-- [ ] create `Notebook` model
+- [ ] create `Business` model
 - build out API, Flux loop, and components for:
-  - [ ] Notebook CRUD
-  - [ ] adding notes requires a notebook
-  - [ ] moving notes to a different notebook
-  - [ ] viewing notes by notebook
-- Use CSS to style new views
+  - [ ] Business CRUD
+  - [ ] adding reviews requires a business
+  - [ ] viewing reviews by business
+- Use CSS to style new reviews
 
-Phase 3 adds organization to the Notes. Notes belong to a Notebook,
+Phase 3 adds organization to the Review. Reviews belong to a Business,
 which has its own `Index` view.
 
 ### Phase 6: Tags (1 days, W2 Th 12pm)
 
-**Objective:** Notes can be tagged with multiple tags, and tags are searchable.
+**Objective:** Reviews can be tagged with multiple tags, and tags are searchable.
 
 - [ ] create `Tag` model and join table
 - build out API, Flux loop, and components for:
-  - [ ] fetching tags for notebook
-  - [ ] adding tags to notebook
-  - [ ] creating tags while adding to notebooks
-  - [ ] searching notebooks by tag
+  - [ ] fetching tags for reviews
+  - [ ] adding tags to reviews
+  - [ ] creating tags while adding to reviews
+  - [ ] searching reviews by tag
 - [ ] Style new elements
 
-### Phase 7: Allow Complex Styling in Notes (0.5 days, W2 Th 6pm)
+### Phase 7: Allow Complex Styling in Reviews (0.5 days, W2 Th 6pm)
 
-**objective:** Enable complex styling of notes.
+**objective:** Enable complex styling of reviews.
 
 - [ ] Integrate `react-quill` (based on Quill.js).
 - [ ] Use Rails helpers to sanitize HTML before rendering.
@@ -132,10 +132,10 @@ which has its own `Index` view.
 - [ ] Add modals, transitions, and other styling flourishes.
 
 ### Bonus Features (TBD)
-- [ ] Search through notes for blocks of text
-- [ ] Pagination / infinite scroll for Notes Index
-- [ ] Set reminders on notes
-- [ ] Changelogs for Notes
+- [ ] Search through reviews for blocks of text
+- [ ] Pagination / infinite scroll for Business Index
+- [ ] Set stars on review
+- [ ] Changelogs for Reviews
 - [ ] Multiple sessions
 
 [phase-one]: docs/phases/phase1.md
