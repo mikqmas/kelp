@@ -1,40 +1,40 @@
-# Phase 5: Reminders and Garbage Collection
+# Phase 5: Businesses and Garbage Collection
 
 ## Rails
 ### Models
-* Reminder
+* Business
 
 ### Controllers
-* Api::RemindersController (create, destroy, index, show, update)
+* Api::BusinessesController (create, destroy, index, show, update)
 
 ### Views
 * reminders/index.json.jbuilder
 
 ## Flux
 ### Views (React Components)
-* RemindersIndex
-  - ReminderIndexItem
-* ReminderShow
-* ReminderForm
+* BusinessesIndex
+  - BusinessIndexItem
+* BusinessShow
+* BusinessForm
 
 ### Stores
-* Reminder
+* Business
 
 ### Actions
-* ApiActions.receiveAllReminders -> triggered by ApiUtil
-* ApiActions.receiveSingleReminder
-* ApiActions.deleteReminder
-* ReminderActions.fetchAllReminders -> triggers ApiUtil
-* ReminderActions.fetchSingleReminder
-* ReminderActions.createReminder
-* ReminderActions.updateReminder
-* ReminderActions.destroyReminder
+* ApiActions.receiveAllBusinesses -> triggered by ApiUtil
+* ApiActions.receiveSingleBusiness
+* ApiActions.deleteBusiness
+* BusinessActions.fetchAllBusinesses -> triggers ApiUtil
+* BusinessActions.fetchSingleBusiness
+* BusinessActions.createBusiness
+* BusinessActions.updateBusiness
+* BusinessActions.destroyBusiness
 
 ### ApiUtil
-* ApiUtil.fetchAllReminders
-* ApiUtil.fetchSingleReminder
-* ApiUtil.createReminder
-* ApiUtil.updateReminder
-* ApiUtil.destroyReminder
+* ApiUtil.fetchAllBusinesses
+* ApiUtil.fetchSingleBusiness
+* ApiUtil.createBusiness
+* ApiUtil.updateBusiness
+* ApiUtil.destroyBusiness
 
 ## Gems/Libraries

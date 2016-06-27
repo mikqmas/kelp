@@ -7,26 +7,42 @@ associated routes, so the nesting of your bolded components must
 _**exactly**_ match the nesting of your routes.)
 
 * **App**
-  * NotebooksIndex
+  * Frontpage (Root page)
     * Search
-    * NotebookIndexItem
-    * NotebookForm
-  * **NotesIndex**
-    * NoteForm
-    * NoteIndexItem
-    * **NoteDetail**
-      * NoteTags
-      * NoteEditArea
-
+    * Search Results
+    * Map
+  * Search Results
+    * ReviewIndex
+  * LoginPage
+    * NewSessionForm
+    * LoggedOutContent
+    * NewUserForm
+    * **BusinessIndex**
+      * ReviewIndexItem
+      * Business Details
+      * **BusinessIndexItem**
+        * ReviewIndexItem
+        * ReviewForm
+        * Map
+      * **ReviewsIndex**
+        * Search
+        * ReviewIndexItem
+        * Map
+        * **ReivewIndexItem**
+          * BusinessInfo
+          * ReviewEditArea
 
 ## Routes
 
 * **component:** `App` **path:** `/`
-  * **component:** `NotesIndex` **path:** index
-  * **component:** `NotesIndex` **path:** `notebooks/:notebookId`
-    * **component:** `NoteDetail` **path:** `notes/:noteId`
-  * **component:** `NotesIndex` **path:** none
-    * **component:** `NoteDetail` **path:** `notes/:noteId`
+  * **component:** `Frontpage` **path:** index
+  * **component:** `BusinessIndex` **path:** `businesses/`
+    * **component:** `BusinessDetail` **path:** `businesses/:businessId`
+      * **component:** `ReviewIndex` **path:** `business/:businessId/reviews/`
+        * **component:** `ReviewIndexItem` **path:** `business/:businessId/reviews/:reviewId`
 
-For Routes that have no `notebookId`, `NotesIndex` will render all
-notes.
+For Routes that have no `businessId`, `BusinessesIndex` will render all
+businesses.
+
+For Routes that have no `reviewId`, `ReviewsIndex` will render all
+businesses.

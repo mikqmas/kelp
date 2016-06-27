@@ -46,6 +46,8 @@ Kelp is a web application inspired by Yelp that will be build using Ruby on Rail
 
 ### Phase 1: Backend setup and Front End User Authentication (1 day, W1 Tu 6pm)
 
+* [Phase one][phase-one]
+
 **Objective:** Functioning rails project with Authentication
 
 - [ ] create new project
@@ -55,6 +57,8 @@ Kelp is a web application inspired by Yelp that will be build using Ruby on Rail
 - [ ] blank landing page after signin
 
 ### Phase 2: Review Model, API, and basic APIUtil (1.5 days, W1 Th 12pm)
+
+* [Phase two][phase-two]
 
 **Objective:** Reviews can be created, read, edited and destroyed through
 the API.
@@ -68,6 +72,8 @@ the API.
 - [ ] test out API interaction in the console.
 
 ### Phase 3: Flux Architecture and Router (1.5 days, W1 F 6pm)
+
+* [Phase three][phase-three]
 
 **Objective:** Reviews can be created, read, edited and destroyed with the
 user interface.
@@ -83,6 +89,8 @@ user interface.
 
 ### Phase 4: Start Styling (0.5 days, W2 M 12pm)
 
+* [Phase four][phase-four]
+
 **Objective:** Existing pages (including signup/signin) will look good.
 
 - [ ] create a basic style guide
@@ -90,6 +98,8 @@ user interface.
 - [ ] add basic colors & styles
 
 ### Phase 5: Businesses (1 day, W2 Tu 12pm)
+
+* [Phase five][phase-five]
 
 **Objective:** Reviews belong to Businesses, and can be viewed by Business.
 

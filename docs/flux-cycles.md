@@ -12,118 +12,118 @@ because once you start implementing your flux loops, that's precisely
 what you'll need to do.
 
 
-## Note Cycles
+## Review Cycles
 
-### Notes API Request Actions
+### Reviews API Request Actions
 
-* `fetchAllNotes`
-  0. invoked from `NotesIndex` `didMount`/`willReceiveProps`
-  0. `GET /api/notes` is called.
-  0. `receiveAllNotes` is set as the callback.
+* `fetchAllReviews`
+  0. invoked from `ReviewsIndex` `didMount`/`willReceiveProps`
+  0. `GET /api/reviews` is called.
+  0. `receiveAllReviews` is set as the callback.
 
-* `createNote`
-  0. invoked from new note button `onClick`
-  0. `POST /api/notes` is called.
-  0. `receiveSingleNote` is set as the callback.
+* `createReview`
+  0. invoked from new review button `onClick`
+  0. `POST /api/reviews` is called.
+  0. `receiveSingleReview` is set as the callback.
 
-* `fetchSingleNote`
-  0. invoked from `NoteDetail` `didMount`/`willReceiveProps`
-  0. `GET /api/notes/:id` is called.
-  0. `receiveSingleNote` is set as the callback.
+* `fetchSingleReview`
+  0. invoked from `ReviewDetail` `didMount`/`willReceiveProps`
+  0. `GET /api/reviews/:id` is called.
+  0. `receiveSingleReview` is set as the callback.
 
-* `updateNote`
-  0. invoked from `NoteForm` `onSubmit`
-  0. `POST /api/notes` is called.
-  0. `receiveSingleNote` is set as the callback.
+* `updateReview`
+  0. invoked from `ReviewForm` `onSubmit`
+  0. `POST /api/reviews` is called.
+  0. `receiveSingleReview` is set as the callback.
 
-* `destroyNote`
-  0. invoked from delete note button `onClick`
-  0. `DELETE /api/notes/:id` is called.
-  0. `removeNote` is set as the callback.
+* `destroyReview`
+  0. invoked from delete review button `onClick`
+  0. `DELETE /api/reviews/:id` is called.
+  0. `removeReview` is set as the callback.
 
-### Notes API Response Actions
+### Reviews API Response Actions
 
-* `receiveAllNotes`
+* `receiveAllReviews`
   0. invoked from an API callback.
-  0. `Note` store updates `_notes` and emits change.
+  0. `Review` store updates `_reviews` and emits change.
 
-* `receiveSingleNote`
+* `receiveSingleReview`
   0. invoked from an API callback.
-  0. `Note` store updates `_notes[id]` and emits change.
+  0. `Review` store updates `_reviews[id]` and emits change.
 
-* `removeNote`
+* `removeReview`
   0. invoked from an API callback.
-  0. `Note` store removes `_notes[id]` and emits change.
+  0. `Review` store removes `_reviews[id]` and emits change.
 
 ### Store Listeners
 
-* `NotesIndex` component listens to `Note` store.
-* `NoteDetail` component listens to `Note` store.
+* `ReviewsIndex` component listens to `Review` store.
+* `ReviewDetail` component listens to `Review` store.
 
 
-## Notebook Cycles
+## Business Cycles
 
-### Notebooks API Request Actions
+### Businesses API Request Actions
 
-* `fetchAllNotebooks`
-  0. invoked from `NotebooksIndex` `didMount`/`willReceiveProps`
-  0. `GET /api/notebooks` is called.
-  0. `receiveAllNotebooks` is set as the callback.
+* `fetchAllBusinesses`
+  0. invoked from `BusinessesIndex` `didMount`/`willReceiveProps`
+  0. `GET /api/businesses` is called.
+  0. `receiveAllBusinesses` is set as the callback.
 
-* `createNotebook`
-  0. invoked from new notebook button `onClick`
-  0. `POST /api/notebooks` is called.
-  0. `receiveSingleNotebook` is set as the callback.
+* `createBusiness`
+  0. invoked from new business button `onClick`
+  0. `POST /api/businesses` is called.
+  0. `receiveSingleBusiness` is set as the callback.
 
-* `fetchSingleNotebook`
-  0. invoked from `NotebookDetail` `didMount`/`willReceiveProps`
-  0. `GET /api/notebooks/:id` is called.
-  0. `receiveSingleNotebook` is set as the callback.
+* `fetchSingleBusiness`
+  0. invoked from `BusinessDetail` `didMount`/`willReceiveProps`
+  0. `GET /api/businesses/:id` is called.
+  0. `receiveSingleBusiness` is set as the callback.
 
-* `updateNotebook`
-  0. invoked from `NotebookForm` `onSubmit`
-  0. `POST /api/notebooks` is called.
-  0. `receiveSingleNotebook` is set as the callback.
+* `updateBusiness`
+  0. invoked from `BusinessForm` `onSubmit`
+  0. `POST /api/businesses` is called.
+  0. `receiveSingleBusiness` is set as the callback.
 
-* `destroyNotebook`
-  0. invoked from delete notebook button `onClick`
-  0. `DELETE /api/notebooks/:id` is called.
-  0. `removeNotebook` is set as the callback.
+* `destroyBusiness`
+  0. invoked from delete business button `onClick`
+  0. `DELETE /api/businesses/:id` is called.
+  0. `removeBusiness` is set as the callback.
 
-### Notebooks API Response Actions
+### Businesses API Response Actions
 
-* `receiveAllNotebooks`
+* `receiveAllBusinesses`
   0. invoked from an API callback.
-  0. `Notebook` store updates `_notebooks` and emits change.
+  0. `Business` store updates `_businesses` and emits change.
 
-* `receiveSingleNotebook`
+* `receiveSingleBusiness`
   0. invoked from an API callback.
-  0. `Notebook` store updates `_notebooks[id]` and emits change.
+  0. `Business` store updates `_businesses[id]` and emits change.
 
-* `removeNotebook`
+* `removeBusiness`
   0. invoked from an API callback.
-  0. `Notebook` store removes `_notebooks[id]` and emits change.
+  0. `Business` store removes `_businesses[id]` and emits change.
 
 ### Store Listeners
 
-* `NotebooksIndex` component listens to `Notebook` store.
+* `BusinessesIndex` component listens to `Business` store.
 
 
-## SearchSuggestion Cycles
+## SearchBusiness Cycles
 
-* `fetchSearchSuggestions`
-  0. invoked from `NoteSearchBar` `onChange` when there is text
-  0. `GET /api/notes` is called with `text` param.
-  0. `receiveSearchSuggestions` is set as the callback.
+* `fetchSearchBusinesses`
+  0. invoked from `BusinessSearchBar` `onChange` when there is text
+  0. `GET /api/reviews` is called with `text` param.
+  0. `receiveSearchBusinesses` is set as the callback.
 
-* `receiveSearchSuggestions`
+* `receiveSearchBusinesses`
   0. invoked from an API callback.
-  0. `SearchSuggestion` store updates `_suggestions` and emits change.
+  0. `SearchBusiness` store updates `_businesses` and emits change.
 
-* `removeSearchSuggestions`
-  0. invoked from `NoteSearchBar` `onChange` when empty
-  0. `SearchSuggestion` store resets `_suggestions` and emits change.
+* `removeSearchBusinesses`
+  0. invoked from `BusinessSearchBar` `onChange` when empty
+  0. `SearchBusiness` store resets `_businesses` and emits change.
 
 ### Store Listeners
 
-* `SearchBarSuggestions` component listens to `SearchSuggestion` store.
+* `SearchBarBusinesses` component listens to `SearchBusiness` store.

@@ -1,13 +1,13 @@
-# Phase 3: Notebooks and Tags (2 days)
+# Phase 3: Businesses and Tags (2 days)
 
 ## Rails
 ### Models
-* Notebook
+* Business
 * Tag
 * Tagging
 
 ### Controllers
-* Api::NotebooksController (create, destroy, index, show, update)
+* Api::BusinessesController (create, destroy, index, show, update)
 
 ### Views
 * notebooks/index.json.jbuilder
@@ -16,29 +16,29 @@
 
 ## Flux
 ### Views (React Components)
-* NotebooksIndex
-  - NotebookIndexItem
-* NotebookForm
+* BusinessesIndex
+  - BusinessIndexItem
+* BusinessForm
 * SearchIndex
 
 ### Stores
-* Notebook
+* Business
 
 ### Actions
-* ApiActions.receiveAllNotebooks -> triggered by ApiUtil
-* ApiActions.receiveSingleNotebook
-* ApiActions.deleteNotebook
-* NotebookActions.fetchAllNotebooks -> triggers ApiUtil
-* NotebookActions.fetchSingleNotebook
-* NotebookActions.createNotebook
-* NotebookActions.editNotebook
-* NotebookActions.destroyNotebook
+* ApiActions.receiveAllBusinesses -> triggered by ApiUtil
+* ApiActions.receiveSingleBusiness
+* ApiActions.deleteBusiness
+* BusinessActions.fetchAllBusinesses -> triggers ApiUtil
+* BusinessActions.fetchSingleBusiness
+* BusinessActions.createBusiness
+* BusinessActions.editBusiness
+* BusinessActions.destroyBusiness
 
 ### ApiUtil
-* ApiUtil.fetchAllNotebooks
-* ApiUtil.fetchSingleNotebook
-* ApiUtil.createNotebook
-* ApiUtil.editNotebook
-* ApiUtil.destroyNotebook
+* ApiUtil.fetchAllBusinesses
+* ApiUtil.fetchSingleBusiness
+* ApiUtil.createBusiness
+* ApiUtil.editBusiness
+* ApiUtil.destroyBusiness
 
 ## Gems/Libraries
