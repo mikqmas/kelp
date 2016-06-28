@@ -36,10 +36,10 @@ _**exactly**_ match the nesting of your routes.)
 
 * **component:** `App` **path:** `/`
   * **component:** `Frontpage` **path:** index
-  * **component:** `BusinessIndex` **path:** `businesses/`
-    * **component:** `BusinessDetail` **path:** `businesses/:businessId`
-      * **component:** `ReviewIndex` **path:** `business/:businessId/reviews/`
-        * **component:** `ReviewIndexItem` **path:** `business/:businessId/reviews/:reviewId`
+    * **component:** `BusinessIndex` **path:** `businesses/`
+      * **component:** `BusinessIndexItem` **path:** `businesses/:businessId`
+        * **component:** `ReviewIndex` **path:** `business/:businessId/reviews/`
+          * **component:** `ReviewIndexItem` **path:** `business/:businessId/reviews/:reviewId`
 
 For Routes that have no `businessId`, `BusinessesIndex` will render all
 businesses.
