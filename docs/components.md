@@ -12,7 +12,7 @@ _**exactly**_ match the nesting of your routes.)
     * Search Results
     * Map
   * Search Results
-    * ReviewIndex
+    * BusinessesIndex
   * LoginPage
     * NewSessionForm
     * LoggedOutContent
