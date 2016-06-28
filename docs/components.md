@@ -10,34 +10,25 @@ _**exactly**_ match the nesting of your routes.)
   * Frontpage (Root page)
     * Search
     * Search Results
-    * Map
-  * Search Results
-    * BusinessesIndex
-  * LoginPage
+    * BusinessesMap
+  * **LoginPage**
     * NewSessionForm
     * LoggedOutContent
     * NewUserForm
-    * **BusinessIndex**
-      * ReviewIndexItem
-      * Business Details
-      * **BusinessIndexItem**
-        * ReviewIndexItem
-        * ReviewForm
-        * Map
-      * **ReviewsIndex**
-        * Search
-        * ReviewIndexItem
-        * Map
-        * **ReivewIndexItem**
-          * BusinessInfo
-          * ReviewEditArea
+  * **BusinessIndex**
+    * ReviewIndexItem
+    * **BusinessIndexItem**
+      * ReviewIndex
+        * **ReviewIndexItem**
+      * ReviewForm
+      * BusinessMap
 
 ## Routes
 
 * **component:** `App` **path:** `/`
   * **component:** `Frontpage` **path:** index
-    * **component:** `BusinessIndex` **path:** `businesses/`
-      * **component:** `BusinessIndexItem` **path:** `businesses/:businessId`
+    * **component:** `BusinessIndex` **path:** `businesses/:businessId`
+  * **component:** `LoginPage` **path:** `session/`
         * **component:** `ReviewIndex` **path:** `business/:businessId/reviews/`
           * **component:** `ReviewIndexItem` **path:** `business/:businessId/reviews/:reviewId`
 
