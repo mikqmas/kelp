@@ -13,7 +13,7 @@ const Search = require('./components/search');
 const LoginForm = require('./components/login_form');
 const BusinessForm = require('./components/business_form');
 const BusinessShow = require('./components/business_show');
-const Review = require('./components/review');
+const ReviewForm = require('./components/review_form');
 //Auth
 const SessionStore = require('./stores/session_store');
 const SessionActions = require('./actions/session_actions');
@@ -26,7 +26,7 @@ const appRouter = (
       <Route path="/signup" component={ LoginForm } />
       <Route path="/businesses/new" component={ BusinessForm } onEnter={ _ensureLoggedIn }/>
       <Route path="/businesses/:businessId" component={ BusinessShow } >
-        // <Route path="review" component= { Review } />
+        <Route path="review" component={ ReviewForm } onEnter={ _ensureLoggedIn }/>
       </Route>
     </Route>
   </Router>

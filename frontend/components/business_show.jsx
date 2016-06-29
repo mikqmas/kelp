@@ -41,6 +41,12 @@ const BusinessShow = React.createClass({
         <div className="single-business-show">
           <Link to="/" >Back to Businesses Index</Link>
           <BusinessDetail business={this.state.business}/>
+          {
+            this.props.children ||
+              <button className="review-button" onClick={this.showReviewForm}>
+                Leave a Review
+              </button>
+          }
         </div>
       );
   }

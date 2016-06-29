@@ -7,7 +7,7 @@ class Api::ReviewsController < ApplicationController
       @business = review.business
       render "api/businesses/show"
     else
-      render json: @review.errors, status: 422
+      render json: review.errors, status: 422
     end
   end
 
