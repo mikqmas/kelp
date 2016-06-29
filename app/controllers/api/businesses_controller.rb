@@ -7,9 +7,6 @@ class Api::BusinessesController < ApplicationController
 
   def index
     businesses = Business.all
-    if(bounds)
-      businesses = Business.in_bounds(bounds)
-    end
     @businesses = businesses.includes(:reviews)
     render :index
   end

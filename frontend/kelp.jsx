@@ -11,6 +11,7 @@ const hashHistory = ReactRouter.hashHistory;
 const App = require('./components/app');
 const LoginForm = require('./components/login_form');
 const BusinessForm = require('./components/business_form');
+const BusinessShow = require('./components/business_show');
 //Auth
 const SessionStore = require('./stores/session_store');
 const SessionActions = require('./actions/session_actions');
@@ -21,6 +22,8 @@ const appRouter = (
       <Route path="/login" component={ LoginForm } />
       <Route path="/signup" component={ LoginForm } />
       <Route path="/businesses/new" component={ BusinessForm } onEnter={ _ensureLoggedIn }/>
+      <Route path="/businesses/:businessId" component={ BusinessShow} >
+      </Route>
     </Route>
   </Router>
 );
