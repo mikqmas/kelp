@@ -15,7 +15,7 @@ const App = React.createClass({
 
   greeting() {
     if (SessionStore.isUserLoggedIn()) {
-      
+
 
     	return (
     		<hgroup className="header-group">
