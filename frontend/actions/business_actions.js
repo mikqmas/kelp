@@ -5,8 +5,8 @@ const BusinessConstants = require('../constants/business_constants');
 const BusinessApiUtil = require('../util/business_api_util');
 
 const BusinessActions = {
-  fetchAllBusinesses() {
-    BusinessApiUtil.fetchAllBusinesses(BusinessActions.receiveAllBusinesses);
+  fetchAllBusinesses(filters) {
+    BusinessApiUtil.fetchAllBusinesses(filters, BusinessActions.receiveAllBusinesses);
   },
   createBusiness(business){
     BusinessApiUtil.createBusiness(business, BusinessActions.receiveSingleBusiness);

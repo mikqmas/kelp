@@ -1,6 +1,6 @@
 const ApiUtil = {
-  fetchAllBusinesses(success){
-    $.get('api/businesses', success);
+  fetchAllBusinesses(filters, success){
+    $.get('api/businesses', filters, success);
   },
   createBusiness(data, success){
     $.post('api/businesses', { business: data }, success);

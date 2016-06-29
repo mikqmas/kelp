@@ -3,9 +3,10 @@ class Review < ActiveRecord::Base
   belongs_to :business
 
   validates(
-    :rating,
     :user_id,
     :business_id,
     presence: true
   )
+
+  validates :rating, inclusion: { in: (1..5) }
 end
