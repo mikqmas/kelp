@@ -1,10 +1,10 @@
 # FresherNote
 
-[FresherNote live][heroku] **NB:** This should be a link to your production site
+[Kelp live][heroku] **NB:** This should be a link to your production site
 
-[heroku]: http://www.herokuapp.com
+[heroku]: http://k3lp.herokuapp.com
 
-FresherNote is a full-stack web application inspired by Evernote.  It utilizes Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Flux architectural framework on the frontend.  
+FresherNote is a full-stack web application inspired by Yelp.  It utilizes Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Flux architectural framework on the frontend.  
 
 ## Features & Implementation
 
@@ -12,7 +12,7 @@ FresherNote is a full-stack web application inspired by Evernote.  It utilizes R
 
 ### Single-Page App
 
-FresherNote is truly a single-page; all content is delivered on one static page.  The root page listens to a `SessionStore` and renders content based on a call to `SessionStore.currentUser()`.  Sensitive information is kept out of the frontend of the app by making an API call to `SessionsController#get_user`.
+Kelp is truly a single-page; all content is delivered on one static page.  The root page listens to a `SessionStore` and renders content based on a call to `SessionStore.currentUser()`.  Sensitive information is kept out of the frontend of the app by making an API call to `SessionsController#get_user`.
 
 ```ruby
 class Api::SessionsController < ApplicationController
