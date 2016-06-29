@@ -7,42 +7,30 @@ associated routes, so the nesting of your bolded components must
 _**exactly**_ match the nesting of your routes.)
 
 * **App**
-  * Frontpage (Root page)
-    * Search
+  * ** RootSearchPage ** (Root page)
+    * Header
+      * Search
+      * Logo
+      * Signup/Login Link
     * Search Results
-    * Map
-  * Search Results
+      * Filter
+      * Business Index
+    * BusinessesMap
+    * Login Modal
+      * NewSessionForm
+      * LoggedOutContent
+      * NewUserForm
+  * **BusinessProfile**
+    * BusinessDetail
+      * Map
+      * Hours
+      * Misc Info
     * ReviewIndex
-  * LoginPage
-    * NewSessionForm
-    * LoggedOutContent
-    * NewUserForm
-    * **BusinessIndex**
-      * ReviewIndexItem
-      * Business Details
-      * **BusinessIndexItem**
-        * ReviewIndexItem
-        * ReviewForm
-        * Map
-      * **ReviewsIndex**
-        * Search
-        * ReviewIndexItem
-        * Map
-        * **ReivewIndexItem**
-          * BusinessInfo
-          * ReviewEditArea
+    * New Review Modal
 
 ## Routes
 
 * **component:** `App` **path:** `/`
-  * **component:** `Frontpage` **path:** index
-  * **component:** `BusinessIndex` **path:** `businesses/`
+  * **component:** `RootSearchPage` **path:** index
     * **component:** `BusinessDetail` **path:** `businesses/:businessId`
-      * **component:** `ReviewIndex` **path:** `business/:businessId/reviews/`
-        * **component:** `ReviewIndexItem` **path:** `business/:businessId/reviews/:reviewId`
 
-For Routes that have no `businessId`, `BusinessesIndex` will render all
-businesses.
-
-For Routes that have no `reviewId`, `ReviewsIndex` will render all
-businesses.
