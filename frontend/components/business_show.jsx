@@ -1,7 +1,7 @@
 const React = require('react');
 const BusinessStore = require('../stores/business_store');
 const Link = require('react-router').Link;
-// const BusinessDetail = require('./business_detail');
+const BusinessDetail = require('./business_detail');
 // const BusinessMap = require('./business_map');
 const BusinessActions = require('../actions/business_actions');
 const hashHistory = require('react-router').hashHistory;
@@ -40,11 +40,7 @@ const BusinessShow = React.createClass({
     return (
         <div className="single-business-show">
           <Link to="/" >Back to Businesses Index</Link>
-          <p>{this.state.business.name}</p>
-          <p>{this.state.business.price}</p>
-          <p>{this.state.business.address}</p>
-          <p>{this.state.business.rating}</p>
-          <p>{this.state.business.health_score}</p>
+          <BusinessDetail business={this.state.business}/>
         </div>
       );
   }

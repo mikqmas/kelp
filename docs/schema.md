@@ -26,15 +26,14 @@ category
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-author_id   | integer   | not null, foreign key (references users), indexed
-title       | string    | not null
+name       | string    | not null
 description | string    |
 category | string    |
 phone       | string    |
 address       | string    |
 city       | string    |
-lat       | string    |
-lng       | string    |
+lat       | double    |
+lng       | double    |
 postal_code       | integer    |
 state_code       | string    |
 review      | float     | not null, default: 0.0
