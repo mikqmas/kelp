@@ -8,10 +8,10 @@
 
 Kelp is a web application inspired by Yelp that will be build using Ruby on Rails and React.js.  By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
 
-- [ ] Hosting on Heroku
-- [ ] New account creation, login, and guest/demo login
+- [X] Hosting on Heroku
+- [X] New account creation, login, and guest/demo login
 - [ ] A production README, replacing this README
-- [ ] Business Page
+- [X] Business Page
   - [ ] Intuitive business profile layout taking cues from FB
   - [ ] Populate using Yelp api to demonstrate the site's features
   - [ ] Adequate CSS styling
@@ -50,11 +50,11 @@ Kelp is a web application inspired by Yelp that will be build using Ruby on Rail
 
 **Objective:** Functioning rails project with Authentication
 
-- [ ] create new project
-- [ ] create `User` model
-- [ ] authentication
-- [ ] user signup/signin pages
-- [ ] blank landing page after signin
+- [X] create new project
+- [X] create `User` model
+- [X] authentication
+- [X] user signup/signin pages
+- [X] blank landing page after signin
 
 ### Phase 2: Review Model, API, and basic APIUtil (1.5 days, W1 Th 12pm)
 
@@ -63,13 +63,13 @@ Kelp is a web application inspired by Yelp that will be build using Ruby on Rail
 **Objective:** Reviews can be created, read, edited and destroyed through
 the API.
 
-- [ ] create `Review` model
-- [ ] seed the database with a small amount of test data
-- [ ] CRUD API for Review (`ReviewsController`)
-- [ ] jBuilder views for reviews
-- [ ] setup Webpack & Flux scaffold
-- [ ] setup `APIUtil` to interact with the API
-- [ ] test out API interaction in the console.
+- [X] create `Review` model
+- [X] seed the database with a small amount of test data
+- [X] CRUD API for Review (`ReviewsController`)
+- [X] jBuilder views for reviews
+- [X] setup Webpack & Flux scaffold
+- [X] setup `APIUtil` to interact with the API
+- [X] test out API interaction in the console.
 
 ### Phase 3: Flux Architecture and Router (1.5 days, W1 F 6pm)
 
@@ -78,13 +78,13 @@ the API.
 **Objective:** Reviews can be created, read, edited and destroyed with the
 user interface.
 
-- [ ] setup the flux loop with skeleton files
-- [ ] setup React Router
+- [X] setup the flux loop with skeleton files
+- [X] setup React Router
 - implement each review component, building out the flux loop as needed.
-  - [ ] `ReviewsIndex`
-  - [ ] `ReviewIndexItem`
-  - [ ] `ReviewForm`
-- [ ] save Reviews to the DB when the form loses focus or is left idle
+  - [X] `ReviewsIndex`
+  - [X] `ReviewIndexItem`
+  - [X] `ReviewForm`
+- [X] save Reviews to the DB when the form loses focus or is left idle
   after editing.
 
 ### Phase 4: Start Styling (0.5 days, W2 M 12pm)
@@ -103,11 +103,11 @@ user interface.
 
 **Objective:** Reviews belong to Businesses, and can be viewed by Business.
 
-- [ ] create `Business` model
+- [X] create `Business` model
 - build out API, Flux loop, and components for:
-  - [ ] Business CRUD
-  - [ ] adding reviews requires a business
-  - [ ] viewing reviews by business
+  - [X] Business CRUD
+  - [X] adding reviews requires a business
+  - [X] viewing reviews by business
 - Use CSS to style new reviews
 
 Phase 3 adds organization to the Review. Reviews belong to a Business,
