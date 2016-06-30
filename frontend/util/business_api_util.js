@@ -7,7 +7,7 @@ const ApiUtil = {
   },
   createReview(review, success) {
     $.post('api/reviews', { review }, success);
-  }
+  },
 };
 
 module.exports = ApiUtil;

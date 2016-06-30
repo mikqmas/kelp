@@ -5,6 +5,7 @@ class Business < ActiveRecord::Base
     :rating,
     presence: true
   )
+  validates :price, inclusion: { in: (1..5) }
 
   has_many :reviews
 

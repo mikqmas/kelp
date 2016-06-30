@@ -9,5 +9,4 @@ class Review < ActiveRecord::Base
   )
 
   validates :rating, inclusion: { in: (1..5) }
-  validates :price, inclusion: { in: (1..5) }
 end

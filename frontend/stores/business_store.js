@@ -21,6 +21,7 @@ function resetAllBusinesses(businesses){
 
 function resetSingleBusiness(business){
   _businesses[business.id] = business;
+
   BusinessStore.__emitChange();
 }
 

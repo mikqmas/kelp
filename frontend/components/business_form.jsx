@@ -6,10 +6,17 @@ const BusinessForm = React.createClass({
   getInitialState() {
     return {
       name: "",
-      address: "",
       rating: 0,
       price: 0,
-      health_score: 0
+      health_score: 100,
+      description: "",
+      phone: "",
+      address: "",
+      city: "",
+      postal_code: "",
+      state_code: "",
+      picture_url: "",
+      category: "",
     };
   },
   handleSubmit(event) {
@@ -42,21 +49,41 @@ const BusinessForm = React.createClass({
               <input type="text" value={this.state.name}
                 onChange={this.update("name")} className="business-field"/>
 
+              <label className="business-field">Price</label>
+              <input min='1'  max='5' type="number" value={this.state.price}
+                onChange={this.update("price")} className="business-field"/>
+
+              <label className="business-field">description</label>
+              <input type="text" value={this.state.description}
+                onChange={this.update("description")} className="business-field"/>
+
+              <label className="business-field">phone</label>
+              <input type="tel" value={this.state.phone}
+                onChange={this.update("phone")} className="business-field"/>
+
               <label className="business-field">Address</label>
               <input type="text" value={this.state.address}
                 onChange={this.update("address")} className="business-field"/>
 
-              <label className="business-field">Rating</label>
-              <input min='0' type="number" value={this.state.rating}
-                onChange={this.update("rating")} className="business-field"/>
+              <label className="business-field">city</label>
+              <input type="text" value={this.state.city}
+                onChange={this.update("city")} className="business-field"/>
 
-              <label className="business-field">Price</label>
-              <input min='0' type="number" value={this.state.price}
-                onChange={this.update("price")} className="business-field"/>
+              <label className="business-field">postal_code</label>
+              <input type="text" value={this.state.postal_code}
+                onChange={this.update("postal_code")} className="business-field"/>
 
-              <label className="business-field">Health Score</label>
-              <input min='0' type="number" value={this.state.health_score}
-                onChange={this.update("health_score")} className="business-field"/>
+              <label className="business-field">state_code</label>
+              <input type="text" value={this.state.state_code}
+                onChange={this.update("state_code")} className="business-field"/>
+
+              <label className="business-field">picture_url</label>
+              <input type="text" value={this.state.picture_url}
+                onChange={this.update("picture_url")} className="business-field"/>
+
+              <label className="business-field">category</label>
+              <input type="text" value={this.state.category}
+                onChange={this.update("category")} className="business-field"/>
 
               <div className="button-holder">
                 <input type="submit" value="Create Business" className="new-business-button"/>
