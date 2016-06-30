@@ -24,8 +24,15 @@ var Business = React.createClass({
   render() {
     const reviews = this.props.business.reviews || [];
     const reviewCount = reviews.length;
-    const reviewAverage = (reviews.map((review) => {
-      return review.rating}).reduce((c,p) => {return c+p})) / reviewCount
+    let reviewAverage;
+    if(reviewCount > 0) {
+      reviewAverage = (reviews.map((review) => {
+          return review.rating;
+        }).reduce((c,p) => {
+          return c+p;
+        })
+      ) / reviewCount;
+    }
 
     let reviewText = "no reviews yet";
     if(reviews.length > 0) {
@@ -33,6 +40,7 @@ var Business = React.createClass({
         return <Review key={review.id} {...review} />;
       });
     }
+
     return (
       <div>
         <ul className="business-list">
