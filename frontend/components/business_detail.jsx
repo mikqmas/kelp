@@ -23,16 +23,6 @@ var Business = React.createClass({
 
   render() {
     const reviews = this.props.business.reviews || [];
-    const reviewCount = reviews.length;
-    let reviewAverage;
-    if(reviewCount > 0) {
-      reviewAverage = (reviews.map((review) => {
-          return review.rating;
-        }).reduce((c,p) => {
-          return c+p;
-        })
-      ) / reviewCount;
-    }
 
     let reviewText = "no reviews yet";
     if(reviews.length > 0) {
@@ -45,8 +35,8 @@ var Business = React.createClass({
       <div>
         <ul className="business-list">
           <img className="index-image" src={this.props.business.picture_url}/>
-          <li>Rating: {reviewAverage || "No reviews yet"}</li>
-          <li>ReviewCount: {reviewCount || 0 }</li>
+          <li>Rating: {this.props.business.average_rating || "No reviews yet"}</li>
+          <li>ReviewCount: {this.props.business.review_count || 0 }</li>
           <li>Description: {this.props.business.description || "No description yet"}</li>
           <li>Price: {this.props.business.price || "No price yet"}</li>
           <li>Latitude: {this.props.business.lat}</li>

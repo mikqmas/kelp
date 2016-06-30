@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160629223144) do
+ActiveRecord::Schema.define(version: 20160630175908) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20160629223144) do
   create_table "businesses", force: :cascade do |t|
     t.string   "name",         null: false
     t.string   "address",      null: false
-    t.integer  "rating",       null: false
     t.string   "hours"
     t.integer  "price"
     t.integer  "health_score"
@@ -35,13 +34,13 @@ ActiveRecord::Schema.define(version: 20160629223144) do
     t.string   "picture_url"
     t.string   "category"
     t.string   "postal_code"
+    t.float    "rating"
   end
 
   add_index "businesses", ["city"], name: "index_businesses_on_city", using: :btree
   add_index "businesses", ["hours"], name: "index_businesses_on_hours", using: :btree
   add_index "businesses", ["name"], name: "index_businesses_on_name", unique: true, using: :btree
   add_index "businesses", ["price"], name: "index_businesses_on_price", using: :btree
-  add_index "businesses", ["rating"], name: "index_businesses_on_rating", using: :btree
   add_index "businesses", ["review_count"], name: "index_businesses_on_review_count", using: :btree
 
   create_table "reviews", force: :cascade do |t|

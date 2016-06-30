@@ -15,7 +15,11 @@ const IndexItem = React.createClass({
           <div className="index-item-info">
             <span className="index-item-category">Rating: </span>
             <span className="index-item-copy">
-              {business.rating || "No reviews yet"}
+              {business.average_rating || "No reviews yet"}
+            </span>
+            <span className="index-item-category">Review Count: </span>
+            <span className="index-item-copy">
+              {this.props.business.review_count || 0 }
             </span>
             <span className="index-item-category">Address </span>
             <span className="index-item-copy">

@@ -28,12 +28,13 @@ class Api::BusinessesController < ApplicationController
     render :index
   end
 
+
   private
 
   def business_params
     params.require(:business).permit(:name, :address, :rating, :price,
       :health_score, :hours, :phone, :city, :postal_code, :state_code,
-      :picture_url, :category)
+      :picture_url, :category, :lat, :lng)
   end
 
 end

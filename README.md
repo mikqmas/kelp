@@ -1,5 +1,7 @@
 # Kelp
 
+Yelp API: https://api.yelp.com/v2/search?term=food&location=San+Francisco&oauth_consumer_key=SeiwYq9KW9sedsZUd9d8Yg&oauth_consumer_secret=ZPegLm0ar4eqsXHwF6CsMYWXtZE&oauth_token=dHPVjDLbJGPDwDRitcHK5cfuOL5fqNCe&oauth_token_secret=v3M4B1kGPZ6rutrOMJhwcIDbTBk&oauth_signature_method=HMAC-SHA1&oauth_timestamp=temstamp_value&oauth_nonce=nonce_value&oauth_signature=signature_value
+
 [Heroku link][heroku]
 
 [heroku]: https://k3lp.herokuapp.com/

@@ -1,12 +1,11 @@
 class Review < ActiveRecord::Base
-  belongs_to :user
-  belongs_to :business
-
+  validates :rating, inclusion: { in: (1..5) }
   validates(
     :user_id,
     :business_id,
     presence: true
   )
 
-  validates :rating, inclusion: { in: (1..5) }
+  belongs_to :user
+  belongs_to :business
 end

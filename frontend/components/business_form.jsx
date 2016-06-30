@@ -1,14 +1,21 @@
+//React
 const React = require('react');
-const BusinessActions = require('../actions/business_actions');
 const hashHistory = require('react-router').hashHistory;
+
+//Actions
+const BusinessActions = require('../actions/business_actions');
+
+//Geocoder for Gmaps
+const geocoder = new google.maps.Geocoder();
+let suggestedAddresses = [];
 
 const BusinessForm = React.createClass({
   getInitialState() {
     return {
       name: "",
-      rating: 0,
-      price: 0,
-      health_score: 100,
+      rating: "",
+      price: "",
+      health_score: "",
       description: "",
       phone: "",
       address: "",
@@ -21,8 +28,7 @@ const BusinessForm = React.createClass({
   },
   handleSubmit(event) {
     event.preventDefault();
-    const business = Object.assign({}, this.state, this._coords());
-    BusinessActions.createBusiness(business);
+    this.codeAddress();
     this.navigateToSearch();
   },
   navigateToSearch() {
@@ -32,11 +38,46 @@ const BusinessForm = React.createClass({
     event.preventDefault();
     this.navigateToSearch();
   },
+  suggestAddresses() {
+    const address = this.state.address;
+    geocoder.geocode( { 'address' : address, 'region' : 'us',
+      componentRestrictions: {country: 'US'}},
+    function( results, status ) {
+      if( status === google.maps.GeocoderStatus.OK ) {
+        suggestedAddresses = results;
+      } else {
+        // alert( 'Geocode error: ' + status );
+      }
+    });
+  },
+
+  codeAddress() {
+    let latLng = "";
+    const address = this.state.address;
+    geocoder.geocode( { 'address' : address },
+    function( results, status ) {
+      if( status === google.maps.GeocoderStatus.OK ) {
+        latLng = {lat: results[0].geometry.location.lat(),
+          lng: results[0].geometry.location.lng()};
+      } else {
+        alert( 'Geocode error: ' + status );
+      }
+      const business = Object.assign({}, this.state, latLng);
+      BusinessActions.createBusiness(business);
+    }.bind(this));
+  },
   _coords() {
     return this.props.location.query;
   },
   update(property) {
-    return (e) => this.setState({[property]: e.target.value});
+    return (e) => this.setState({[property]: e.target.value}, this.suggestAddress);
+  },
+  updateAddress(e) {
+    this.setState({address : e.target.value}, this.suggestAddresses);
+  },
+  _handleAddressClick(e){
+    debugger;
+    this.setState({address: e.target.result.formatted_address});
   },
   render() {
     const lat = this._coords().lat, lng = this._coords().lng;
@@ -63,19 +104,9 @@ const BusinessForm = React.createClass({
 
               <label className="business-field">Address</label>
               <input type="text" value={this.state.address}
-                onChange={this.update("address")} className="business-field"/>
+                onChange={this.updateAddress} className="business-field"/>
 
-              <label className="business-field">city</label>
-              <input type="text" value={this.state.city}
-                onChange={this.update("city")} className="business-field"/>
 
-              <label className="business-field">postal_code</label>
-              <input type="text" value={this.state.postal_code}
-                onChange={this.update("postal_code")} className="business-field"/>
-
-              <label className="business-field">state_code</label>
-              <input type="text" value={this.state.state_code}
-                onChange={this.update("state_code")} className="business-field"/>
 
               <label className="business-field">picture_url</label>
               <input type="text" value={this.state.picture_url}
@@ -92,6 +123,14 @@ const BusinessForm = React.createClass({
             <div className="button-holder">
               <button className="new-business-button" onClick={this.handleCancel}>Cancel</button>
             </div>
+          </div>
+          <div id="addressSuggesions">
+            {
+              suggestedAddresses.map((result)=>{
+                return <li onClick={this._handleAddressClick}
+                  result={result}>{result.formatted_address}</li>
+              })
+            }
           </div>
         </div>
     );
