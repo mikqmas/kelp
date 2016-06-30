@@ -24,6 +24,10 @@ h3, h4, h5, footer, header, p, nav, ul, li {
   vertical-align: baseline;
 }
 
+body {
+  font-family: Helvetica, sans-serif;
+}
+
 .map {
   width: 500px;
   height: 500px

@@ -7,7 +7,9 @@ class Api::BusinessesController < ApplicationController
 
   def index
     businesses = Business.all
-    p params
+    if(bounds)
+      businesses = Business.in_bounds(bounds)
+    end
 
     if(params[:price])
       businesses = businesses.where("price <= ?", params[:price])
@@ -35,6 +37,10 @@ class Api::BusinessesController < ApplicationController
     params.require(:business).permit(:name, :address, :rating, :price,
       :health_score, :hours, :phone, :city, :postal_code, :state_code,
       :picture_url, :category, :lat, :lng)
+  end
+
+  def bounds
+    params[:bounds]
   end
 
 end
