@@ -10,19 +10,19 @@ class Api::BusinessesController < ApplicationController
     p params
 
     if(params[:price])
-      businesses = businesses.where("price < ?", params[:price])
+      businesses = businesses.where("price <= ?", params[:price])
     end
 
     if(params[:review])
-      businesses = businesses.where("rating > ?", params[:review])
+      businesses = businesses.where("rating >= ?", params[:review])
     end
 
     if(params[:reviewCount])
-      businesses = businesses.where("review_count < ?", params[:reviewCount])
+      businesses = businesses.where("review_count >= ?", params[:reviewCount])
     end
 
     if(params[:category])
-      businesses = businesses.where("category < ?", params[:category])
+      businesses = businesses.where("category LIKE ?", "%#{params[:category]}%")
     end
     @businesses = businesses.includes(:reviews)
     render :index

@@ -11,13 +11,13 @@ Kelp is a web application inspired by Yelp that will be build using Ruby on Rail
 - [X] Hosting on Heroku
 - [X] New account creation, login, and guest/demo login
 - [ ] A production README, replacing this README
-- [X] Business Page
+- [ ] Business Page
   - [ ] Intuitive business profile layout taking cues from FB
   - [ ] Populate using Yelp api to demonstrate the site's features
   - [ ] Adequate CSS styling
 - [ ] Search / filters
-  - [ ] Intuitive searching and filtering options
-  - [ ] Quick async ajax, bug-free search
+  - [X] Intuitive searching and filtering options
+  - [X] Quick async ajax, bug-free search
   - [ ] Adequate seed data to demonstrate the site's features
   - [ ] Adequate CSS styling
 - [ ] Reviews / ratings
