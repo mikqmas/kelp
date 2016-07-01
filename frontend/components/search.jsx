@@ -8,6 +8,7 @@ const hashHistory = require('react-router').hashHistory;
 const BusinessIndex = require('./business_index');
 const FilterForm = require('./filter_form');
 const BusinessMap = require('./business_map');
+const App = require('./auto');
 
 //Actions
 const BusinessActions = require('../actions/business_actions');
@@ -56,6 +57,7 @@ const Search = React.createClass({
           <BusinessMap businesses={this.state.businesses}/>
         </div>
         <div className="right-half">
+          <App filterParams={this.state.filterParams}/>
           <FilterForm filterParams={this.state.filterParams} />
           <BusinessIndex businesses={this.state.businesses}/>
         </div>

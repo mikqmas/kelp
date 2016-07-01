@@ -46,8 +46,8 @@ const BusinessForm = React.createClass({
     this.navigateToSearch();
   },
   suggestAddresses() {
-    const address = this.state.address;
-    geocoder.geocode( { 'address' : address, 'region' : 'us',
+    const address = `${this.state.address}, california, usa `;
+    geocoder.geocode( { 'address' : address,
       componentRestrictions: {country: 'US'}},
     function( results, status ) {
       if( status === google.maps.GeocoderStatus.OK ) {

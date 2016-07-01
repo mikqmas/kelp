@@ -6,6 +6,10 @@ const ButtonToolbar = require('react-bootstrap').ButtonToolbar;
 const DropdownButton = require('react-bootstrap').DropdownButton;
 const MenuItem = require('react-bootstrap').MenuItem;
 
+//Geocoder
+const geocoder = new google.maps.Geocoder();
+let suggestedCities = ["hello"];
+
 const Filters = React.createClass({
   priceChanged(e) {
     FilterActions.updatePrice(parseInt(e.target.value));
@@ -14,6 +18,20 @@ const Filters = React.createClass({
     FilterActions.updateCategory(e.target.value);
   },
   locationChanged(e) {
+    const address = e.target.value;
+    geocoder.geocode( { 'address' : address, 'region' : 'us',
+      componentRestrictions: {country: 'US'}},
+    function( results, status ) {
+      if( status === google.maps.GeocoderStatus.OK ) {
+        suggestedCities = [];
+        results.forEach((result) => {
+          if(result.address_components[0].types[0] === "locality" &&
+            !suggestedCities.includes(result.address_components[0].long_name)) {
+              suggestedCities.push(result.address_components[0].long_name);
+          }
+        });
+      }
+    });
     FilterActions.updateLocation(e.target.value);
   },
   reviewChanged(e) {
@@ -32,7 +50,7 @@ const Filters = React.createClass({
     return this.props.filterParams.category || "";
   },
   currentLocation() {
-    return this.props.filterParams.location || "";
+    return this.props.filterParams.loc || "";
   },
   // currentReview() {
   //   return this.props.filterParams.review || "";
@@ -97,6 +115,10 @@ const Filters = React.createClass({
         <input type="text"
           onChange={this.locationChanged}
           value={this.currentLocation()}/>
+
+        <div>
+          {suggestedCities}
+        </div>
 
     </div>
     );

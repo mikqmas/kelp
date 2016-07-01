@@ -23,7 +23,7 @@ const FilterActions = {
   updateLocation(value) {
     AppDispatcher.dispatch({
       actionType: FilterConstants.UPDATE_LOCATION,
-      category: value,
+      loc: value,
     });
   },
 

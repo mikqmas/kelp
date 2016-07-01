@@ -51,11 +51,11 @@ function setCategory(category){
   FilterParamsStore.__emitChange();
 }
 
-function setLocation(location){
-  if(location === "") {
-    delete _params['location'];
+function setLocation(loc){
+  if(loc === "") {
+    delete _params['loc'];
   } else {
-    _params.location = location;
+    _params.loc = loc;
   }
   FilterParamsStore.__emitChange();
 }
@@ -80,7 +80,7 @@ FilterParamsStore.__onDispatch = function(payload) {
       setCategory(payload.category);
       break;
     case FilterConstants.UPDATE_LOCATION:
-      setLocation(payload.location);
+      setLocation(payload.loc);
       break;
     case FilterConstants.UPDATE_BOUNDS:
       setBounds(payload.bounds);

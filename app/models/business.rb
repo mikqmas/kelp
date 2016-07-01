@@ -23,5 +23,4 @@ class Business < ActiveRecord::Base
     reviews.count
   end
 
-  # {:northEast=>{:lat=>37.80788593713509, :lng=>-122.38838165576169}, :southWest=>{:lat=>37.740042499341264, :lng=>-122.47421234423825}}
 end
