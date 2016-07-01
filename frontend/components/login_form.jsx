@@ -5,6 +5,11 @@ const SessionStore = require('../stores/session_store');
 const ErrorStore = require('../stores/error_store');
 const hashHistory = require('react-router').hashHistory;
 
+const Popover = require('react-bootstrap').Popover;
+const Tooltip = require('react-bootstrap').Tooltip;
+const Modal = require('react-bootstrap').Modal;
+const Button = require('react-bootstrap').Button;
+
 const LoginForm = React.createClass({
 
 	context: {
@@ -14,9 +19,10 @@ const LoginForm = React.createClass({
   getInitialState() {
     return {
       username: "",
-      password: ""
+      password: "",
     };
   },
+
 
   componentDidMount() {
 		this.redirectIfLoggedIn();

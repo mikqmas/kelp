@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160630175908) do
+ActiveRecord::Schema.define(version: 20160701174917) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,18 +30,15 @@ ActiveRecord::Schema.define(version: 20160630175908) do
     t.float    "lat"
     t.float    "lng"
     t.string   "state_code"
-    t.integer  "review_count"
     t.string   "picture_url"
     t.string   "category"
     t.string   "postal_code"
-    t.float    "rating"
   end
 
   add_index "businesses", ["city"], name: "index_businesses_on_city", using: :btree
   add_index "businesses", ["hours"], name: "index_businesses_on_hours", using: :btree
   add_index "businesses", ["name"], name: "index_businesses_on_name", unique: true, using: :btree
   add_index "businesses", ["price"], name: "index_businesses_on_price", using: :btree
-  add_index "businesses", ["review_count"], name: "index_businesses_on_review_count", using: :btree
 
   create_table "reviews", force: :cascade do |t|
     t.text     "body"

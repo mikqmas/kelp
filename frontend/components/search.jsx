@@ -21,7 +21,7 @@ const FilterParamsStore = require('../stores/filter_params_store');
 const Search = React.createClass({
   getInitialState() {
     return {
-      businesses: BusinessStore.all(),
+      businesses: {},
       filterParams: FilterParamsStore.params()
     };
   },
@@ -40,7 +40,7 @@ const Search = React.createClass({
     this.businessListener = BusinessStore.addListener(this._businessesChanged);
     this.filterListener = FilterParamsStore.addListener(this._filtersChanged);
     const filterParams = FilterParamsStore.params();
-    BusinessActions.fetchAllBusinesses(filterParams);
+    // BusinessActions.fetchAllBusinesses(filterParams);
   },
 
   componentWillUnmount() {
@@ -53,7 +53,7 @@ const Search = React.createClass({
       <div className="user-pane">
         <div className="left-half">
           <p>Left Half</p>
-            <BusinessMap businesses={this.state.businesses}/>
+          <BusinessMap businesses={this.state.businesses}/>
         </div>
         <div className="right-half">
           <FilterForm filterParams={this.state.filterParams} />

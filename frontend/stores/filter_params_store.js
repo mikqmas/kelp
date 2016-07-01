@@ -10,10 +10,16 @@ FilterParamsStore.params = function() {
 };
 
 function setPrice(price){
-  if(price === "") {
-    delete _params['price'];
+  if(_params['prices'] === undefined ){
+    _params['prices'] = [];
+  }
+  if(_params['prices'].includes(price)) {
+    _params['prices'].splice(_params['prices'].indexOf(price),1);
   } else {
-    _params.price = price;
+    _params.prices.push(price);
+  }
+  if(_params['prices'].length < 1){
+    delete _params['prices'];
   }
   FilterParamsStore.__emitChange();
 }
@@ -45,6 +51,15 @@ function setCategory(category){
   FilterParamsStore.__emitChange();
 }
 
+function setLocation(location){
+  if(location === "") {
+    delete _params['location'];
+  } else {
+    _params.location = location;
+  }
+  FilterParamsStore.__emitChange();
+}
+
 function setBounds(bounds){
   _params.bounds = bounds;
   FilterParamsStore.__emitChange();
@@ -63,6 +78,9 @@ FilterParamsStore.__onDispatch = function(payload) {
       break;
     case FilterConstants.UPDATE_CATEGORY:
       setCategory(payload.category);
+      break;
+    case FilterConstants.UPDATE_LOCATION:
+      setLocation(payload.location);
       break;
     case FilterConstants.UPDATE_BOUNDS:
       setBounds(payload.bounds);

@@ -6,7 +6,6 @@ const IndexItem = React.createClass({
     const businessID = this.props.business.id;
     hashHistory.push("businesses/" + businessID );
   },
-
   render() {
     const business = this.props.business;
     return (

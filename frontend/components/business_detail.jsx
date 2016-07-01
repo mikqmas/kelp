@@ -30,11 +30,10 @@ var Business = React.createClass({
         return <Review key={review.id} {...review} />;
       });
     }
-
     return (
       <div>
         <ul className="business-list">
-          <img className="index-image" src={this.props.business.picture_url}/>
+          <img className="index-image" src="../../assets/images/kitten.jpg"/>
           <li>Rating: {this.props.business.average_rating || "No reviews yet"}</li>
           <li>ReviewCount: {this.props.business.review_count || 0 }</li>
           <li>Description: {this.props.business.description || "No description yet"}</li>

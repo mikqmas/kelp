@@ -20,6 +20,12 @@ const FilterActions = {
       category: value,
     });
   },
+  updateLocation(value) {
+    AppDispatcher.dispatch({
+      actionType: FilterConstants.UPDATE_LOCATION,
+      category: value,
+    });
+  },
 
   updateReview(value) {
     AppDispatcher.dispatch({
