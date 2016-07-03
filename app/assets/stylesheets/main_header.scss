@@ -1,0 +1,35 @@
+.main_header {
+  background-color: #f60;
+  background-image: 'images/header-background.jpg';
+  height: 80px;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+
+  .search_nav {
+
+  }
+
+  .header-link {
+    font-size: 8em;
+    font-color: white;
+    font-weight: bold;
+  }
+
+  .login {
+     display: flex;
+     align-items: center;
+
+     .current {
+       font-color: white;
+       font-weight: bold;
+       font-size: 4em;
+     }
+
+
+    .dropdown-profile {
+      display: flex;
+      width: 100px;
+    }
+  }
+}
