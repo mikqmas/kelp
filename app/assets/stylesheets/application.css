@@ -52,3 +52,22 @@ h3, h4, h5, footer, header, p, nav, ul, li {
      outline:0px !important;
      -webkit-appearance:none;
  }
+
+
+/*active*/
+ .btn-default.active:hover:focus  {
+   background-color: #d4d4d4;
+ }
+
+ .btn-default.active:focus {
+   background-color: #e6e6e6;
+ }
+
+/*unactive*/
+.btn-default:hover:focus  {
+  background-color: #e6e6e6;
+}
+
+.btn-default:focus {
+  background-color: #fff;
+}
