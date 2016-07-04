@@ -9,7 +9,7 @@ const IndexRoute = ReactRouter.IndexRoute;
 const hashHistory = ReactRouter.hashHistory;
 //Components
 const App = require('./components/app');
-const Search = require('./components/search');
+const Splash = require('./components/splash');
 const LoginForm = require('./components/login_form');
 const BusinessForm = require('./components/business_form');
 const BusinessShow = require('./components/business_show');
@@ -22,7 +22,7 @@ const SessionActions = require('./actions/session_actions');
 const appRouter = (
   <Router history={ hashHistory }>
     <Route path="/" component={ App }>
-      <IndexRoute component={ Search } />
+      <IndexRoute component={ Splash } />
       <Route path="/login" component={ LoginForm } />
       <Route path="/signup" component={ LoginForm } />
       <Route path="/businesses/new" component={ BusinessForm } onEnter={ _ensureLoggedIn }/>

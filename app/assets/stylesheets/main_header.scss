@@ -1,13 +1,29 @@
-.main_header {
-  background-color: #f60;
-  background-image: 'images/header-background.jpg';
-  height: 80px;
-  padding: 0 30px;
+.main-header {
+  background-color: #aad450;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
 
-  .search_nav {
+  .search-and-session {
+    display: flex;
+    justify-content: space-between;
+    width: 800px;
+  }
 
+  .search-bars, .login-signup, .header-group {
+    display: flex;
+    align-items: center;
+  }
+
+  .search-bars {
+    input[type="text"] {
+      margin-left: 10px;
+    }
+  }
+
+  .login-signup {
+    margin-right: 10px;
   }
 
   .header-link {

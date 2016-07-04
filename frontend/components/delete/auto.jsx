@@ -1,10 +1,9 @@
 const React = require('react');
-const FilterActions = require('../actions/filter_actions');
-
 const Autosuggest = require('react-autosuggest');
+const FilterActions = require('../actions/filter_actions');
 const foodTypes = require('../constants/food_types');
 
-//Autosuggest
+// https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions#Using_Special_Characters
 function escapeRegexCharacters(str) {
   return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
@@ -22,8 +21,6 @@ function getSuggestions(value) {
 }
 
 function getSuggestionValue(suggestion) {
-  console.log("getSUGESTIONVALUE");
-  FilterActions.updateCategory(suggestion.name);
   return suggestion.name;
 }
 
@@ -33,20 +30,27 @@ function renderSuggestion(suggestion) {
   );
 }
 
-const Search = React.createClass({
-  getInitialState() {
-    return({
+class App extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
       value: '',
       suggestions: getSuggestions(''),
       noSuggestions: false
-    });
-  },
+    };
+
+    this.onChange = this.onChange.bind(this);
+    this.onSuggestionsUpdateRequested = this.onSuggestionsUpdateRequested.bind(this);
+  }
+
   onChange(event, { newValue, method }) {
     this.setState({
       value: newValue
     });
     FilterActions.updateCategory(event.target.value);
-  },
+  }
+
   onSuggestionsUpdateRequested({ value }) {
     const suggestions = getSuggestions(value);
     const isInputBlank = value.trim() === '';
@@ -56,30 +60,9 @@ const Search = React.createClass({
       suggestions,
       noSuggestions
     });
-  },
-  categoryChanged(e) {
-    FilterActions.updateCategory(e.target.value);
-  },
-  locationChanged(e) {
-    // const address = e.target.value;
-    // geocoder.geocode( { 'address' : address, 'region' : 'us',
-    //   componentRestrictions: {country: 'US'}},
-    // function( results, status ) {
-    //   if( status === google.maps.GeocoderStatus.OK ) {
-    //   }
-    // });
-    FilterActions.updateLocation(e.target.value);
-  },
-  currentCategory() {
-    return this.props.filterParams.category || "";
-  },
-  currentLocation() {
-    return this.props.filterParams.loc || "";
-  },
+  }
 
   render() {
-    const that = this;
-    //Autosuggest
     const { value, suggestions, noSuggestions } = this.state;
     const inputProps = {
       placeholder: "tacos, american, takeout, pizza, asian",
@@ -88,7 +71,7 @@ const Search = React.createClass({
     };
 
     return (
-      <div className="search-bars">
+      <div>
         <Autosuggest suggestions={suggestions}
                      onSuggestionsUpdateRequested={this.onSuggestionsUpdateRequested}
                      getSuggestionValue={getSuggestionValue}
@@ -97,14 +80,9 @@ const Search = React.createClass({
         {
           noSuggestions
         }
-
-        <input type="text"
-          placeholder="SF, San Francisco, Chicago, LA"
-          onChange={this.locationChanged}
-          value={this.currentLocation()}/>
       </div>
     );
   }
-});
+}
 
-module.exports = Search;
+module.exports = App;
