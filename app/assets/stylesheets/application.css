@@ -26,7 +26,15 @@ h3, h4, h5, footer, header, p, nav, ul, li {
 }
 
 h1 {
-  font-size: 20em;
+  font-size: 4em;
+}
+
+h2 {
+  font-size: 3em;
+}
+
+h3 {
+  font-size: 2em;
 }
 
  body {

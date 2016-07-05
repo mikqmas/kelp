@@ -2,9 +2,11 @@
 const React = require('react');
 const hashHistory = require('react-router').hashHistory;
 const Link = require('react-router').Link;
+const DropdownButton = require('react-bootstrap').DropdownButton;
 
 //Components
 const Search = require('./search');
+const HeaderAuth = require('./login_form');
 
 //Actions
 const SessionActions = require('../actions/session_actions');
@@ -39,12 +41,16 @@ const Header = React.createClass({
     			<input className="header-button" type="submit" value="logout" onClick={ this._handleLogOut } />
     		</hgroup>
     	);
-    } else if ( !["/login", "/signup"].includes(this.props.pathname) ) {
+    } else {
       return (
         <nav className="login-signup">
-          <Link to="/login" activeClassName="current">Login</Link>
-          &nbsp;or&nbsp;
-          <Link to="/signup" activeClassName="current">Sign up!</Link>
+          <DropdownButton title="Login">
+            <HeaderAuth auth="login"/>
+          </DropdownButton>
+
+          <DropdownButton title="Signup">
+            <HeaderAuth auth="signup"/>
+          </DropdownButton>
         </nav>
       );
     }

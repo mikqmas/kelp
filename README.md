@@ -13,8 +13,8 @@ Kelp is a web application inspired by Yelp that will be build using Ruby on Rail
 - [X] Hosting on Heroku
 - [X] New account creation, login, and guest/demo login
 - [ ] A production README, replacing this README
-- [ ] Business Page
-  - [ ] Intuitive business profile layout taking cues from FB
+- [X] Business Page
+  - [X] Intuitive business profile layout taking cues from FB
   - [ ] Populate using Yelp api to demonstrate the site's features
   - [ ] Adequate CSS styling
 - [ ] Search / filters
@@ -95,9 +95,9 @@ user interface.
 
 **Objective:** Existing pages (including signup/signin) will look good.
 
-- [ ] create a basic style guide
-- [ ] position elements on the page
-- [ ] add basic colors & styles
+- [X] create a basic style guide
+- [X] position elements on the page
+- [X] add basic colors & styles
 
 ### Phase 5: Businesses (1 day, W2 Tu 12pm)
 

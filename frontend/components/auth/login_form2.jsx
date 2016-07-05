@@ -5,6 +5,7 @@ const SessionStore = require('../stores/session_store');
 const ErrorStore = require('../stores/error_store');
 const hashHistory = require('react-router').hashHistory;
 
+
 const LoginForm = React.createClass({
 
 	context: {
@@ -44,7 +45,7 @@ const LoginForm = React.createClass({
 			password: this.state.password
 		};
 
-    if (this.props.auth === "login") {
+    if (this.props.location.pathname === "/login") {
       SessionActions.logIn(formData);
     } else {
       SessionActions.signUp(formData);
@@ -64,7 +65,7 @@ const LoginForm = React.createClass({
   },
 
   formType() {
-    return this.props.auth;
+    return this.props.location.pathname.slice(1);
   },
 
   update(property) {
@@ -88,6 +89,10 @@ const LoginForm = React.createClass({
 		return (
 			<div className="login-form-container">
 				<form onSubmit={this.handleSubmit} className="login-form-box">
+	        Welcome to Kelp!
+					<br/>
+					Please { this.formType() } or { navLink }
+
 					{ this.fieldErrors("base") }
 					<div className="login-form">
 		        <br />

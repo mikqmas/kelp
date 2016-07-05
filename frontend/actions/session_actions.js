@@ -22,6 +22,17 @@ const SessionActions = {
       ErrorActions.setErrors);
   },
 
+  loginGuest(){
+    SessionApiUtil.logIn(
+      {
+        username: "sam",
+        password: "testing"
+      },
+      SessionActions.receiveCurrentUser,
+      ErrorActions.setErrors);
+  },
+
+
   logOut() {
     SessionApiUtil.logOut(SessionActions.removeCurrentUser);
 

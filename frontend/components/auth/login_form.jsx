@@ -1,8 +1,8 @@
 const React = require('react');
 const Link = require('react-router').Link;
-const SessionActions = require('../actions/session_actions');
-const SessionStore = require('../stores/session_store');
-const ErrorStore = require('../stores/error_store');
+const SessionActions = require('../../actions/session_actions');
+const SessionStore = require('../../stores/session_store');
+const ErrorStore = require('../../stores/error_store');
 const hashHistory = require('react-router').hashHistory;
 
 const LoginForm = React.createClass({
@@ -44,11 +44,7 @@ const LoginForm = React.createClass({
 			password: this.state.password
 		};
 
-    if (this.props.auth === "login") {
-      SessionActions.logIn(formData);
-    } else {
-      SessionActions.signUp(formData);
-    }
+    SessionActions.logIn(formData);
 	},
 
 	fieldErrors(field) {
@@ -63,13 +59,10 @@ const LoginForm = React.createClass({
     return <ul>{ messages }</ul>;
   },
 
-  formType() {
-    return this.props.auth;
-  },
-
   update(property) {
     return (e) => this.setState({[property]: e.target.value});
   },
+
 	loginGuest(e){
 		e.preventDefault();
 		SessionActions.loginGuest();
@@ -77,17 +70,10 @@ const LoginForm = React.createClass({
 
 
 	render() {
-
-    let navLink;
-    if (this.formType() === "login") {
-      navLink = <Link to="/signup">sign up instead</Link>;
-    } else {
-      navLink = <Link to="/login">log in instead</Link>;
-    }
-
 		return (
 			<div className="login-form-container">
 				<form onSubmit={this.handleSubmit} className="login-form-box">
+
 					{ this.fieldErrors("base") }
 					<div className="login-form">
 		        <br />

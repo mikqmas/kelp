@@ -43,12 +43,13 @@ var Business = React.createClass({
     }
     return (
       <div>
-        <ul className="business-list">
+        <div className="quick-summary">
           <h1>{this.props.business.name}</h1>
           <img className="index-image" src={this.props.business.picture_url}/>
           <h3>{ stars } {numReviews || 0 } Reviews</h3>
           <li>Price: {this.props.business.price || "No price yet"}</li>
           <li>{this.props.business.category}</li>
+        </div>
 
           <li>Description: {this.props.business.description || "No description yet"}</li>
           <li>Address: {this.props.business.address || "No address yet"}</li>
@@ -56,8 +57,6 @@ var Business = React.createClass({
           <li>Zipcode: {this.props.business.postal_code}</li>
           <li>State: {this.props.business.state_code}</li>
           <li>Health Score: {this.props.business.health_score || "No health score yet"}</li>
-        </ul>
-        <br/>
         <div className="reviews">
           <h3>Reviews</h3>
           { reviewText }

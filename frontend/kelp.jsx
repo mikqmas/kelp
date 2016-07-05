@@ -8,7 +8,6 @@ const Route = ReactRouter.Route;
 const IndexRoute = ReactRouter.IndexRoute;
 const hashHistory = ReactRouter.hashHistory;
 //Components
-const App = require('./components/app');
 const Splash = require('./components/splash');
 const LoginForm = require('./components/login_form');
 const BusinessForm = require('./components/business_form');
@@ -21,7 +20,6 @@ const SessionActions = require('./actions/session_actions');
 
 const appRouter = (
   <Router history={ hashHistory }>
-    <Route path="/" component={ App }>
       <Route path="/" component={ Splash }>
         <Route path="businesses/:businessId" component={ BusinessShow } >
           <Route path="review" component={ ReviewForm } onEnter={ _ensureLoggedIn }/>
@@ -29,9 +27,8 @@ const appRouter = (
       </Route>
       <Route path="/login" component={ LoginForm } />
       <Route path="/signup" component={ LoginForm } />
-      <Route path="/businesses/new" component={ BusinessForm } onEnter={ _ensureLoggedIn }/>
+      <Route path="/business/new" component={ BusinessForm } onEnter={ _ensureLoggedIn }/>
 
-    </Route>
   </Router>
 );
 
