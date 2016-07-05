@@ -4,6 +4,23 @@
   align-items: center;
   justify-content: center;
 
+    .video-container
+  {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .video-container video
+  {
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+    min-height: 400px;
+    min-width: 800px;
+  }
+
   .main-pane {
     display: flex;
     flex-direction: column;

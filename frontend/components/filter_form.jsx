@@ -5,6 +5,7 @@ const ButtonGroup = require('react-bootstrap').ButtonGroup;
 const ButtonToolbar = require('react-bootstrap').ButtonToolbar;
 const DropdownButton = require('react-bootstrap').DropdownButton;
 const MenuItem = require('react-bootstrap').MenuItem;
+const hashHistory = require('react-router').hashHistory;
 
 const Autosuggest = require('react-autosuggest');
 const foodTypes = require('../constants/food_types');
@@ -20,6 +21,9 @@ const Filters = React.createClass({
   reviewCountChanged(e) {
     e = e === this.props.filterParams.reviewCount ? "" : e;
     FilterActions.updateReviewCount(e);
+  },
+  _createBusiness() {
+    hashHistory.push('/business/new');
   },
 
   render() {
@@ -61,6 +65,8 @@ const Filters = React.createClass({
           id="bg-nested-dropdown">
           {reviewCounts}
         </DropdownButton>
+
+        <Button bsStyle="success" onClick={this._createBusiness}>Create New Business</Button>
       </ButtonToolbar>
     );
   }

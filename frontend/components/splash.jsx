@@ -38,6 +38,7 @@ const Splash = React.createClass({
     this.businessListener = BusinessStore.addListener(this._businessesChanged);
     this.filterListener = FilterParamsStore.addListener(this._filtersChanged);
     const filterParams = FilterParamsStore.params();
+    document.getElementById("splash-video").play();
     // BusinessActions.fetchAllBusinesses(filterParams);
   },
 
@@ -49,8 +50,14 @@ const Splash = React.createClass({
   render() {
     return(
       <div className="main-body">
-        <Header pathname={this.props.location.pathname}/>
         <div className="main-pane">
+          <Header pathname={this.props.location.pathname}/>
+        <div className="video-container">
+          <video preload="auto" autoplay="true" loop="loop" class="video-playing" id="splash-video">
+            <source src="https://a0.muscache.com/airbnb/static/P1-background-vid-compressed-2.mp4" type="video/mp4" />
+            <source src="https://a0.muscache.com/airbnb/static/P1-background-vid-compressed-2.webm" type="video/webm" />
+          </video>
+        </div>
           <div className="map">
             <BusinessMap businesses={this.state.businesses}/>
           </div>
@@ -68,3 +75,19 @@ const Splash = React.createClass({
 });
 
 module.exports = Splash;
+
+// <Video source={{uri: "https://a0.muscache.com/airbnb/static/P1-background-vid-compressed-2.mp4"}} // Can be a URL or a local file.
+//        rate={1.0}                   // 0 is paused, 1 is normal.
+//        volume={1.0}                 // 0 is muted, 1 is normal.
+//        muted={false}                // Mutes the audio entirely.
+//        paused={false}               // Pauses playback entirely.
+//        resizeMode="cover"           // Fill the whole screen at aspect ratio.
+//        repeat={true}                // Repeat forever.
+//        playInBackground={false}     // Audio continues to play when app entering background.
+//        playWhenInactive={false}     // [iOS] Video continues to play when control or notification center are shown.
+//        onLoadStart={this.loadStart} // Callback when video starts to load
+//        onLoad={this.setDuration}    // Callback when video loads
+//        onProgress={this.setTime}    // Callback every ~250ms with currentTime
+//        onEnd={this.onEnd}           // Callback when playback finishes
+//        onError={this.videoError}    // Callback when video cannot be loaded
+//        class="video-playing" />

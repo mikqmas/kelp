@@ -10,7 +10,7 @@ class Api::SessionsController < ApplicationController
     if @user.nil?
       render(
         json: {
-          base: ["Invalid username/password combination"]
+          base: ["Invalid username / password"]
         },
         status: 401
       )

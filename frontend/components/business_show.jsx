@@ -18,6 +18,11 @@ const BusinessShow = React.createClass({
     // BusinessActions.fetchAllBusinesses();
   },
 
+  componentWillReceiveProps(nextProps) {
+    const business = BusinessStore.find(nextProps.params.businessId);
+    this.setState({ business });
+  },
+
   componentWillUnmount() {
     this.businessListener.remove();
   },

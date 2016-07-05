@@ -1,20 +1,61 @@
 .main-header {
-  background-color: #99CC66;
+  background-color: transparent;
   display: flex;
   justify-content: center;
   width: 100%;
   height: 60px;
 
-  input[type="text"]{
-      width: 300px;
-      height: 40px;
-      padding: 5px 10px;
-      font-family: Helvetica, sans-serif;
-      font-weight: 200;
-      font-size: 14px;
-      border: 1px solid #aaa;
-      border-radius: 2px;
+  z-index: 4;
+  position: absolute;
+  top: 338px;
+
+  .loginandsign, .header-name {
+    color: #fff;
+    font-weight: bold;
   }
+
+.header-button{
+  background-color: transparent;
+  color: white;
+  border: 1px solid;
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+.blackheader {
+  background-color: black;
+  opacity: .5;
+}
+
+   .btn-default:focus,
+   .dropdown-toggle.btn-default, .dropdown-toggle.btn-default:hover,
+   .dropdown-toggle.btn-default:focus,
+  .btn-default:active, .btn-default:hover, .btn-default
+   {
+     background: inherit;
+     border: none;
+   }
+
+  .main-header input[type="text"] {
+    width: 200px;
+    height: 30px;
+  }
+
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px 10px 10px;
+    justify-content: center;
+
+    input[type="submit"], button {
+      background-color: inherit;
+      border: none;
+    }
+
+    input[type="submit"]:hover, button:hover {
+      background-color: #99CC66;
+    }
+}
 
   .search-and-session {
     display: flex;
@@ -28,8 +69,16 @@
   }
 
   .search-bars {
-    input[type="text"] {
-      margin-left: 10px;
+    input[type="text"]{
+        margin-left: 10px;
+        width: 300px;
+        height: 40px;
+        padding: 5px 10px;
+        font-family: Helvetica, sans-serif;
+        font-weight: 200;
+        font-size: 14px;
+        border: 1px solid #aaa;
+        border-radius: 2px;
     }
   }
 

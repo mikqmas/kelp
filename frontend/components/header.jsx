@@ -37,18 +37,18 @@ const Header = React.createClass({
     if (SessionStore.isUserLoggedIn()) {
     	return (
     		<hgroup className="header-group">
-    			<h2 className="header-name">Hi, {SessionStore.currentUser().username}!</h2>
+    			<h3 className="header-name">Hi, {SessionStore.currentUser().username}!</h3>
     			<input className="header-button" type="submit" value="logout" onClick={ this._handleLogOut } />
     		</hgroup>
     	);
     } else {
       return (
         <nav className="login-signup">
-          <DropdownButton title="Login">
+          <DropdownButton dropup title="Login" className="loginandsign">
             <HeaderAuth auth="login"/>
           </DropdownButton>
 
-          <DropdownButton title="Signup">
+          <DropdownButton dropup pullRight title="Signup" className="loginandsign">
             <HeaderAuth auth="signup"/>
           </DropdownButton>
         </nav>
@@ -68,7 +68,6 @@ const Header = React.createClass({
   render() {
     return(
       <div className="main-header">
-          <img src="http://placekitten.com/50/50" />
         <div className="search-and-session">
           <Search filterParams={this.state.filterParams}/>
           { this.greeting() }
