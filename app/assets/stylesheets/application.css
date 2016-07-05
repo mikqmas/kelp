@@ -22,23 +22,35 @@ h3, h4, h5, footer, header, p, nav, ul, li {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  list-style-type: none;
+}
+
+h1 {
+  font-size: 20em;
 }
 
  body {
    font-family: 'Abel', sans-serif;
+   background-color: #E9EBEE;
+   min-width: 600px;
  }
 
- input[type="text"]{
-     width: 300px;
-     height: 30px;
-     padding: 5px 10px;
-     font-family: Helvetica, sans-serif;
-     font-weight: 200;
-     font-size: 14px;
-     border: 1px solid #aaa;
-     border-radius: 2px;
+ .graybox {
+  background-color: #f7f7f7;
+  border: 1px solid #cccccc;
+  color: #333333;
+  padding: 10px;
+  font-size: 13px;
+  font-weight: bold;
  }
 
+ .panel {
+   background-color: #fff;
+   border: 1px solid #ccc;
+   padding: 10px;
+ }
+
+/*Fixing blue outline on active, focus, and hover*/
  textarea:hover,
  input:hover,
  textarea:active,
@@ -70,4 +82,9 @@ h3, h4, h5, footer, header, p, nav, ul, li {
 
 .btn-default:focus {
   background-color: #fff;
+}
+
+/*bootstrap margin fix*/
+.btn-toolbar {
+  margin: 0px;
 }

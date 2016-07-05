@@ -16,7 +16,7 @@ const BusinessForm = React.createClass({
     return {
       name: "",
       rating: "",
-      picture_url: "",
+      picture_url: "http://lorempixel.com/50/50/food/",
       category: "",
       price: "",
       health_score: "",

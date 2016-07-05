@@ -47,13 +47,16 @@ const Splash = React.createClass({
 
   render() {
     return(
-      <div className="user-pane">
+      <div className="main-pane">
         <div className="map">
           <BusinessMap businesses={this.state.businesses}/>
         </div>
         <div className="info">
           <FilterForm filterParams={this.state.filterParams} />
-          <BusinessIndex businesses={this.state.businesses}/>
+          <div className="business-pane">
+            <BusinessIndex businesses={this.state.businesses}/>
+            {this.props.children}
+          </div>
         </div>
       </div>
     );

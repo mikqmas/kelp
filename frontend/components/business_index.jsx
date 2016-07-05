@@ -6,8 +6,7 @@ const BusinessIndex = React.createClass({
     const businesses = this.props.businesses;
     const businessKeys = Object.keys(businesses);
     return (
-      <div>
-        <h1>Businesses: </h1>
+      <div className="businesses-index panel">
         {
           businessKeys.map( key => {
             return (<IndexItem

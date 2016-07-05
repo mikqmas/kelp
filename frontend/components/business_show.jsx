@@ -15,7 +15,7 @@ const BusinessShow = React.createClass({
 
   componentDidMount() {
     this.businessListener = BusinessStore.addListener(this._businessChanged);
-    BusinessActions.fetchAllBusinesses();
+    // BusinessActions.fetchAllBusinesses();
   },
 
   componentWillUnmount() {
@@ -38,8 +38,7 @@ const BusinessShow = React.createClass({
     businesses[this.state.business.id] = this.state.business;
 
     return (
-        <div className="single-business-show">
-          <Link to="/" >Back to Businesses Index</Link>
+        <div className="single-business-show panel">
           <BusinessDetail business={this.state.business}/>
           {
             this.props.children ||

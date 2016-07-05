@@ -62,7 +62,8 @@ const Header = React.createClass({
   render() {
     return(
       <div className="main-header">
-        <div className="search-and-session"> 
+          <img src="http://placekitten.com/50/50" />
+        <div className="search-and-session">
           <Search filterParams={this.state.filterParams}/>
           { this.greeting() }
         </div>

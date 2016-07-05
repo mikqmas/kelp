@@ -22,13 +22,15 @@ const SessionActions = require('./actions/session_actions');
 const appRouter = (
   <Router history={ hashHistory }>
     <Route path="/" component={ App }>
-      <IndexRoute component={ Splash } />
+      <Route path="/" component={ Splash }>
+        <Route path="businesses/:businessId" component={ BusinessShow } >
+          <Route path="review" component={ ReviewForm } onEnter={ _ensureLoggedIn }/>
+        </Route>
+      </Route>
       <Route path="/login" component={ LoginForm } />
       <Route path="/signup" component={ LoginForm } />
       <Route path="/businesses/new" component={ BusinessForm } onEnter={ _ensureLoggedIn }/>
-      <Route path="/businesses/:businessId" component={ BusinessShow } >
-        <Route path="review" component={ ReviewForm } onEnter={ _ensureLoggedIn }/>
-      </Route>
+
     </Route>
   </Router>
 );

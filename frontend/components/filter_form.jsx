@@ -9,10 +9,6 @@ const MenuItem = require('react-bootstrap').MenuItem;
 const Autosuggest = require('react-autosuggest');
 const foodTypes = require('../constants/food_types');
 
-$(".filter-buttons").mouseup(function(){
-    $(this).blur();
-});
-
 const Filters = React.createClass({
   priceChanged(e) {
     FilterActions.updatePrice(parseInt(e.target.value));
@@ -29,22 +25,26 @@ const Filters = React.createClass({
   render() {
     const that = this;
     const prices = [1,2,3,4].map((price) => {
-      const selected = that.props.filterParams.prices && that.props.filterParams.prices.includes(price);
-      return <Button className="filter-buttons" key={price} active={selected} value={price}>{"$".repeat(price)}</Button>;
+      const selected = that.props.filterParams.prices &&
+      that.props.filterParams.prices.includes(price);
+      return <Button className="filter-buttons" key={price}
+        active={selected} value={price}>{"$".repeat(price)}</Button>;
     });
 
     const reviewCounts = [1000, 200, 1].map((count) => {
       const selected = count === that.props.filterParams.reviewCount;
-      return <MenuItem key={count} active={selected} eventKey={count}>{count}+</MenuItem>;
+      return <MenuItem key={count} active={selected}
+        eventKey={count}>{count}+</MenuItem>;
     });
 
     const reviewRatings = [4, 3, 2].map((rating) => {
       const selected = rating === that.props.filterParams.review;
-      return <MenuItem key={rating} active={selected} eventKey={rating}>{"★".repeat(rating)}+</MenuItem>;
+      return <MenuItem key={rating} active={selected}
+        eventKey={rating}>{"★".repeat(rating)}+</MenuItem>;
     });
 
     return (
-      <ButtonToolbar>
+      <ButtonToolbar className="button-toolbar">
         <ButtonGroup onClick={this.priceChanged} >
           {prices}
         </ButtonGroup>
@@ -55,7 +55,8 @@ const Filters = React.createClass({
           {reviewRatings}
         </DropdownButton>
 
-        <DropdownButton className="filter-buttons" onSelect={this.reviewCountChanged}
+        <DropdownButton className="filter-buttons"
+          onSelect={this.reviewCountChanged}
           title={this.props.filterParams.reviewCount || "Review Count"}
           id="bg-nested-dropdown">
           {reviewCounts}

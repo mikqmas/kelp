@@ -1,14 +1,25 @@
 .main-header {
-  background-color: #aad450;
+  background-color: #99CC66;
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 50px;
+  height: 60px;
+
+  input[type="text"]{
+      width: 300px;
+      height: 40px;
+      padding: 5px 10px;
+      font-family: Helvetica, sans-serif;
+      font-weight: 200;
+      font-size: 14px;
+      border: 1px solid #aaa;
+      border-radius: 2px;
+  }
 
   .search-and-session {
     display: flex;
     justify-content: space-between;
-    width: 800px;
+    width: 80%;
   }
 
   .search-bars, .login-signup, .header-group {
