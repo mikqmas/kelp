@@ -4,21 +4,43 @@
   align-items: center;
   justify-content: center;
 
-  .create-business-button {
-    position: absolute;
-    top: 20px;
+
+    .loginandsign {
+      color: #fff;
+      font-weight: bold;
+      text-shadow: 1px 1px 1px #aaa;
+    }
+
+
+
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px 10px 10px;
+    justify-content: center;
+
+    input[type="submit"], button {
+      background-color: inherit;
+      border: none;
+    }
+
+    input[type="submit"]:hover, button:hover {
+      background-color: #99CC66;
+    }
+}
+
+  .auth-buttons {
     z-index: 5;
-    left: 75%;
-  }
-
-  nav.login-signup {
     position: absolute;
-    top: 20px;
-    z-index: 5;
-    left: 59%;
+    top: 5px;
+    right: 2%;
+}
+
+  button.dropdown-toggle.loginandsign.btn.btn-default {
+      background: transparent;
+      color: white;
+      border: 0;
   }
-
-
 
     .video-container
   {

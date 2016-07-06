@@ -19,11 +19,6 @@
     opacity: .5;
 }
 
-  .loginandsign, .header-name {
-    color: #fff;
-    font-weight: bold;
-  }
-
 .btn {
   background-color: transparent;
   color: white;
@@ -51,20 +46,18 @@
     height: 30px;
   }
 
-  .login-form {
-    display: flex;
-    flex-direction: column;
-    padding: 0 10px 10px 10px;
-    justify-content: center;
+  @media screen and (max-width: 750px) {
+  .search-bars input[type="text"] {
+    background-color: black;
+  }
+}
 
-    input[type="submit"], button {
-      background-color: inherit;
-      border: none;
-    }
+.btn-group.button-group {
+  min-width: 130px;
+}
 
-    input[type="submit"]:hover, button:hover {
-      background-color: #99CC66;
-    }
+button.filter-buttons.btn.btn-default {
+    padding: 8px;
 }
 
   .search-and-session {
@@ -79,11 +72,22 @@
   }
 
   .search-bars {
+    width: 50%;
+
+    .react-autosuggest__container {
+      width: 50%;
+      padding-right: 1%;
+
+      input[type="text"]{
+        width: 100%;
+      }
+    }
+
     input[type="text"]{
+      width: 50%;
         margin-right: 10px;
         background: transparent;
         color: white;
-        width: 160px;
         height: 35px;
         padding: 3px 6px;
         font-family: Helvetica, sans-serif;

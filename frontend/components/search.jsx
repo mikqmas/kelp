@@ -29,7 +29,7 @@ function getSuggestionValue(suggestion) {
 
 function renderSuggestion(suggestion) {
   return (
-    <span>{suggestion.name}</span>
+    <span className="suggestions">{suggestion.name}</span>
   );
 }
 
@@ -76,6 +76,11 @@ const Search = React.createClass({
   currentLocation() {
     return this.props.filterParams.loc || "";
   },
+  removeSplash() {
+    $('video').animate({
+      opacity: 0
+    }, 500, 'swing', () => {$('video').remove();});
+  },
 
   render() {
     const that = this;
@@ -98,9 +103,10 @@ const Search = React.createClass({
           noSuggestions
         }
 
-        <input type="text"
+        <input type="text" id="location-search"
           placeholder="SF, San Francisco, Chicago, LA"
           onChange={this.locationChanged}
+          onClick={this.removeSplash}
           value={this.currentLocation()}/>
       </div>
     );

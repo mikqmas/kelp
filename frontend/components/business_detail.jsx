@@ -44,7 +44,9 @@ var Business = React.createClass({
     return (
       <div>
         <div className="quick-summary">
+          <div className="head-title">
           <h1>{this.props.business.name}</h1>
+          </div>
           <img className="index-image" src={this.props.business.picture_url}/>
           <h3>{ stars } {numReviews || 0 } Reviews</h3>
           <li>Price: {this.props.business.price || "No price yet"}</li>

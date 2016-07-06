@@ -49,7 +49,7 @@ const Filters = React.createClass({
 
     return (
       <ButtonToolbar className="button-toolbar">
-        <ButtonGroup onClick={this.priceChanged} >
+        <ButtonGroup className="button-group" onClick={this.priceChanged} >
           {prices}
         </ButtonGroup>
 
@@ -66,7 +66,7 @@ const Filters = React.createClass({
           {reviewCounts}
         </DropdownButton>
 
-        <Button bsStyle="success" onClick={this._createBusiness}>Create New Business</Button>
+        <Button bsStyle="success" onClick={this._createBusiness}>New Business</Button>
       </ButtonToolbar>
     );
   }

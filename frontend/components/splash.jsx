@@ -6,6 +6,7 @@ const hashHistory = require('react-router').hashHistory;
 const BusinessIndex = require('./business_index');
 const BusinessMap = require('./business_map');
 const Header = require('./header');
+const AuthButtons = require('./auth_buttons');
 
 //Actions
 const BusinessActions = require('../actions/business_actions');
@@ -50,6 +51,7 @@ const Splash = React.createClass({
     return(
       <div className="main-body">
         <div className="main-pane">
+          <AuthButtons />
           <Header pathname={this.props.location.pathname}/>
         <div className="video-container">
           <video preload="auto" autoplay="true" loop="loop" class="video-playing" id="splash-video">

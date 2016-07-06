@@ -1,32 +1,21 @@
 //React
 const React = require('react');
-const hashHistory = require('react-router').hashHistory;
-const Link = require('react-router').Link;
 const DropdownButton = require('react-bootstrap').DropdownButton;
 
 //Components
 const Search = require('./search');
 const HeaderAuth = require('./login_form');
-const FilterForm = require('./filter_form');
 
 //Actions
 const SessionActions = require('../actions/session_actions');
 
 //Stores
-const FilterParamsStore = require('../stores/filter_params_store');
 const SessionStore = require('../stores/session_store');
 
 
 
-const Header = React.createClass({
-  getInitialState() {
-    return {
-      filterParams: FilterParamsStore.params()
-    };
-  },
-
+const AuthButtons = React.createClass({
   componentDidMount() {
-    this.filterListener = FilterParamsStore.addListener(this._filtersChanged);
     SessionStore.addListener(this.forceUpdate.bind(this));
   },
 
@@ -45,11 +34,11 @@ const Header = React.createClass({
     } else {
       return (
         <nav className="login-signup">
-          <DropdownButton dropup title="Login" className="loginandsign">
+          <DropdownButton pullRight title="Login" className="loginandsign">
             <HeaderAuth auth="login"/>
           </DropdownButton>
 
-          <DropdownButton dropup pullRight title="Signup" className="loginandsign">
+          <DropdownButton pullRight title="Signup" className="loginandsign">
             <HeaderAuth auth="signup"/>
           </DropdownButton>
         </nav>
@@ -57,26 +46,13 @@ const Header = React.createClass({
     }
   },
 
-  _filtersChanged() {
-    const newFilters = FilterParamsStore.params();
-    this.setState({filterParams: newFilters});
-  },
-
-  componentWillUnmount() {
-    this.filterListener.remove();
-  },
-
   render() {
     return(
-      <div className="main-header">
-        <div className="search-and-session">
-          <Search filterParams={this.state.filterParams}/>
-          <FilterForm filterParams={this.state.filterParams} />
-        </div>
-        <div className="blackheader" />
+      <div className="auth-buttons">
+        { this.greeting() }
       </div>
     );
   }
 });
 
-module.exports = Header;
+module.exports = AuthButtons;
