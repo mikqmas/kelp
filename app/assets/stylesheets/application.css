@@ -95,4 +95,6 @@ h3 {
 /*bootstrap margin fix*/
 .btn-toolbar {
   margin: 0px;
+  display: flex;
+  align-items: center;
 }

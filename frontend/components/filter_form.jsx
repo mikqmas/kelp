@@ -61,7 +61,7 @@ const Filters = React.createClass({
 
         <DropdownButton className="filter-buttons"
           onSelect={this.reviewCountChanged}
-          title={this.props.filterParams.reviewCount || "Review Count"}
+          title={this.props.filterParams.reviewCount || "# Review"}
           id="bg-nested-dropdown">
           {reviewCounts}
         </DropdownButton>

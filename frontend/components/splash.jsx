@@ -4,7 +4,6 @@ const hashHistory = require('react-router').hashHistory;
 
 //Components
 const BusinessIndex = require('./business_index');
-const FilterForm = require('./filter_form');
 const BusinessMap = require('./business_map');
 const Header = require('./header');
 
@@ -62,7 +61,6 @@ const Splash = React.createClass({
             <BusinessMap businesses={this.state.businesses}/>
           </div>
           <div className="info">
-            <FilterForm filterParams={this.state.filterParams} />
             <div className="business-pane">
               <BusinessIndex businesses={this.state.businesses}/>
               {this.props.children}
@@ -75,19 +73,3 @@ const Splash = React.createClass({
 });
 
 module.exports = Splash;
-
-// <Video source={{uri: "https://a0.muscache.com/airbnb/static/P1-background-vid-compressed-2.mp4"}} // Can be a URL or a local file.
-//        rate={1.0}                   // 0 is paused, 1 is normal.
-//        volume={1.0}                 // 0 is muted, 1 is normal.
-//        muted={false}                // Mutes the audio entirely.
-//        paused={false}               // Pauses playback entirely.
-//        resizeMode="cover"           // Fill the whole screen at aspect ratio.
-//        repeat={true}                // Repeat forever.
-//        playInBackground={false}     // Audio continues to play when app entering background.
-//        playWhenInactive={false}     // [iOS] Video continues to play when control or notification center are shown.
-//        onLoadStart={this.loadStart} // Callback when video starts to load
-//        onLoad={this.setDuration}    // Callback when video loads
-//        onProgress={this.setTime}    // Callback every ~250ms with currentTime
-//        onEnd={this.onEnd}           // Callback when playback finishes
-//        onError={this.videoError}    // Callback when video cannot be loaded
-//        class="video-playing" />

@@ -4,11 +4,28 @@
   align-items: center;
   justify-content: center;
 
+  .create-business-button {
+    position: absolute;
+    top: 20px;
+    z-index: 5;
+    left: 75%;
+  }
+
+  nav.login-signup {
+    position: absolute;
+    top: 20px;
+    z-index: 5;
+    left: 59%;
+  }
+
+
+
     .video-container
   {
     position: relative;
     height: 400px;
     width: 100%;
+    background-color: white;
     overflow: hidden;
   }
 
@@ -19,6 +36,11 @@
     z-index: 2;
     min-height: 400px;
     min-width: 800px;
+  }
+
+  .map {
+    position: absolute;
+    top: 0px;
   }
 
   .main-pane {

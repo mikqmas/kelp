@@ -7,6 +7,7 @@ const DropdownButton = require('react-bootstrap').DropdownButton;
 //Components
 const Search = require('./search');
 const HeaderAuth = require('./login_form');
+const FilterForm = require('./filter_form');
 
 //Actions
 const SessionActions = require('../actions/session_actions');
@@ -70,8 +71,10 @@ const Header = React.createClass({
       <div className="main-header">
         <div className="search-and-session">
           <Search filterParams={this.state.filterParams}/>
+          <FilterForm filterParams={this.state.filterParams} />
           { this.greeting() }
         </div>
+        <div className="blackheader" />
       </div>
     );
   }
