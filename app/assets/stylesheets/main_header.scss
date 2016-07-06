@@ -64,6 +64,7 @@ button.filter-buttons.btn.btn-default {
     display: flex;
     justify-content: space-between;
     width: 80%;
+    min-width: 200px;
   }
 
   .search-bars, .login-signup, .header-group {
@@ -73,6 +74,7 @@ button.filter-buttons.btn.btn-default {
 
   .search-bars {
     width: 50%;
+    min-width: 300px;
 
     .react-autosuggest__container {
       width: 50%;

@@ -4,11 +4,47 @@
   align-items: center;
   justify-content: center;
 
+  #require-login{
+    margin-left: 10px;
+    color: red;
+  }
 
     .loginandsign {
       color: #fff;
       font-weight: bold;
       text-shadow: 1px 1px 1px #aaa;
+    }
+
+    .profile-about{
+      background-image: url("http://www.lcfc.com/images/common/bg_player_profile_default_big.png");
+      background-repeat: round;
+      border: 1px solid white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50px;
+    }
+
+    .dropdown-menu {
+      min-width: 50px;
+    }
+
+    .header-group {
+      display: flex;
+      width: auto;
+
+      input {
+        border: none;
+        background: transparent;
+        color: black;
+      }
+    }
+
+    .header-name {
+      color: white;
+      font-size: 14px;
+      margin-right: 5px;
+      display: flex;
+      align-items: center;
     }
 
 

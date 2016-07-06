@@ -27,14 +27,16 @@ const AuthButtons = React.createClass({
     if (SessionStore.isUserLoggedIn()) {
     	return (
     		<hgroup className="header-group">
-    			<h3 className="header-name">Hi, {SessionStore.currentUser().username}!</h3>
-    			<input className="header-button" type="submit" value="logout" onClick={ this._handleLogOut } />
+          <p className="header-name">{SessionStore.currentUser().username}</p>
+          <DropdownButton pullRight title="" noCaret className="profile-about">
+      			<input className="header-button" type="submit" value="logout" onClick={ this._handleLogOut } />
+          </DropdownButton>
     		</hgroup>
     	);
     } else {
       return (
         <nav className="login-signup">
-          <DropdownButton pullRight title="Login" className="loginandsign">
+          <DropdownButton pullRight title="Login" id="login" className="loginandsign">
             <HeaderAuth auth="login"/>
           </DropdownButton>
 

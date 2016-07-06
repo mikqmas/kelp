@@ -78,13 +78,6 @@ const LoginForm = React.createClass({
 
 	render() {
 
-    let navLink;
-    if (this.formType() === "login") {
-      navLink = <Link to="/signup">sign up instead</Link>;
-    } else {
-      navLink = <Link to="/login">log in instead</Link>;
-    }
-
 		return (
 			<div className="login-form-container">
 				<form onSubmit={this.handleSubmit} className="login-form-box">
@@ -94,6 +87,7 @@ const LoginForm = React.createClass({
 						{ this.fieldErrors("username") }
 						<label> Username:
 							<input type="text"
+								id="login-input"
 		            value={this.state.username}
 		            onChange={this.update("username")}
 								className="login-input" />

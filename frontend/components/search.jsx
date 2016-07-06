@@ -95,6 +95,7 @@ const Search = React.createClass({
     return (
       <div className="search-bars">
         <Autosuggest suggestions={suggestions}
+                     id= "search-bar"
                      onSuggestionsUpdateRequested={this.onSuggestionsUpdateRequested}
                      getSuggestionValue={getSuggestionValue}
                      renderSuggestion={renderSuggestion}
