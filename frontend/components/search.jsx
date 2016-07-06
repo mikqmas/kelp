@@ -88,6 +88,7 @@ const Search = React.createClass({
     const { value, suggestions, noSuggestions } = this.state;
     const inputProps = {
       placeholder: "tacos, american, takeout, pizza, asian",
+      onFocus: this.removeSplash,
       value,
       onChange: this.onChange
     };
@@ -107,7 +108,7 @@ const Search = React.createClass({
         <input type="text" id="location-search"
           placeholder="SF, San Francisco, Chicago, LA"
           onChange={this.locationChanged}
-          onClick={this.removeSplash}
+          onFocus={this.removeSplash}
           value={this.currentLocation()}/>
       </div>
     );
