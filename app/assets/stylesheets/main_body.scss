@@ -26,7 +26,7 @@
       text-shadow: 1px 1px 1px #aaa;
     }
 
-    .profile-about{
+    .profile-about, .profile-about:active, .profile-about:focus{
       background-image: url("http://www.lcfc.com/images/common/bg_player_profile_default_big.png");
       background-repeat: round;
       border: 1px solid white;
@@ -36,7 +36,7 @@
     }
 
     .dropdown-menu {
-      min-width: 50px;
+      min-width: 10px;
     }
 
     .header-group {
@@ -65,6 +65,10 @@
     flex-direction: column;
     padding: 0 10px 10px 10px;
     justify-content: center;
+
+    input[type="text"], input[type="password"] {
+      border: 1px solid #ccc;
+    }
 
     input[type="submit"], button {
       background-color: inherit;

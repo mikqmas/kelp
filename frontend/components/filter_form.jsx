@@ -44,7 +44,7 @@ const Filters = React.createClass({
         active={selected} value={price}>{"$".repeat(price)}</Button>;
     });
 
-    const reviewCounts = [1000, 200, 1].map((count) => {
+    const reviewCounts = [13, 7, 3].map((count) => {
       const selected = count === that.props.filterParams.reviewCount;
       return <MenuItem key={count} active={selected}
         eventKey={count}>{count}+</MenuItem>;
@@ -70,12 +70,12 @@ const Filters = React.createClass({
 
         <DropdownButton className="filter-buttons"
           onSelect={this.reviewCountChanged}
-          title={this.props.filterParams.reviewCount || "# Review"}
+          title={this.props.filterParams.reviewCount || "# Reviews"}
           id="bg-nested-dropdown">
           {reviewCounts}
         </DropdownButton>
 
-        <Button bsStyle="success" onClick={this._createBusiness}>New Business</Button>
+        <Button onClick={this._createBusiness}>Create Business</Button>
       </ButtonToolbar>
     );
   }

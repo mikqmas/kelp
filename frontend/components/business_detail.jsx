@@ -49,7 +49,7 @@ var Business = React.createClass({
           </div>
           <img className="index-image" src={this.props.business.picture_url}/>
           <h3>{ stars } {numReviews || 0 } Reviews</h3>
-          <li>Price: {this.props.business.price || "No price yet"}</li>
+          <li>Price: {"$".repeat(this.props.business.price) || "No price yet"}</li>
           <li>{this.props.business.category}</li>
         </div>
 
