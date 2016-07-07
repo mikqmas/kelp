@@ -86,13 +86,25 @@ const BusinessForm = React.createClass({
   updateAddress(e) {
     this.setState({address : e.target.value}, this.suggestAddresses);
   },
+  hideSuggestions(e) {
+    setTimeout(()=>{
+      $(".suggested-addresses-container").hide();
+    },0);
+  },
+  showSuggestions(e) {
+    $(".suggested-addresses-container").show();
+  },
+  countWords(e) {
+    this.setState({word_count: (30 - e.target.value.length)});
+  },
   _handleAddressClick(e){
     const city = suggestedAddresses[e.target.value].address_components[3].long_name;
     const state_code = suggestedAddresses[e.target.value].address_components[5].long_name;
-    const postal_code = suggestedAddresses[e.target.value].address_components[7].long_name;
+    const postal_code = suggestedAddresses[e.target.value].address_components[7] ? suggestedAddresses[e.target.value].address_components[7].long_name : "";
     this.setState({address: e.target.innerHTML, postal_code: postal_code,
                     state_code: state_code, city: city});
     suggestedAddresses = [];
+    this.hideSuggestions();
   },
   render() {
     const lat = this._coords().lat, lng = this._coords().lng;
@@ -101,11 +113,11 @@ const BusinessForm = React.createClass({
           <div className="new-business-form">
             <h3 className="new-business-title">Add Your Business!</h3>
             <form onSubmit={this.handleSubmit}>
-              <label className="business-field">Business Name</label>
+              <label className="business-field">Business Name*</label>
               <input type="text" value={this.state.name} placeholder="Sam's Diner"
-                onChange={this.update("name")} className="business-field"/>
+                onChange={this.update("name")} className="business-field" required/>
 
-              <label className="business-field">Price</label>
+              <label className="business-field" >Price</label>
                 <div className="price-group">
                   <span className="price-rating" id="price4" value="4" onClick={this._setPrice}
                     style={{color: this.state.price >= 4 ? 'yellow' : 'gray'}}>$</span>
@@ -117,40 +129,45 @@ const BusinessForm = React.createClass({
                     style={{color: this.state.price >= 1 ? 'yellow' : 'gray'}}>$</span>
                 </div>
 
-                <label className="business-field">category</label>
+                <label className="business-field">Category</label>
                 <input type="text" value={this.state.category} placeholder="Pizza, Diner..."
                   onChange={this.update("category")} className="business-field"/>
 
-              <label className="business-field">phone</label>
+                <label className="business-field">Phone</label>
               <input type="tel" value={this.state.phone} placeholder="(555) 555-5555"
                 onChange={this.update("phone")} className="business-field"/>
 
-              <label className="business-field">Address</label>
+              <div className="new-business-address"
+              onBlur={this.hideSuggestions}>
+              <label className="business-field">Address*</label>
               <input type="text" value={this.state.address}
-                placeholder="160 Spear St., San Francisco, CA 94123"
-                onChange={this.updateAddress} className="business-field"/>
+                placeholder="160 Spear St., San Francisco, CA 94123" required
+                onChange={this.updateAddress}
+                onFocus={this.showSuggestions}
+                className="business-field"/>
 
-              <label className="business-field">description</label>
+                <div className="suggested-addresses-container">
+                  {
+                    suggestedAddresses.map((result, idx)=>{
+                      return <li key={result.place_id} className="suggested-addresses"
+                        onMouseDown={this._handleAddressClick}
+                        value={idx}>{result.formatted_address}</li>;
+                    })
+                  }
+                </div>
+                </div>
+
+              <label className="business-field" id="business-description">Description {this.state.word_count}</label>
               <input type="text" value={this.state.description}
-                placeholder="A good place to grab grub"
-                onChange={this.update("description")} className="business-field"/>
+                placeholder="A good place to grab grub" maxLength="30"
+                onInput={this.countWords} onChange={this.update("description")}
+                className="business-field"/>
 
               <div className="button-holder">
                 <input type="submit" value="Create Business" className="new-business-button"/>
+                <button className="new-business-button" onClick={this.handleCancel}>Cancel</button>
               </div>
             </form>
-            <div className="button-holder">
-              <button className="new-business-button" onClick={this.handleCancel}>Cancel</button>
-            </div>
-          </div>
-          <div className="react-autosuggest__suggestions-container">
-            {
-              suggestedAddresses.map((result, idx)=>{
-                return <li className="react-autosuggest__suggestion"
-                  onClick={this._handleAddressClick}
-                  value={idx}>{result.formatted_address}</li>;
-              })
-            }
           </div>
         </div>
     );

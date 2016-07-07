@@ -8,7 +8,41 @@
   form {
     display: flex;
     flex-direction: column;
+
+    .button-holder {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .new-business-address {
+      position: relative;
+
+      input.business-field {
+        width: 100%;
+      }
+
+      .suggested-addresses-container {
+        position: absolute;
+        top: 43px;
+        border: 1px solid #ccc;
+        background-color: white;
+        cursor: pointer;
+
+        li {
+          height: 37px;
+          font-size: 14px;
+          overflow: hidden;
+          border-bottom: 1px solid #ccc;
+        }
+
+        li:hover {
+          background-color: #ccc;
+        }
+      }
+    }
   }
+
 }
 
 label.business-field {

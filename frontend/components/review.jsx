@@ -7,7 +7,7 @@ var Review = React.createClass({
     return (
       <div>
         <ul>
-          <li>Rating: {this.props.rating}</li>
+          <li>Rating: "★".repeat({this.props.rating})</li>
           <li>{this.props.body}</li>
         </ul>
       </div>
