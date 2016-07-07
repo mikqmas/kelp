@@ -1,0 +1,35 @@
+.star-group{
+  display: flex;
+  flex-direction: row-reverse;;
+  justify-content: flex-end;
+  font-size: 32px;
+
+  .star-rating {
+    padding: 5px;
+  }
+
+  .star-rating:hover {
+    color: yellow !important;
+    cursor: pointer;
+  }
+
+  #star1:hover ~ .star-rating {
+    color: yellow !important;
+  }
+
+  #star2:hover ~ .star-rating {
+    color: yellow !important;
+  }
+
+  #star3:hover ~ .star-rating {
+    color: yellow !important;
+  }
+
+  #star4:hover ~ .star-rating {
+    color: yellow !important;
+  }
+
+  #star5:hover ~ .star-rating {
+    color: yellow !important;
+  }
+}

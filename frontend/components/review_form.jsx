@@ -5,7 +5,7 @@ const SessionStore = require('../stores/session_store');
 
 const ReviewForm = React.createClass({
   getInitialState() {
-    return { rating: 5, body: "" };
+    return { rating: 0, body: "" };
   },
 
   navigateToBusinessShow() {
@@ -34,17 +34,27 @@ const ReviewForm = React.createClass({
     return (e) => this.setState({[property]: e.target.value});
   },
 
+  _setRating(e) {
+    this.setState({rating: parseInt(e.target.value)});
+  },
+
   render() {
     return (
       <div className="review-form">
         <form onSubmit={this.handleSubmit}>
           <label>Rating</label>
-          <br/>
-          <input type="number"
-            value={this.state.rating}
-            onChange={this.update("rating")}/>
-          <br/>
-
+          <div className="star-group">
+            <span className="star-rating" id="star5" value="5" onClick={this._setRating}
+              style={{color: this.state.rating === 5 ? 'yellow' : 'gray'}}>★</span>
+            <span className="star-rating" id="star4" value="4" onClick={this._setRating}
+              style={{color: this.state.rating >= 4 ? 'yellow' : 'gray'}}>★</span>
+            <span className="star-rating" id="star3" value="3" onClick={this._setRating}
+              style={{color: this.state.rating >= 3 ? 'yellow' : 'gray'}}>★</span>
+            <span className="star-rating" id="star2" value="2" onClick={this._setRating}
+              style={{color: this.state.rating >= 2 ? 'yellow' : 'gray'}}>★</span>
+            <span className="star-rating" id="star1" value="1" onClick={this._setRating}
+              style={{color: this.state.rating >= 1 ? 'yellow' : 'gray'}}>★</span>
+          </div>
           <label>Comment</label>
           <br/>
           <textarea
@@ -54,8 +64,8 @@ const ReviewForm = React.createClass({
             onChange={this.update("body")}></textarea>
           <br/>
           <input type="submit"/>
+          <button onClick={this.handleCancel}>Cancel</button>
         </form>
-        <button onClick={this.handleCancel}>Cancel</button>
       </div>
     );
  }

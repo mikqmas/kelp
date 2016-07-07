@@ -6,6 +6,7 @@ const ButtonToolbar = require('react-bootstrap').ButtonToolbar;
 const DropdownButton = require('react-bootstrap').DropdownButton;
 const MenuItem = require('react-bootstrap').MenuItem;
 const hashHistory = require('react-router').hashHistory;
+const SessionStore = require('../stores/session_store');
 
 const Autosuggest = require('react-autosuggest');
 const foodTypes = require('../constants/food_types');
@@ -23,7 +24,15 @@ const Filters = React.createClass({
     FilterActions.updateReviewCount(e);
   },
   _createBusiness() {
-    hashHistory.push('/business/new');
+    if(SessionStore.isUserLoggedIn()) {
+      hashHistory.push('/business/new');
+    } else {
+      setTimeout(()=>{
+        $("#login").click();
+        $("#login-input").focus();
+        $(".login-form-box").prepend('<span id="require-login">Please Login</span>');
+      }, 100);
+    }
   },
 
   render() {

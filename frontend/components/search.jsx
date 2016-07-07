@@ -22,7 +22,6 @@ function getSuggestions(value) {
 }
 
 function getSuggestionValue(suggestion) {
-  console.log("getSUGESTIONVALUE");
   FilterActions.updateCategory(suggestion.name);
   return suggestion.name;
 }
@@ -60,16 +59,9 @@ const Search = React.createClass({
   categoryChanged(e) {
     FilterActions.updateCategory(e.target.value);
   },
-  locationChanged(e) {
-    // const address = e.target.value;
-    // geocoder.geocode( { 'address' : address, 'region' : 'us',
-    //   componentRestrictions: {country: 'US'}},
-    // function( results, status ) {
-    //   if( status === google.maps.GeocoderStatus.OK ) {
-    //   }
-    // });
-    FilterActions.updateLocation(e.target.value);
-  },
+  // locationChanged(e) {
+  //   FilterActions.updateLocation(e.target.value);
+  // },
   currentCategory() {
     return this.props.filterParams.category || "";
   },
@@ -87,7 +79,7 @@ const Search = React.createClass({
     //Autosuggest
     const { value, suggestions, noSuggestions } = this.state;
     const inputProps = {
-      placeholder: "tacos, american, takeout, pizza, asian",
+      placeholder: "tacos, american, pizza, asian",
       onFocus: this.removeSplash,
       value,
       onChange: this.onChange
@@ -106,10 +98,9 @@ const Search = React.createClass({
         }
 
         <input type="text" id="location-search"
-          placeholder="SF, San Francisco, Chicago, LA"
-          onChange={this.locationChanged}
+          placeholder="search a location"
           onFocus={this.removeSplash}
-          value={this.currentLocation()}/>
+          />
       </div>
     );
   }

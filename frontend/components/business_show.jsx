@@ -2,9 +2,9 @@ const React = require('react');
 const BusinessStore = require('../stores/business_store');
 const Link = require('react-router').Link;
 const BusinessDetail = require('./business_detail');
-// const BusinessMap = require('./business_map');
 const BusinessActions = require('../actions/business_actions');
 const hashHistory = require('react-router').hashHistory;
+const SessionStore = require('../stores/session_store');
 
 const BusinessShow = React.createClass({
   getInitialState() {
@@ -34,7 +34,15 @@ const BusinessShow = React.createClass({
   },
 
   showReviewForm() {
-    hashHistory.push(`/businesses/${this.state.business.id}/review`);
+    if(SessionStore.isUserLoggedIn()) {
+      hashHistory.push(`/businesses/${this.state.business.id}/review`);
+    } else {
+      setTimeout(()=>{
+        $("#login").click();
+        $("#login-input").focus();
+        $(".login-form-box").prepend('<span id="require-login">Please Login</span>');
+      }, 100);
+    }
   },
 
   render() {
@@ -48,7 +56,7 @@ const BusinessShow = React.createClass({
           {
             this.props.children ||
               <button className="review-button" onClick={this.showReviewForm}>
-                Leave a Review
+                ✎ Leave a Review
               </button>
           }
         </div>

@@ -150,8 +150,6 @@ const MapContainer = React.createClass({
   render() {
     return (
       <div>
-        <input id="pac-input" class="controls" type="text"
-         placeholder="Enter a location" />
       <div className="map" ref="map">Map</div>
       </div>
     );

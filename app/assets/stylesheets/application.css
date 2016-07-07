@@ -25,6 +25,15 @@ h3, h4, h5, footer, header, p, nav, ul, li {
   list-style-type: none;
 }
 
+input {
+    background: transparent;
+    border: none;
+}
+
+input[type="submit"]:hover {
+    background-color: #ccc;
+}
+
 h1 {
   font-size: 4em;
 }
@@ -40,7 +49,7 @@ h3 {
  body {
    font-family: 'Abel', sans-serif;
    background-color: #E9EBEE;
-   min-width: 600px;
+   min-width: 920px;
  }
 
  .graybox {

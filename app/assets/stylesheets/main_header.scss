@@ -4,10 +4,15 @@
   justify-content: center;
   width: 100%;
   height: 60px;
+  min-width: 940px;
 
   z-index: 4;
   position: absolute;
   top: 340px;
+
+  #react-whatever-search-bar {
+    width: 98%;
+  }
 
   .blackheader {
     width: 100%;
@@ -63,8 +68,8 @@ button.filter-buttons.btn.btn-default {
   .search-and-session {
     display: flex;
     justify-content: space-between;
-    width: 80%;
-    min-width: 200px;
+    width: 85%;
+    min-width: 800px;
   }
 
   .search-bars, .login-signup, .header-group {

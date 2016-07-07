@@ -4,12 +4,21 @@
   align-items: center;
   justify-content: center;
 
+  button {
+    border: none;
+    background: transparent;
+  }
+
+  button:hover {
+    background-color: #ccc;
+  }
+
   #require-login{
     margin-left: 10px;
     color: red;
   }
 
-  
+
 
     .loginandsign {
       color: #fff;
@@ -116,15 +125,18 @@
     // map div ends
 
     .info {
-      width: 80%;
+      width: 100%;
       display: flex;
+      justify-content: center;
+      align-items: center;
       flex-direction: column;
 
       .business-pane {
         display:flex;
+        width: 85%;
 
         .single-business-show {
-          width: 68%;
+          width: 75%;
           background-color: white;
           margin-top: 10px;
           border-left: 0;
@@ -134,30 +146,32 @@
         }
 
         .businesses-index {
-          width: 32%;
+          width: 100%;
           margin-top: 10px;
-          min-width: 300px;
+          min-width: 800px;
           border-right: 0;
           border-radius: 4px 0 0 4px;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-around;
 
           .business-index-item:hover {
-            border-left: 2px solid #CADFAA;
+            // border-bottom: 2px solid #aaa;
             cursor: pointer;
           }
 
           .business-index-item {
             display: flex;
             align-items: center;
-            height: 100px;
-            padding: 5px 10px;
+            justify-content: center;
+            height: 180px;
+            width: 180px;
+            margin: 5px 2px;
             font-size: 14px;
             font-weight: 400;
             border: 1px 0 1px 1px solid #ccc;
-
-            .business-profile-pic {
-              width: 70px;
-              height: 70px;
-            }
+            background-position: center top;
+            background-size: 100% auto;
 
             .basic-business-info {
               display: flex;
@@ -165,11 +179,28 @@
               line-height: 1.6em;
               height: 70px;
               padding: 5px 10px;
+              font-size: 12px;
+              text-align: center;
+              color: white;
 
               .business-name {
-                font-size: 18px;
+                font-size: 32px;
                 font-weight: bold;
+                color: white;
+                line-height: .9em;
+                white-space: pre-wrap;
+                word-wrap: break-word;
+                word-break: break-all;
+                white-space: normal;
 
+                a {
+                  color: #fff;
+                }
+
+                a:hover {
+                  text-decoration: none;
+                  color: #ccc;
+                }
               }
             }
 

@@ -1,6 +1,8 @@
 const React = require('react');
 const hashHistory = require('react-router').hashHistory;
 
+const foodImages = require('../constants/food_images');
+
 const IndexItem = React.createClass({
   handleClick() {
     const businessID = this.props.business.id;
@@ -21,9 +23,8 @@ const IndexItem = React.createClass({
     }
 
     return (
-        <div className="business-index-item" onClick={this.handleClick}>
-           <img className="business-profile-pic"
-             src={business.picture_url} />
+        <div className="business-index-item" onClick={this.handleClick}
+          style={{backgroundImage: 'url(http://i.imgur.com/' + foodImages[Math.floor(Math.random() * foodImages.length)] + 'b.jpg)'}}>
          <div className="basic-business-info" >
            <span className="business-name">
               <a href="javascript:void(0)" onClick={this.handleClick}>

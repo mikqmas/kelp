@@ -39,9 +39,8 @@ function _ensureLoggedIn(nextState, replace) {
   // into the history (and the hashFragment), so the Router is forced
   // to re-route.
     if (!SessionStore.isUserLoggedIn()) {
-      replace('/');
-      console.log("HERE");
       setTimeout(()=>{
+        window.history.back();
         $("#login").click();
         $("#login-input").focus();
         $(".login-form-box").prepend('<span id="require-login">Please Login</span>');
