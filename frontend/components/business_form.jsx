@@ -78,6 +78,11 @@ const BusinessForm = React.createClass({
   update(property) {
     return (e) => this.setState({[property]: e.target.value}, this.suggestAddress);
   },
+
+  _setPrice(e) {
+    this.setState({price: parseInt(e.target.value)});
+  },
+
   updateAddress(e) {
     this.setState({address : e.target.value}, this.suggestAddresses);
   },
@@ -94,37 +99,41 @@ const BusinessForm = React.createClass({
     return (
         <div className="new-business-container">
           <div className="new-business-form">
-            <h3 className="new-business-title">Create A Business!</h3>
+            <h3 className="new-business-title">Add Your Business!</h3>
             <form onSubmit={this.handleSubmit}>
-              <label className="business-field">Name</label>
-              <input type="text" value={this.state.name}
+              <label className="business-field">Business Name</label>
+              <input type="text" value={this.state.name} placeholder="Sam's Diner"
                 onChange={this.update("name")} className="business-field"/>
 
               <label className="business-field">Price</label>
-              <input min='1'  max='5' type="number" value={this.state.price}
-                onChange={this.update("price")} className="business-field"/>
+                <div className="price-group">
+                  <span className="price-rating" id="price4" value="4" onClick={this._setPrice}
+                    style={{color: this.state.price >= 4 ? 'yellow' : 'gray'}}>$</span>
+                  <span className="price-rating" id="price3" value="3" onClick={this._setPrice}
+                    style={{color: this.state.price >= 3 ? 'yellow' : 'gray'}}>$</span>
+                  <span className="price-rating" id="price2" value="2" onClick={this._setPrice}
+                    style={{color: this.state.price >= 2 ? 'yellow' : 'gray'}}>$</span>
+                  <span className="price-rating" id="price1" value="1" onClick={this._setPrice}
+                    style={{color: this.state.price >= 1 ? 'yellow' : 'gray'}}>$</span>
+                </div>
+
+                <label className="business-field">category</label>
+                <input type="text" value={this.state.category} placeholder="Pizza, Diner..."
+                  onChange={this.update("category")} className="business-field"/>
+
+              <label className="business-field">phone</label>
+              <input type="tel" value={this.state.phone} placeholder="(555) 555-5555"
+                onChange={this.update("phone")} className="business-field"/>
+
+              <label className="business-field">Address</label>
+              <input type="text" value={this.state.address}
+                placeholder="160 Spear St., San Francisco, CA 94123"
+                onChange={this.updateAddress} className="business-field"/>
 
               <label className="business-field">description</label>
               <input type="text" value={this.state.description}
+                placeholder="A good place to grab grub"
                 onChange={this.update("description")} className="business-field"/>
-
-              <label className="business-field">phone</label>
-              <input type="tel" value={this.state.phone}
-                onChange={this.update("phone")} className="business-field"/>
-
-              <label className="react-autosuggest__input">Address</label>
-              <input type="text" value={this.state.address}
-                onChange={this.updateAddress} className="business-field"/>
-
-
-
-              <label className="business-field">picture_url</label>
-              <input type="text" value={this.state.picture_url}
-                onChange={this.update("picture_url")} className="business-field"/>
-
-              <label className="business-field">category</label>
-              <input type="text" value={this.state.category}
-                onChange={this.update("category")} className="business-field"/>
 
               <div className="button-holder">
                 <input type="submit" value="Create Business" className="new-business-button"/>

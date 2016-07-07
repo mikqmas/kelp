@@ -1,0 +1,34 @@
+.price-group{
+  display: flex;
+  flex-direction: row-reverse;;
+  justify-content: flex-end;
+  font-size: 32px;
+
+  .price-rating {
+    padding: 0 5px;
+    text-shadow: 1px 1px 1px #d6b500;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .price-rating:hover {
+    color: #FFD700 !important;
+    cursor: pointer;
+  }
+
+  #price1:hover ~ .price-rating {
+    color: yellow !important;
+  }
+
+  #price2:hover ~ .price-rating {
+    color: yellow !important;
+  }
+
+  #price3:hover ~ .price-rating {
+    color: yellow !important;
+  }
+
+  #price4:hover ~ .price-rating {
+    color: yellow !important;
+  }
+}

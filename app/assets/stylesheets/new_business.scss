@@ -1,0 +1,23 @@
+.new-business-container {
+  padding: 10px;
+  background: white;
+  margin: 10px;
+  height: 387px;
+  border: 1px solid #ccc;
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+label.business-field {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+input.business-field {
+  font-size: 12px;
+  font-weight: 300;
+  border: 1px solid #ccc;
+}

@@ -21,13 +21,13 @@ const SessionActions = require('./actions/session_actions');
 const appRouter = (
   <Router history={ hashHistory }>
       <Route path="/" component={ Splash }>
+        <Route path="/business/new" component={ BusinessForm } onEnter={ _ensureLoggedIn }/>
         <Route path="businesses/:businessId" component={ BusinessShow } >
           <Route path="review" component={ ReviewForm } onEnter={ _ensureLoggedIn }/>
         </Route>
       </Route>
       <Route path="/login" component={ LoginForm } />
       <Route path="/signup" component={ LoginForm } />
-      <Route path="/business/new" component={ BusinessForm } onEnter={ _ensureLoggedIn }/>
 
   </Router>
 );
