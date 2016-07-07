@@ -25,6 +25,7 @@ const IndexItem = React.createClass({
     return (
         <div className="business-index-item" onClick={this.handleClick}
           style={{backgroundImage: 'url(http://i.imgur.com/' + foodImages[Math.floor(Math.random() * foodImages.length)] + 'b.jpg)'}}>
+
          <div className="basic-business-info" >
            <span className="business-name">
               <a href="javascript:void(0)" onClick={this.handleClick}>
@@ -39,6 +40,7 @@ const IndexItem = React.createClass({
               {"$".repeat(business.price)}
             </span>
           </div>
+          <div className="index-blackout"></div>
         </div>
     );
   }

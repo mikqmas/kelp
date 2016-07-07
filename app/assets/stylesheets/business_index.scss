@@ -1,0 +1,24 @@
+.index-blackout {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: .5;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.business-index-item:hover {
+  .index-blackout {
+     opacity: 0;
+     transition: opacity .1s ease-in-out;
+     -moz-transition: opacity .1s ease-in-out;
+     -webkit-transition: opacity .1s ease-in-out;
+  }
+}
+
+
+.basic-business-info {
+  z-index: 3;
+}
