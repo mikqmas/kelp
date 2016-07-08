@@ -25,6 +25,12 @@ h3, h4, h5, footer, header, p, nav, ul, li {
   list-style-type: none;
 }
 
+[data-icon]:before {
+  font-family: icons; /* BYO icon font, mapped smartly */
+  content: attr(data-icon);
+  margin-right: 3px;
+}
+
 input {
     background: transparent;
     border: none;
@@ -44,6 +50,10 @@ h2 {
 
 h3 {
   font-size: 2em;
+}
+
+h4 {
+  font-size: 1.5em;
 }
 
  body {

@@ -3,12 +3,6 @@ const ReactDOM = require('react-dom');
 const FilterActions = require('../actions/filter_actions');
 const hashHistory = require('react-router').hashHistory;
 
-
-     // This example requires the Places library. Include the libraries=places
-     // parameter when you first load the API. For example:
-     // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-
-
 const _getCoordsObj = function(latLng) {
   return ({
     lat: latLng.lat(),
@@ -18,11 +12,15 @@ const _getCoordsObj = function(latLng) {
 
 const mapOptions = {
   center: {lat: 37.773972, lng: -122.431297}, //San Francisco
+  scrollwheel: false,
+  navigationControl: false,
+  mapTypeControl: false,
+  streetViewControl: false,
   zoom: 13,
-          zoomControl: true,
-          zoomControlOptions: {
-              position: google.maps.ControlPosition.LEFT_TOP
-          }
+  zoomControl: true,
+  zoomControlOptions: {
+      position: google.maps.ControlPosition.LEFT_TOP
+  }
 };
 
 const MapContainer = React.createClass({

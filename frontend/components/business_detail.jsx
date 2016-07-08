@@ -32,7 +32,8 @@ var Business = React.createClass({
     }
     let stars;
     const numReviews = this.props.business.review_count;
-    const reviewAvg = this.props.business.average_rating
+    const reviewAvg = this.props.business.average_rating;
+
     if(numReviews === 0) {
       stars = "";
     }else {
@@ -43,22 +44,30 @@ var Business = React.createClass({
     }
     return (
       <div>
+        <div className="business-banner"></div>
         <div className="quick-summary">
           <div className="head-title">
           <h1>{this.props.business.name}</h1>
           </div>
-          <img className="index-image" src={this.props.business.picture_url}/>
-          <h3>{ stars } {numReviews || 0 } Reviews</h3>
-          <li>Price: {"$".repeat(this.props.business.price) || "No price yet"}</li>
-          <li>{this.props.business.category}</li>
-        </div>
+          <h3>{ stars }</h3>
+          <h4>{numReviews || 0 } Reviews</h4>
+          <div className="quick-info">
+            <span>Price: {"$".repeat(this.props.business.price) || "No price yet"}</span>
+            <span><span aria-hidden="true" data-icon="◈"></span>
+              {this.props.business.category || "No categories yet"}</span>
+            <span><span aria-hidden="true" data-icon="☎"></span>
+              {this.props.business.phone || "No phone # yet"}</span>
+            <span><span aria-hidden="true" data-icon="✖"></span>
+              {this.props.business.address}</span>
+            <span><span aria-hidden="true" data-icon="☛"></span>
+              <a href={"http://maps.google.com?q=" + this.props.business.address}
+                target="_blank">
+              Get Directions</a></span>
+            <span className="business-description">
+              {this.props.business.description || "No description yet"}</span>
+          </div>
+      </div>
 
-          <li>Description: {this.props.business.description || "No description yet"}</li>
-          <li>Address: {this.props.business.address || "No address yet"}</li>
-          <li>City: {this.props.business.city}</li>
-          <li>Zipcode: {this.props.business.postal_code}</li>
-          <li>State: {this.props.business.state_code}</li>
-          <li>Health Score: {this.props.business.health_score || "No health score yet"}</li>
         <div className="reviews">
           <h3>Reviews</h3>
           { reviewText }
