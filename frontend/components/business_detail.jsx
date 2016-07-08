@@ -51,9 +51,13 @@ var Business = React.createClass({
         stars += "½";
       }
     }
+    const r = Math.floor(Math.random() * (200));
+    const g = Math.floor(Math.random() * (200));
+    const b = Math.floor(Math.random() * (200));
+    const color = `rgba( ${r}, ${g}, ${b}, .9)`;
     return (
       <div className="business-detail-main">
-        <div className="business-image">
+        <div className="business-image" style={{border: `5px solid rgba( ${r}, ${g}, ${b}, .7)`}}>
           <div className="arrow" onClick={this.changePicture}>
             ◀ </div>
           <div id="loadIcon"><img src="images/loading.gif" /></div>
@@ -62,19 +66,21 @@ var Business = React.createClass({
           <img id="business-image" src={'https://i.imgur.com/' +
             foodImages[Math.floor(Math.random() * foodImages.length)] + '.jpg)'}></img>
         </div>
+        <div className="head-title">
+          <h3 style={{backgroundColor: `rgba( ${r}, ${g}, ${b}, .7)`}}>
+            { stars } {numReviews || 0 } Reviews</h3>
+          <h1 style={{backgroundColor: `rgba( ${r}, ${g}, ${b}, .5)`}}>
+            {this.props.business.name}</h1>
+        </div>
         <div className="summary-reviews">
         <div className="quick-summary">
-          <div className="head-title">
-          <h1>{this.props.business.name}</h1>
-          </div>
-          <h3>{ stars } {numReviews || 0 } Reviews</h3>
-          <div className="quick-info">
+          <div className="quick-info" style={{backgroundColor: `rgba( ${r}, ${g}, ${b}, .9)`}}>
             <span>Price: {"$".repeat(this.props.business.price) || "No price yet"}</span>
             <span><span aria-hidden="true" data-icon="◈"></span>
               {this.props.business.category || "No categories yet"}</span>
             <span><span aria-hidden="true" data-icon="☎"></span>
               {this.props.business.phone || "No phone # yet"}</span>
-            <span><span aria-hidden="true" data-icon="✖"></span>
+            <span id="address"><span aria-hidden="true" data-icon="✖"></span>
               {this.props.business.address}</span>
             <span><span aria-hidden="true" data-icon="☛"></span>
               <a href={"http://maps.google.com?q=" + this.props.business.address}
@@ -85,7 +91,7 @@ var Business = React.createClass({
           </div>
         </div>
             <div className="reviews">
-              <h3>Reviews</h3>
+              <h3 style={{color: `rgba( ${r}, ${g}, ${b}, .9)`}}>Reviews</h3>
               { reviewText }
             </div>
       </div>
