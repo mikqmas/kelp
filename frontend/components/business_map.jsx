@@ -41,14 +41,14 @@ const MapContainer = React.createClass({
      var autocomplete = new google.maps.places.Autocomplete(input);
      autocomplete.bindTo('bounds', this.map);
 
-     var infowindow = new google.maps.InfoWindow();
+    //  var infowindow = new google.maps.InfoWindow();
     //  var marker = new google.maps.Marker({
     //       map: this.map,
     //       anchorPoint: new google.maps.Point(0, -29)
     //     });
 
      autocomplete.addListener('place_changed', function() {
-       infowindow.close();
+      //  infowindow.close();
        var place = autocomplete.getPlace();
        if (!place.geometry) {
          return;
@@ -82,7 +82,8 @@ const MapContainer = React.createClass({
       //  }
 
       //  infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
-       infowindow.open(this.map, marker);
+      //  infowindow.open(this.map);
+      this.map.setCenter(place.geometry.location);
      }.bind(this));
    },
 
