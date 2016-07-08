@@ -45,10 +45,12 @@ class Api::BusinessesController < ApplicationController
 
 
     if(params[:category])
-      businesses = businesses.where("category LIKE ?", "%#{params[:category]}%")
+      businesses = businesses.where(
+      "lower(category) LIKE ? OR lower(name) LIKE ?",
+      "%#{params[:category].downcase}%", "%#{params[:category].downcase}%")
     end
     # @businesses = businesses.includes(:reviews)
-    @businesses = businesses
+    @businesses = businesses.limit(10)
     render :index
   end
 

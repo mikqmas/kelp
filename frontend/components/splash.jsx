@@ -55,7 +55,10 @@ const Splash = React.createClass({
           <Header pathname={this.props.location.pathname}/>
         <div className="video-container">
 
-
+          <video preload="auto" autoplay="true" loop="loop" class="video-playing" id="splash-video">
+            <source src="https://a0.muscache.com/airbnb/static/P1-background-vid-compressed-2.mp4" type="video/mp4" />
+            <source src="https://a0.muscache.com/airbnb/static/P1-background-vid-compressed-2.webm" type="video/webm" />
+          </video>
 
         </div>
           <div className="map">
@@ -74,8 +77,5 @@ const Splash = React.createClass({
 });
 
 
-  // <video preload="auto" autoplay="true" loop="loop" class="video-playing" id="splash-video">
-  //   <source src="https://a0.muscache.com/airbnb/static/P1-background-vid-compressed-2.mp4" type="video/mp4" />
-  //   <source src="https://a0.muscache.com/airbnb/static/P1-background-vid-compressed-2.webm" type="video/webm" />
-  // </video>
+
 module.exports = Splash;

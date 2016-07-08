@@ -2,7 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.reviews {
+  margin-top: 15px;
+  width: 300px;
+  margin-left: 20px;
 
-.reviews > div {
-  margin-bottom: 5px;
+  div {
+    margin-bottom: 5px;
+  }
 }

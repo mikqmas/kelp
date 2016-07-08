@@ -20,6 +20,10 @@ const ReviewForm = React.createClass({
 
   handleSubmit(event) {
     event.preventDefault();
+    if(this.state.rating === 0) {
+      $(".review-form").prepend("<span style='color: red'>Please add a rating.</span>");
+      return;
+    }
     const review = Object.assign(
       {},
       this.state,
@@ -42,7 +46,6 @@ const ReviewForm = React.createClass({
     return (
       <div className="review-form">
         <form onSubmit={this.handleSubmit}>
-          <label>Rating</label>
           <div className="star-group">
             <span className="star-rating" id="star5" value="5" onClick={this._setRating}
               style={{color: this.state.rating === 5 ? 'yellow' : 'gray'}}>★</span>

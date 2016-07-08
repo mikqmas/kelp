@@ -24,11 +24,9 @@ var Business = React.createClass({
     $("#business-image").hide();
     $("#loadIcon").show();
     $("#business-image").load(function() {
-      console.log("HERE");
       $("#loadIcon").hide();
       $("#business-image").show();
     }).attr('src', 'http://i.imgur.com/' + foodImages[Math.floor(Math.random() * foodImages.length)] + '.jpg)');
-    // .css('background-image', 'url(http://i.imgur.com/' + foodImages[Math.floor(Math.random() * foodImages.length)] + '.jpg)');
   },
 
 
@@ -58,18 +56,18 @@ var Business = React.createClass({
         <div className="business-image">
           <div className="arrow" onClick={this.changePicture}>
             ◀ </div>
-          <div id="loadIcon"><img src="images/ajax-loader.gif" /></div>
+          <div id="loadIcon"><img src="images/squares.gif" /></div>
           <div className="arrow" onClick={this.changePicture}>
             ▶ </div>
           <img id="business-image" src={'http://i.imgur.com/' +
             foodImages[Math.floor(Math.random() * foodImages.length)] + '.jpg)'}></img>
         </div>
+        <div className="summary-reviews">
         <div className="quick-summary">
           <div className="head-title">
           <h1>{this.props.business.name}</h1>
           </div>
-          <h3>{ stars }</h3>
-          <h4>{numReviews || 0 } Reviews</h4>
+          <h3>{ stars } {numReviews || 0 } Reviews</h3>
           <div className="quick-info">
             <span>Price: {"$".repeat(this.props.business.price) || "No price yet"}</span>
             <span><span aria-hidden="true" data-icon="◈"></span>
@@ -85,12 +83,14 @@ var Business = React.createClass({
             <span className="business-description">
               {this.props.business.description || "No description yet"}</span>
           </div>
+        </div>
+            <div className="reviews">
+              <h3>Reviews</h3>
+              { reviewText }
+            </div>
       </div>
 
-        <div className="reviews">
-          <h3>Reviews</h3>
-          { reviewText }
-        </div>
+
       </div>
     );
   }

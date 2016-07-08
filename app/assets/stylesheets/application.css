@@ -42,7 +42,6 @@ input[type="submit"]:hover {
 
 h1 {
   font-size: 4em;
-  word-break: break-all;
   line-height: .8em;
 }
 
@@ -51,7 +50,7 @@ h2 {
 }
 
 h3 {
-  font-size: 2em;
+  font-size: 1.7em;
 }
 
 h4 {

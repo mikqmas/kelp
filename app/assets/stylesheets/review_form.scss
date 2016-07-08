@@ -1,3 +1,19 @@
+.single-business-show {
+  position: relative;
+}
+
 .review-button {
-  margin: 10px; 
+  margin: 10px;
+  position: absolute;
+  top: 640px;
+}
+
+.review-form {
+  position: relative;
+
+  form {
+    position: absolute;
+    top: -200px;
+    left: 0;
+  }
 }

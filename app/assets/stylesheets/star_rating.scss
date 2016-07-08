@@ -6,10 +6,11 @@
 
   .star-rating {
     padding: 5px;
+    text-shadow: 1px 1px 1px #d6b500;
   }
 
   .star-rating:hover {
-    color: yellow !important;
+    color: #FFD700 !important;
     cursor: pointer;
   }
 
