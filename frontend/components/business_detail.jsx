@@ -2,6 +2,7 @@ const React = require('react');
 const Link = require('react-router').Link;
 const Review = require('./review');
 const SessionStore = require('../stores/session_store');
+const foodImages = require('../constants/food_images');
 
 var Business = React.createClass({
   getInitialState() {
@@ -18,6 +19,16 @@ var Business = React.createClass({
 
   componentWillUnmount() {
     this.sessionListener.remove();
+  },
+  changePicture() {
+    $("#business-image").hide();
+    $("#loadIcon").show();
+    $("#business-image").load(function() {
+      console.log("HERE");
+      $("#loadIcon").hide();
+      $("#business-image").show();
+    }).attr('src', 'http://i.imgur.com/' + foodImages[Math.floor(Math.random() * foodImages.length)] + '.jpg)');
+    // .css('background-image', 'url(http://i.imgur.com/' + foodImages[Math.floor(Math.random() * foodImages.length)] + '.jpg)');
   },
 
 
@@ -43,8 +54,16 @@ var Business = React.createClass({
       }
     }
     return (
-      <div>
-        <div className="business-banner"></div>
+      <div className="business-detail-main">
+        <div className="business-image">
+          <div className="arrow" onClick={this.changePicture}>
+            ◀ </div>
+          <div id="loadIcon"><img src="images/ajax-loader.gif" /></div>
+          <div className="arrow" onClick={this.changePicture}>
+            ▶ </div>
+          <img id="business-image" src={'http://i.imgur.com/' +
+            foodImages[Math.floor(Math.random() * foodImages.length)] + '.jpg)'}></img>
+        </div>
         <div className="quick-summary">
           <div className="head-title">
           <h1>{this.props.business.name}</h1>

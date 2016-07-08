@@ -137,10 +137,10 @@
 
       .business-pane {
         display:flex;
-        width: 85%;
+        width: 960px;
 
         .single-business-show {
-          width: 75%;
+          width: 60%;
           min-width: 300px;
           background-color: white;
           margin-top: 10px;
@@ -153,7 +153,6 @@
         .businesses-index {
           width: 100%;
           margin-top: 10px;
-          min-width: 800px;
           border-right: 0;
           border-radius: 4px 0 0 4px;
           display: flex;
