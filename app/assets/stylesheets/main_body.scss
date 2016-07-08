@@ -52,7 +52,9 @@
 
     .header-name {
       color: white;
-      font-size: 14px;
+      font-size: 16px;
+      font-weight: 600;
+      text-shadow: 1px 1px 1px #aaa;
       margin-right: 5px;
       display: flex;
       align-items: center;
@@ -157,7 +159,7 @@
           border-radius: 4px 0 0 4px;
           display: flex;
           flex-wrap: wrap;
-          justify-content: space-around;
+          align-content: flex-start;
 
           .business-index-item:hover {
             cursor: pointer;
@@ -170,7 +172,7 @@
             justify-content: center;
             height: 180px;
             width: 180px;
-            margin: 5px 2px;
+            margin: 5px ;
             font-size: 14px;
             font-weight: 400;
             border: 1px 0 1px 1px solid #ccc;

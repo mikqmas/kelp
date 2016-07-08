@@ -42,16 +42,15 @@ const MapContainer = React.createClass({
      autocomplete.bindTo('bounds', this.map);
 
      var infowindow = new google.maps.InfoWindow();
-     var marker = new google.maps.Marker({
-          map: this.map,
-          anchorPoint: new google.maps.Point(0, -29)
-        });
+    //  var marker = new google.maps.Marker({
+    //       map: this.map,
+    //       anchorPoint: new google.maps.Point(0, -29)
+    //     });
 
      autocomplete.addListener('place_changed', function() {
        infowindow.close();
        var place = autocomplete.getPlace();
        if (!place.geometry) {
-         window.alert("Autocomplete's returned place contains no geometry");
          return;
        }
 
@@ -62,27 +61,27 @@ const MapContainer = React.createClass({
        }
        this.map.setZoom(16);
 
-       marker.setIcon(/** @type {google.maps.Icon} */({
-        url: place.icon,
-        size: new google.maps.Size(71, 71),
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(17, 34),
-        scaledSize: new google.maps.Size(35, 35)
-      }));
-      marker.setPosition(place.geometry.location);
-      marker.setVisible(true);
+      //  marker.setIcon(/** @type {google.maps.Icon} */({
+      //   url: place.icon,
+      //   size: new google.maps.Size(71, 71),
+      //   origin: new google.maps.Point(0, 0),
+      //   anchor: new google.maps.Point(17, 34),
+      //   scaledSize: new google.maps.Size(35, 35)
+      // }));
+      // marker.setPosition(place.geometry.location);
+      // marker.setVisible(true);
 
 
-       var address = '';
-       if (place.address_components) {
-         address = [
-           (place.address_components[0] && place.address_components[0].short_name || ''),
-           (place.address_components[1] && place.address_components[1].short_name || ''),
-           (place.address_components[2] && place.address_components[2].short_name || '')
-         ].join(' ');
-       }
+      //  var address = '';
+      //  if (place.address_components) {
+      //    address = [
+      //      (place.address_components[0] && place.address_components[0].short_name || ''),
+      //      (place.address_components[1] && place.address_components[1].short_name || ''),
+      //      (place.address_components[2] && place.address_components[2].short_name || '')
+      //    ].join(' ');
+      //  }
 
-       infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
+      //  infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
        infowindow.open(this.map, marker);
      }.bind(this));
    },

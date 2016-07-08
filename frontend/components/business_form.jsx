@@ -111,7 +111,7 @@ const BusinessForm = React.createClass({
     return (
         <div className="new-business-container">
           <div className="new-business-form">
-            <h3 className="new-business-title">Add Your Business!</h3>
+            <h3 className="new-business-title">Add A Business!</h3>
             <form onSubmit={this.handleSubmit}>
               <label className="business-field">Business Name*</label>
               <input type="text" value={this.state.name} placeholder="Sam's Diner"

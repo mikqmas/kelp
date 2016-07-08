@@ -5,6 +5,7 @@
   width: 100%;
   height: 60px;
   min-width: 940px;
+  font-weight: 600;
 
   z-index: 4;
   position: absolute;
@@ -30,18 +31,20 @@
   border: 1px solid;
   font-size: 13px;
   margin-left: 10px;
+  font-weight: 600;
 }
 
 .btn-default.active.focus, .btn-default.active:focus, .btn-default.active:hover, .btn-default:active.focus, .btn-default:active:focus, .btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover {
   color: white;
+  background: rgba(77, 194, 71,.2);
 }
 
 .btn-default.active:hover:focus, .btn-default:hover:focus {
-  background: transparent;
+  background: rgba(77, 194, 71,.2);
 }
 
 .btn-default.active:hover:focus, .btn-default.active, .btn-default.active:hover, .btn-default.active:focus {
-  background: #ccc;
+  background: rgba(77, 194, 71,.2);
 }
 
 .blackheader {
@@ -75,6 +78,7 @@
 
 button.filter-buttons.btn.btn-default {
     padding: 8px;
+    font-weight: 700;
 }
 
   .search-and-session {
@@ -92,6 +96,7 @@ button.filter-buttons.btn.btn-default {
   .search-bars {
     width: 50%;
     min-width: 300px;
+    font-weight: 400;
 
     .react-autosuggest__container {
       width: 50%;
@@ -109,7 +114,6 @@ button.filter-buttons.btn.btn-default {
         color: white;
         height: 35px;
         padding: 3px 6px;
-        font-family: Helvetica, sans-serif;
         font-weight: 200;
         font-size: 14px;
         border: 1px solid #fff;

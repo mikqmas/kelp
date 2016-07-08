@@ -24,7 +24,7 @@ const IndexItem = React.createClass({
 
     return (
         <div className="business-index-item" onClick={this.handleClick}
-          style={{backgroundImage: 'url(http://i.imgur.com/' + foodImages[Math.floor(Math.random() * foodImages.length)] + 'b.jpg)'}}>
+          style={{backgroundImage: 'url(https://i.imgur.com/' + foodImages[Math.floor(Math.random() * foodImages.length)] + 'b.jpg)'}}>
 
          <div className="basic-business-info" >
            <span className="business-name">

@@ -26,7 +26,7 @@ var Business = React.createClass({
     $("#business-image").load(function() {
       $("#loadIcon").hide();
       $("#business-image").show();
-    }).attr('src', 'http://i.imgur.com/' + foodImages[Math.floor(Math.random() * foodImages.length)] + '.jpg)');
+    }).attr('src', 'https://i.imgur.com/' + foodImages[Math.floor(Math.random() * foodImages.length)] + '.jpg)');
   },
 
 
@@ -56,10 +56,10 @@ var Business = React.createClass({
         <div className="business-image">
           <div className="arrow" onClick={this.changePicture}>
             ◀ </div>
-          <div id="loadIcon"><img src="images/squares.gif" /></div>
+          <div id="loadIcon"><img src="images/loading.gif" /></div>
           <div className="arrow" onClick={this.changePicture}>
             ▶ </div>
-          <img id="business-image" src={'http://i.imgur.com/' +
+          <img id="business-image" src={'https://i.imgur.com/' +
             foodImages[Math.floor(Math.random() * foodImages.length)] + '.jpg)'}></img>
         </div>
         <div className="summary-reviews">
