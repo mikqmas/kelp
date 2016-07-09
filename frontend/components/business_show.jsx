@@ -36,6 +36,9 @@ const BusinessShow = React.createClass({
   showReviewForm() {
     if(SessionStore.isUserLoggedIn()) {
       hashHistory.push(`/businesses/${this.state.business.id}/review`);
+      setTimeout(()=>{
+        $("#review-form").focus();
+      }, 0);
     } else {
       setTimeout(()=>{
         $("#login").click();

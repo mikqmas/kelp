@@ -52,8 +52,7 @@ const Search = React.createClass({
     const noSuggestions = !isInputBlank && suggestions.length === 0;
 
     this.setState({
-      suggestions,
-      noSuggestions
+      suggestions
     });
   },
   categoryChanged(e) {
@@ -72,6 +71,8 @@ const Search = React.createClass({
     $('video').animate({
       opacity: 0
     }, 500, 'swing', () => {$('video').remove();});
+    $('#title-splash').animate({opacity: 0},500, 'swing',
+    () => {$('#title-splash').remove();});
   },
 
   render() {
@@ -93,10 +94,6 @@ const Search = React.createClass({
                      getSuggestionValue={getSuggestionValue}
                      renderSuggestion={renderSuggestion}
                      inputProps={inputProps} />
-        {
-          noSuggestions
-        }
-
         <input type="text" id="location-search"
           placeholder="search a location"
           onFocus={this.removeSplash}

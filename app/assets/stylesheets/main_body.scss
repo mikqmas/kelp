@@ -102,6 +102,28 @@
     width: 100%;
     background-color: white;
     overflow: hidden;
+
+    #title-splash{
+      position: absolute;
+      top: 30%;
+      left: 40%;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 5;
+      align-items: center;
+      line-height: 2.4em;
+
+      h1{
+        font-size: 7em;
+      }
+
+      h3{
+        font-size: 1.8em;
+        margin-left: 58px;
+      }
+    }
   }
 
   .video-container video

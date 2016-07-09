@@ -6,7 +6,19 @@ const foodImages = require('../constants/food_images');
 
 var Business = React.createClass({
   getInitialState() {
-    return { currentUser: SessionStore.currentUser() };
+    return { currentUser: SessionStore.currentUser(),
+              r: Math.floor(Math.random() * (200)),
+              g: Math.floor(Math.random() * (200)),
+              b: Math.floor(Math.random() * (200))};
+  },
+
+  componentWillReceiveProps(nextProps){
+    if(nextProps.business.id !== this.props.business.id) {
+      this.setState({
+                r: Math.floor(Math.random() * (200)),
+                g: Math.floor(Math.random() * (200)),
+                b: Math.floor(Math.random() * (200))});
+    }
   },
 
   componentDidMount() {
@@ -51,10 +63,10 @@ var Business = React.createClass({
         stars += "½";
       }
     }
-    const r = Math.floor(Math.random() * (200));
-    const g = Math.floor(Math.random() * (200));
-    const b = Math.floor(Math.random() * (200));
-    const color = `rgba( ${r}, ${g}, ${b}, .9)`;
+
+    const r = this.state.r;
+    const g = this.state.g;
+    const b = this.state.b;
     return (
       <div className="business-detail-main">
         <div className="business-image" style={{border: `5px solid rgba( ${r}, ${g}, ${b}, .7)`}}>

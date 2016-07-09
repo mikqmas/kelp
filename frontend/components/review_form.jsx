@@ -61,6 +61,7 @@ const ReviewForm = React.createClass({
           <label>Comment</label>
           <br/>
           <textarea
+            id="review-form"
             cols='30'
             rows='10'
             value={this.state.body}

@@ -54,7 +54,7 @@ const Splash = React.createClass({
           <AuthButtons />
           <Header pathname={this.props.location.pathname}/>
         <div className="video-container">
-
+          <div id="title-splash"><h1>YepinstA</h1><h3>Eat with your Eyes</h3></div>
 
 
         </div>

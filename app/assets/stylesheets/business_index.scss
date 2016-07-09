@@ -18,7 +18,28 @@
   }
 }
 
-
 .basic-business-info {
   z-index: 3;
+}
+
+.pagination {
+    font-size: 2em;
+    cursor: pointer;
+    background: #ccc;
+    width: 97%;
+    display: flex;
+    justify-content: space-between;
+}
+
+ul.pagination::after {
+    content: "⍄";
+}
+
+ul.pagination::before {
+    content: "⍃";
+}
+
+.pagination>li:last-child::after {
+}
+.pagination>li::after {
 }

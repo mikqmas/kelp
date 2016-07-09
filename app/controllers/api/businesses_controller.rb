@@ -50,7 +50,7 @@ class Api::BusinessesController < ApplicationController
       "%#{params[:category].downcase}%", "%#{params[:category].downcase}%")
     end
     # @businesses = businesses.includes(:reviews)
-    @businesses = businesses.limit(10)
+    @businesses = businesses
     render :index
   end
 
