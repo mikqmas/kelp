@@ -6,7 +6,18 @@ const BusinessIndex = React.createClass({
     return ({showIndex: 0});
   },
   _handleClick(e) {
-    this.setState({showIndex: parseInt(e.target.innerHTML) - 1});
+    if (e.target.innerHTML === "⍄") {
+      if(Math.floor(Object.keys(this.props.businesses).length / 10) + 1
+      !== this.state.showIndex + 1) {
+        this.setState({showIndex: this.state.showIndex + 1});
+      }
+    } else if(e.target.innerHTML === "⍃") {
+      if(this.state.showIndex - 1 >= 0) {
+        this.setState({showIndex: this.state.showIndex - 1});
+      }
+    } else {
+      this.setState({showIndex: parseInt(e.target.innerHTML) - 1});
+    }
   },
 
   render() {
@@ -26,12 +37,15 @@ const BusinessIndex = React.createClass({
               key={key} />);
           })
         }
+
         <ul className="pagination">
-        {
-          pagination.map((i) => {
-            return <li onClick={this._handleClick}>{i}</li>;
-          })
-        }
+          <li className="pagination-arrow" onClick={this._handleClick}>⍃</li>
+          {
+            pagination.map((i) => {
+              return <li style={{backgroundColor: this.state.showIndex === (i - 1) ? "#ddd" : "", padding: "0 8px"}} onClick={this._handleClick}>{i}</li>;
+            })
+          }
+          <li className="pagination-arrow" onClick={this._handleClick}>⍄</li>
         </ul>
       </div>
     );

@@ -25,21 +25,20 @@
 .pagination {
     font-size: 2em;
     cursor: pointer;
-    background: #ccc;
     width: 97%;
     display: flex;
     justify-content: space-between;
-}
 
-ul.pagination::after {
-    content: "⍄";
-}
+    li {
+      height: 28px;
+    }
 
-ul.pagination::before {
-    content: "⍃";
-}
+    li:hover:not(.pagination-arrow) {
+      background-color: #eee;
+    }
 
-.pagination>li:last-child::after {
-}
-.pagination>li::after {
+    .pagination-arrow {
+      font-size: 30px;
+      margin-top: -10px;
+    }
 }

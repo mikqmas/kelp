@@ -162,6 +162,7 @@
       .business-pane {
         display:flex;
         width: 976px;
+        padding-left: 0;
 
         .single-business-show {
           width: 140%;
@@ -170,6 +171,7 @@
           margin-top: 10px;
           border-left: 0;
           padding-top: 15px;
+          padding-left: 0;
           font-size: 14px;
           border-radius: 0 4px 4px 0;
         }
@@ -182,6 +184,7 @@
           display: flex;
           flex-wrap: wrap;
           align-content: flex-start;
+          justify-content: center;
 
           .business-index-item:hover {
             cursor: pointer;
