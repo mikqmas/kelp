@@ -66,14 +66,8 @@
     height: 30px;
   }
 
-  @media screen and (max-width: 750px) {
-  .search-bars input[type="text"] {
-    background-color: black;
-  }
-}
-
 .btn-group.button-group {
-  min-width: 130px;
+  min-width: 138px;
 }
 
 button.filter-buttons.btn.btn-default {
@@ -108,15 +102,15 @@ button.filter-buttons.btn.btn-default {
 
     input[type="text"]{
       width: 50%;
-        margin-right: 10px;
-        background: transparent;
-        color: white;
-        height: 35px;
-        padding: 3px 6px;
-        font-weight: 200;
-        font-size: 14px;
-        border: 1px solid #fff;
-        border-radius: 2px;
+      background-color: white;
+      margin-right: 10px;
+      color: black;
+      height: 35px;
+      padding: 3px 6px;
+      font-weight: 200;
+      font-size: 14px;
+      border: 1px solid #fff;
+      border-radius: 2px;
     }
   }
 

@@ -37,7 +37,7 @@ const BusinessIndex = React.createClass({
               key={key} />);
           })
         }
-
+        <br /> <br />
         <ul className="pagination">
           <li className="pagination-arrow" onClick={this._handleClick}>⍃</li>
           {
