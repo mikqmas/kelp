@@ -8,7 +8,7 @@ const BusinessIndex = React.createClass({
   },
   _handleClick(e) {
     if (e.target.innerHTML === "⍄") {
-      if(Math.floor(Object.keys(this.props.businesses).length / 10) + 1
+      if(Math.floor(Object.keys(this.props.businesses).length / 10)
       !== this.state.showIndex + 1) {
         this.setState({showIndex: this.state.showIndex + 1});
       }
