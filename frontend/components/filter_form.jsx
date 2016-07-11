@@ -44,7 +44,7 @@ const Filters = React.createClass({
         active={selected} value={price}>{"$".repeat(price)}</Button>;
     });
 
-    const reviewCounts = [13, 7, 3].map((count) => {
+    const reviewCounts = [7, 5, 3].map((count) => {
       const selected = count === that.props.filterParams.reviewCount;
       return <MenuItem key={count} active={selected}
         eventKey={count}>{count}+</MenuItem>;
