@@ -80,7 +80,7 @@ const Search = React.createClass({
     //Autosuggest
     const { value, suggestions, noSuggestions } = this.state;
     const inputProps = {
-      placeholder: "tacos, american, pizza, asian",
+      placeholder: "taco, american, pizza, asian",
       onFocus: this.removeSplash,
       value,
       onChange: this.onChange

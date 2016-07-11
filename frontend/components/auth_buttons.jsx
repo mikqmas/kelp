@@ -28,7 +28,9 @@ const AuthButtons = React.createClass({
     	return (
     		<hgroup className="header-group">
           <p className="header-name">{SessionStore.currentUser().username}</p>
-          <DropdownButton pullRight title="" id="profile" noCaret className="profile-about">
+          <DropdownButton pullRight title="" id="profile" noCaret className="profile-about"
+            style={{backgroundImage: SessionStore.currentUser().username === "sam" ?
+              'url(/images/profile.jpg)' : 'url(http://www.lcfc.com/images/common/bg_player_profile_default_big.png)'}}>
       			<input className="header-button" type="submit" value="logout" onClick={ this._handleLogOut } />
           </DropdownButton>
     		</hgroup>
