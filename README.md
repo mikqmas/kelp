@@ -1,159 +1,165 @@
 # Kelp
 
-Yelp API: https://api.yelp.com/v2/search?term=food&location=San+Francisco&oauth_consumer_key=SeiwYq9KW9sedsZUd9d8Yg&oauth_consumer_secret=ZPegLm0ar4eqsXHwF6CsMYWXtZE&oauth_token=dHPVjDLbJGPDwDRitcHK5cfuOL5fqNCe&oauth_token_secret=v3M4B1kGPZ6rutrOMJhwcIDbTBk&oauth_signature_method=HMAC-SHA1&oauth_timestamp=temstamp_value&oauth_nonce=nonce_value&oauth_signature=signature_value
+[Kelp live][heroku]
 
-[Heroku link][heroku]
+[heroku]: http://www.kelp.pw
 
-[heroku]: https://k3lp.herokuapp.com/
+Kelp is a full-stack web application inspired by Yelp.  It utilizes Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Flux architectural framework on the frontend in addition to plain old Javascript and jQuery.
 
-## Minimum Viable Product
+## Features & Implementation
 
-Kelp is a web application inspired by Yelp that will be build using Ruby on Rails and React.js.  By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
+### Single-Page App
 
-- [X] Hosting on Heroku
-- [X] New account creation, login, and guest/demo login
-- [ ] A production README, replacing this README
-- [X] Business Page
-  - [X] Intuitive business profile layout taking cues from FB
-  - [ ] Populate using Yelp api to demonstrate the site's features
-  - [X] Adequate CSS styling
-- [ ] Search / filters
-  - [X] Intuitive searching and filtering options
-  - [X] Quick async ajax, bug-free search
-  - [ ] Adequate seed data to demonstrate the site's features
-  - [X] Adequate CSS styling
-- [ ] Reviews / ratings
-  - [ ] Easy to use review form using react-quill
-  - [ ] Adequate seed data to demonstrate the site's features
-  - [X] Adequate CSS styling
-- [X] Map
-  - [X] Smooth, bug-free navigation
-  - [ ] Adequate seed data to demonstrate the site's features
-  - [X] Adequate CSS styling
+Kelp is truly a single-page; all content is delivered on one static page leveraging AJAX. A good example of this is the login component, which abstracts sensitive information using BCrypt and a common Rails Auth Pattern.
 
-## Design Docs
-* [View Wireframes][views]
-* [React Components][components]
-* [Flux Cycles][flux-cycles]
-* [API endpoints][api-endpoints]
-* [DB schema][schema]
+```ruby
+class Api::SessionsController < ApplicationController
+    def get_user
+      if current_user
+        render :current_user
+      else
+        render json: errors.full_messages
+      end
+    end
+ end
+  ```
 
-[views]: docs/views.md
-[components]: docs/components.md
-[flux-cycles]: docs/flux-cycles.md
-[api-endpoints]: docs/api-endpoints.md
-[schema]: docs/schema.md
+### AJAX
+To create a seamless UX, AJAX requests are constantly being fired by the Flux cycle. Rails API views is created using JSON Builder. AJAX requests are made via jQuery .ajax method.
 
-## Implementation Timeline
+### jQuery
+Often used for DOM manipulation such as triggering login dropdown, displaying error message, and input box focus when requiring login. Also used for document ready and ajax requests.
 
-### Phase 1: Backend setup and Front End User Authentication (1 day, W1 Tu 6pm)
+### UI
+Kelp is an exercise and attempt to weave Yelp's content with Instagram's photo focused social network, since the two passions are often intertwined. The splash page video emphasizes the focus on visuals and playful feel of the website.
 
-* [Phase one][phase-one]
-
-**Objective:** Functioning rails project with Authentication
-
-- [X] create new project
-- [X] create `User` model
-- [X] authentication
-- [X] user signup/signin pages
-- [X] blank landing page after signin
-
-### Phase 2: Review Model, API, and basic APIUtil (1.5 days, W1 Th 12pm)
-
-* [Phase two][phase-two]
-
-**Objective:** Reviews can be created, read, edited and destroyed through
-the API.
-
-- [X] create `Review` model
-- [X] seed the database with a small amount of test data
-- [X] CRUD API for Review (`ReviewsController`)
-- [X] jBuilder views for reviews
-- [X] setup Webpack & Flux scaffold
-- [X] setup `APIUtil` to interact with the API
-- [X] test out API interaction in the console.
-
-### Phase 3: Flux Architecture and Router (1.5 days, W1 F 6pm)
-
-* [Phase three][phase-three]
-
-**Objective:** Reviews can be created, read, edited and destroyed with the
-user interface.
-
-- [X] setup the flux loop with skeleton files
-- [X] setup React Router
-- implement each review component, building out the flux loop as needed.
-  - [X] `ReviewsIndex`
-  - [X] `ReviewIndexItem`
-  - [X] `ReviewForm`
-- [X] save Reviews to the DB when the form loses focus or is left idle
-  after editing.
-
-### Phase 4: Start Styling (0.5 days, W2 M 12pm)
-
-* [Phase four][phase-four]
-
-**Objective:** Existing pages (including signup/signin) will look good.
-
-- [X] create a basic style guide
-- [X] position elements on the page
-- [X] add basic colors & styles
-
-### Phase 5: Businesses (1 day, W2 Tu 12pm)
-
-* [Phase five][phase-five]
-
-**Objective:** Reviews belong to Businesses, and can be viewed by Business.
-
-- [X] create `Business` model
-- build out API, Flux loop, and components for:
-  - [X] Business CRUD
-  - [X] adding reviews requires a business
-  - [X] viewing reviews by business
-- Use CSS to style new reviews
-
-Phase 3 adds organization to the Review. Reviews belong to a Business,
-which has its own `Index` view.
-
-### Phase 6: Tags (1 days, W2 Th 12pm)
-
-**Objective:** Reviews can be tagged with multiple tags, and tags are searchable.
-
-- [ ] create `Tag` model and join table
-- build out API, Flux loop, and components for:
-  - [ ] fetching tags for reviews
-  - [ ] adding tags to reviews
-  - [ ] creating tags while adding to reviews
-  - [ ] searching reviews by tag
-- [ ] Style new elements
-
-### Phase 7: Allow Complex Styling in Reviews (0.5 days, W2 Th 6pm)
-
-**objective:** Enable complex styling of reviews.
-
-- [ ] Integrate `react-quill` (based on Quill.js).
-- [ ] Use Rails helpers to sanitize HTML before rendering.
-- [ ] Style the new Quill elements.
-
-### Phase 8: Styling Cleanup and Seeding (1 day, W2 F 6pm)
-
-**objective:** Make the site feel more cohesive and awesome.
-
-- [ ] Get feedback on my UI from others
-- [ ] Refactor HTML classes & CSS rules
-- [ ] Add modals, transitions, and other styling flourishes.
-
-### Bonus Features (TBD)
-- [ ] Mark reviews funny, cool, useful etc.
-- [ ] Search through reviews for blocks of text
-- [ ] Pagination / infinite scroll for Business Index
-- [ ] Profile
-- [ ] Friends
-- [ ] Multiple sessions
+![image of splash video](docs/splash_vid.png)
 
 
-[phase-one]: docs/phases/phase1.md
-[phase-two]: docs/phases/phase2.md
-[phase-three]: docs/phases/phase3.md
-[phase-four]: docs/phases/phase4.md
-[phase-five]: docs/phases/phase5.md
+### User/Business/Review Database and Relations
+
+  There are three main tables: users, businesses, and reviews. When Reviews are created, it is given the `currentUser_id` and the `business_id`. When either the user or the business is destroyed, the review is destroyed accordingly.
+
+  Businesses are rendered in two different components: the `IndexItem` components, which show the title, review average, and review count, and the `BusinessDetail` components, which are show images and more detailed information.  The `BusinessIndex` renders all of the `IndexItem`s as subcomponents, as well as one `BusinessDetail` component, which renders based on the `props.params.businessId` passed by React's `hashHistory`.
+
+![image of business index](docs/business.png)
+
+### Businesses
+
+Businesses live in the business table, with appropriate columns to contain all attributes.
+
+Two of the attributes are generated dynamically using Rails' ActiveRecords. Average Reviews and Review Counts are calculated on the Model cycle in the backend API request cycle and served to the frontend.
+
+ActiveRecords code in business.rb Model:
+
+```ruby
+def average_rating
+  reviews.average(:rating)
+end
+
+def review_count
+  reviews.count
+end
+```
+
+`BusinessIndex` component renders a list of `IndexItem`s as subcomponents, along with one `BusinessDetail`, kept track of by hashHistory params.
+
+`IndexItem` is limited to 50 businesses by the API due to the large number of restaurants that could show at one time. `BusinessIndex` uses pagination to only show 10 businesses at any one time. This is achieved by slicing the array of businesses into 10 elements chunks.
+
+`BusinessIndex` render method:
+
+```javascript
+{
+  businessKeys.slice(showIdx*10, showIdx*10+10).map( key => {
+    return (<IndexItem
+      business={businesses[key]}
+      key={key} />);
+  })
+}
+```
+
+### Filtering
+
+##Map
+Businesses are bound by the parameters of the map at all times. Only businesses within this bounds will show. The map bounds are calculated in the `business_map.jsx` and passed onto the `businessesController` which checks the bounds in the `businessModel`, where only businesses within the bounds are served.
+
+Business Model In-Bound Method
+```ruby
+def self.in_bounds(bounds)
+  self.where("lat < ?", bounds[:northEast][:lat])
+      .where("lat > ?", bounds[:southWest][:lat])
+      .where("lng > ?", bounds[:southWest][:lng])
+      .where("lng < ?", bounds[:northEast][:lng])
+end
+```
+
+##Average Price
+Using the `filterParams` API request, `average_price` is sent as an integer in range of 1-4. In the `businessesController`, an ActiveRecords method is run to calculate the average price and serve all the businesses meeting the criteria.
+
+```ruby
+if(params[:prices])
+  businesses = businesses.where("price <= ? AND price >= ?",
+              params[:prices].max.to_i, params[:prices].min.to_i)
+end
+```
+
+##Average Review
+Similar to the Average Price with addition of joining businesses with the reviews table. API request is made to BusinessesController which runs the following code:
+
+```ruby
+if(params[:review])
+  businesses = businesses.joins(:reviews).group("businesses.id")
+    .having("avg(rating) >= ?", params[:review].to_i)
+end
+```
+
+In the frontend, integer range 4-2 is converted to stars.
+
+```javascript
+const reviewRatings = [4, 3, 2].map((rating) => {
+  const selected = rating === that.props.filterParams.review;
+  return <MenuItem key={rating} active={selected}
+    eventKey={rating}>{"★".repeat(rating)}+</MenuItem>;
+});
+```
+
+### Number of Reviews
+Similar to the Average Review request.
+
+```ruby
+if(params[:reviewCount])
+  businesses = businesses.joins(:reviews).group("businesses.id")
+    .having("count(businesses.id) >= ?", params[:reviewCount].to_i)
+```
+
+### Search Bar
+Each time onInput, the Flux cycle fires off an AJAX request to the controller. Businesses are filtered using the `where` ActiveRecords method and `LIKE` SQL parameter.
+
+```ruby
+if(params[:category])
+  businesses = businesses.where(
+  "lower(category) LIKE ? OR lower(name) LIKE ?",
+  "%#{params[:category].downcase}%", "%#{params[:category].downcase}%")
+end
+```
+
+### Location Search
+Location search is implemented using the Google Places API. Request submits an address and response gives back a lat/lng and allows the implemented map to refocus on that location.
+
+![map and filter screenshot](docs/map_filter.png)
+
+## Future Directions for the Project
+
+In addition to the features already implemented, I plan to continue work on this project.  The next steps for Kelp are outlined below.
+
+### Search
+
+Refactoring search using Fuse.js library to create a fuzzy search instead of current ridged `LIKE` SQL search.
+
+### Tagging
+
+Each businesses and reviews should have multiple descriptive tags.
+
+### Likes
+
+Users should be able to bookmark and share businesses they like.
