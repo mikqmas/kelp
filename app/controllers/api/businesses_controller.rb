@@ -50,7 +50,7 @@ class Api::BusinessesController < ApplicationController
       "%#{params[:category].downcase}%", "%#{params[:category].downcase}%")
     end
     # @businesses = businesses.includes(:reviews)
-    @businesses = businesses
+    @businesses = businesses.limit(50)
     render :index
   end
 
@@ -60,7 +60,7 @@ class Api::BusinessesController < ApplicationController
   def business_params
     params.require(:business).permit(:name, :address, :price, :description,
       :health_score, :hours, :phone, :city, :postal_code, :state_code,
-      :picture_url, :category, :lat, :lng)
+      :picture_url, :category, :lat, :lng, :img1, :img2, :img3, :img4, :img5)
   end
 
   def bounds

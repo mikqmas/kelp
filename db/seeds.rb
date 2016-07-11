@@ -8,6 +8,8 @@
 
 
 require 'yelp'
+require_relative 'imgs'
+require_relative 'reviews'
 
 client = Yelp::Client.new({ consumer_key: "SeiwYq9KW9sedsZUd9d8Yg",
                             consumer_secret: "ZPegLm0ar4eqsXHwF6CsMYWXtZE",
@@ -24,47 +26,47 @@ zips = [
 # la
 90003, 90005, 90007, 90011, 90013, 90014,
 90031, 90034, 90037, 90041, 90043, 90044,
-90071, 90079, 90090, 90095, 90275, 90291,
-91324, 91326, 91331, 91340, 91343, 91344,
-91423, 91436, 91601, 91602, 91604, 91606,
+# 90071, 90079, 90090, 90095, 90275, 90291,
+# 91324, 91326, 91331, 91340, 91343, 91344,
+# 91423, 91436, 91601, 91602, 91604, 91606,
 
 # ny
 10001, 10005, 10006, 10009, 10010,
 10012, 10017, 10018, 10020, 10021,
 10033, 10037, 10038, 10040, 10044,
-10069, 10111, 10112, 10119, 10128,
-10173, 10271, 10278, 10280, 10282,
-10312, 10453, 10454, 10456, 10457,
-10469, 10473, 10474, 11004, 11005,
+# 10069, 10111, 10112, 10119, 10128,
+# 10173, 10271, 10278, 10280, 10282,
+# 10312, 10453, 10454, 10456, 10457,
+# 10469, 10473, 10474, 11004, 11005,
 
 # chicago
 60018, 60068, 60176, 60601, 60602,
 60608, 60609, 60610, 60611, 60612,
-60623, 60624, 60625, 60626, 60628,
-60637, 60639, 60640, 60641, 60642,
-60655, 60656, 60657, 60659, 60660,
+# 60623, 60624, 60625, 60626, 60628,
+# 60637, 60639, 60640, 60641, 60642,
+# 60655, 60656, 60657, 60659, 60660,
 
 #seattle
 98101, 98102, 98103, 98104, 98105,
 98116, 98117, 98118, 98119, 98121,
-98136, 98144, 98154, 98164, 98174
+# 98136, 98144, 98154, 98164, 98174
 ]
 
 zips.each do |zip|
-  city = client.search("#{zip}")
+  thisCity = client.search("#{zip}", {term: 'food'})
 
-  20.times do |i|
-    lat = city.businesses[i].location.coordinate.latitude
-    lng = city.businesses[i].location.coordinate.longitude
-    address = city.businesses[i].location.display_address.join(", ")
-    city = city.businesses[i].location.city
-    state = city.businesses[i].location.state_code
-    zip = city.businesses[i].location.postal_code
-    phone = city.businesses[i].display_phone
-    description = city.businesses[i].snippet_text
-    category = city.businesses[i].categories.join(" ")
-    name = city.businesses[i].name
-    picture_url = city.businesses[i].image_url
+  10.times do |i|
+    lat = thisCity.businesses[i].location.coordinate.latitude
+    lng = thisCity.businesses[i].location.coordinate.longitude
+    address = thisCity.businesses[i].location.display_address.join(", ")
+    city = thisCity.businesses[i].location.city
+    state = thisCity.businesses[i].location.state_code
+    zip = thisCity.businesses[i].location.postal_code
+    phone = thisCity.businesses[i].display_phone
+    description = thisCity.businesses[i].snippet_text
+    category = thisCity.businesses[i].categories.join(" ")
+    name = thisCity.businesses[i].name
+    picture = thisCity.businesses[i].image_url
     price = rand(4) + 1
 
     Business.create(
@@ -72,15 +74,29 @@ zips.each do |zip|
         lng: "#{lng}",
         address: "#{address}",
         city: "#{city}",
-        state: "#{state}",
-        zip: "#{zip}",
+        state_code: "#{state}",
+        postal_code: "#{zip}",
         phone: "#{phone}",
         description: "#{description}",
         category: "#{category}",
         name: "#{name}",
-        picture_url: "#{picture_url}",
-        price: "#{price}"
+        price: "#{price}",
+        picture_url: "#{picture}",
+        img1: "https://i.imgur.com/#{IMGS.sample}.jpg",
+        img2: "https://i.imgur.com/#{IMGS.sample}.jpg",
+        img3: "https://i.imgur.com/#{IMGS.sample}.jpg",
+        img4: "https://i.imgur.com/#{IMGS.sample}.jpg",
+        img5: "https://i.imgur.com/#{IMGS.sample}.jpg",
       )
+
+      rand(6).times do
+        Review.create(
+          user_id: rand(20),
+          business_id: Business.last.id,
+          body: FAKEREVIEWS.sample,
+          rating: (rand(4) + 1),
+        )
+      end
   end
 
 end

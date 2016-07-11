@@ -1,5 +1,4 @@
 const React = require('react');
-const Link = require('react-router').Link;
 const Review = require('./review');
 const SessionStore = require('../stores/session_store');
 const foodImages = require('../constants/food_images');
@@ -9,7 +8,8 @@ var Business = React.createClass({
     return { currentUser: SessionStore.currentUser(),
               r: Math.floor(Math.random() * (200)),
               g: Math.floor(Math.random() * (200)),
-              b: Math.floor(Math.random() * (200))};
+              b: Math.floor(Math.random() * (200)),
+              showPic: 1};
   },
 
   componentWillReceiveProps(nextProps){
@@ -19,6 +19,13 @@ var Business = React.createClass({
                 g: Math.floor(Math.random() * (200)),
                 b: Math.floor(Math.random() * (200))});
     }
+
+    $("#business-image").hide();
+    $("#loadIcon").show();
+    $("#business-image").load(function() {
+      $("#loadIcon").hide();
+      $("#business-image").show();
+    }).attr('src', this.props.business[`img${this.state.showPic}`]);
   },
 
   componentDidMount() {
@@ -32,13 +39,28 @@ var Business = React.createClass({
   componentWillUnmount() {
     this.sessionListener.remove();
   },
-  changePicture() {
+  changePicture(dir) {
+    let nextPic;
+    if(dir === "plus"){
+      if((this.state.showPic + 1) > 5) {
+        nextPic = 1;
+      } else {
+        nextPic = this.state.showPic + 1;
+      }
+    } else {
+      if((this.state.showPic - 1) < 1) {
+        nextPic = 5;
+      } else {
+        nextPic = this.state.showPic - 1;
+      }
+    }
+    this.setState({showPic: nextPic});
     $("#business-image").hide();
     $("#loadIcon").show();
     $("#business-image").load(function() {
       $("#loadIcon").hide();
       $("#business-image").show();
-    }).attr('src', 'https://i.imgur.com/' + foodImages[Math.floor(Math.random() * foodImages.length)] + '.jpg)');
+    }).attr('src', this.props.business[`img${nextPic}`]);
   },
 
 
@@ -70,13 +92,12 @@ var Business = React.createClass({
     return (
       <div className="business-detail-main">
         <div className="business-image" style={{border: `5px solid rgba( ${r}, ${g}, ${b}, .7)`}}>
-          <div className="arrow" onClick={this.changePicture}>
+          <div className="arrow" onClick={this.changePicture.bind(this, "minus")}>
             ◀ </div>
           <div id="loadIcon"><img src="images/loading.gif" /></div>
-          <div className="arrow" onClick={this.changePicture}>
+          <div className="arrow" onClick={this.changePicture.bind(this, "plus")}>
             ▶ </div>
-          <img id="business-image" src={'https://i.imgur.com/' +
-            foodImages[Math.floor(Math.random() * foodImages.length)] + '.jpg)'}></img>
+          <img id="business-image" src={this.props.business[`img${this.state.showPic}`]}></img>
         </div>
         <div className="head-title">
           <h3 style={{backgroundColor: `rgba( ${r}, ${g}, ${b}, .7)`}}>

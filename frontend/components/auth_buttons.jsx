@@ -28,7 +28,7 @@ const AuthButtons = React.createClass({
     	return (
     		<hgroup className="header-group">
           <p className="header-name">{SessionStore.currentUser().username}</p>
-          <DropdownButton pullRight title="" noCaret className="profile-about">
+          <DropdownButton pullRight title="" id="profile" noCaret className="profile-about">
       			<input className="header-button" type="submit" value="logout" onClick={ this._handleLogOut } />
           </DropdownButton>
     		</hgroup>
@@ -40,7 +40,7 @@ const AuthButtons = React.createClass({
             <HeaderAuth auth="login"/>
           </DropdownButton>
 
-          <DropdownButton pullRight title="Signup" className="loginandsign">
+          <DropdownButton pullRight title="Signup" id="signup" className="loginandsign">
             <HeaderAuth auth="signup"/>
           </DropdownButton>
         </nav>

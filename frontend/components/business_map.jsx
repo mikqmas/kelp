@@ -11,15 +11,15 @@ const _getCoordsObj = function(latLng) {
 };
 
 const mapOptions = {
-  center: {lat: 37.773972, lng: -122.431297}, //San Francisco
+  center: {lat: 37.778042, lng: -122.4125}, //SF City Hall
   scrollwheel: false,
   navigationControl: false,
   mapTypeControl: false,
   streetViewControl: false,
-  zoom: 13,
+  zoom: 15,
   zoomControl: true,
   zoomControlOptions: {
-      position: google.maps.ControlPosition.LEFT_TOP
+      position: google.maps.ControlPosition.LEFT_CENTER
   }
 };
 

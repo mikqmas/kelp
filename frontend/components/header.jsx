@@ -45,11 +45,11 @@ const Header = React.createClass({
     } else {
       return (
         <nav className="login-signup">
-          <DropdownButton dropup title="Login" className="loginandsign">
+          <DropdownButton dropup title="Login" id="login" className="loginandsign">
             <HeaderAuth auth="login"/>
           </DropdownButton>
 
-          <DropdownButton dropup pullRight title="Signup" className="loginandsign">
+          <DropdownButton dropup pullRight title="Signup" id="sigin" className="loginandsign">
             <HeaderAuth auth="signup"/>
           </DropdownButton>
         </nav>

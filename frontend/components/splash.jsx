@@ -25,7 +25,15 @@ const Splash = React.createClass({
   },
 
   _businessesChanged() {
-    this.setState({businesses: BusinessStore.all()});
+    this.setState({businesses: BusinessStore.all()}, () => {
+      if(!!this.props.params.businessId && !Object.keys(this.state.businesses).includes(this.props.params.businessId)) {
+        if (Object.keys(this.state.businesses).length === 0) {
+          hashHistory.push('/');
+        }else {
+          hashHistory.push('/businesses/' + this.state.businesses[Object.keys(this.state.businesses)[0]].id);
+        }
+      }
+    });
   },
 
   _filtersChanged() {
