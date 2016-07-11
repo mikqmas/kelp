@@ -96,7 +96,7 @@ zips.each do |zip|
           user_id: rand(20),
           business_id: Business.last.id,
           body: FAKEREVIEWS.sample,
-          rating: (rand(4) + 1),
+          rating: (rand(5) + 1),
         )
       end
   end

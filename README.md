@@ -148,6 +148,9 @@ Location search is implemented using the Google Places API. Request submits an a
 
 ![map and filter screenshot](docs/map_filter.png)
 
+### Seeding
+Yelp RESTful API was used to pull data and create restaurants in select cities, with fake reviews.
+
 ## Future Directions for the Project
 
 In addition to the features already implemented, I plan to continue work on this project.  The next steps for Kelp are outlined below.
