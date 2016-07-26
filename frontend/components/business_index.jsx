@@ -35,11 +35,12 @@ const BusinessIndex = React.createClass({
       <div className="businesses-index panel">
         <div className="flex-wrap">
         {
+          (businessKeys.length > 0) ?
           businessKeys.slice(showIdx*10, showIdx*10+10).map( key => {
             return (<IndexItem
               business={businesses[key]}
               key={key} />);
-          })
+          }) : <h4 style={{margin: '0 auto'}}>No Results</h4>
         }
         </div>
         <div>
