@@ -91,7 +91,7 @@ zips.each do |zip|
         img5: "https://i.imgur.com/#{IMGS.sample}.jpg",
       )
 
-      rand(8).times do
+      (rand(6) + 4).times do
         Review.create(
           user_id: rand(20),
           business_id: Business.last.id,
