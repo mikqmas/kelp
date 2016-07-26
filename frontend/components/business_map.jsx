@@ -23,6 +23,7 @@ const mapOptions = {
   }
 };
 
+const infowindows = [];
 const MapContainer = React.createClass({
   componentDidMount() {
     const map = ReactDOM.findDOMNode(this.refs.map);
@@ -134,7 +135,18 @@ const MapContainer = React.createClass({
       businessId: business.id
     });
     marker.addListener('click', () => {
+      const infowindow = new google.maps.InfoWindow({
+        content: ('<div><strong>' + business.name + '</strong><br>' +
+                  business.address.split(",")[0] + '</div>'
+                  + "★".repeat(Math.round(business.average_rating))
+              + " " + "$".repeat(business.price))
+      });
       hashHistory.push("businesses/" + business.id );
+      infowindow.setPosition(marker.getPosition());
+      infowindow.open(this.map, marker);
+      infowindows.forEach((e)=>{e.close();});
+      infowindows.length = 0;
+      infowindows.push(infowindow);
     });
     this.markers.push(marker);
   },
