@@ -2,6 +2,8 @@ const React = require('react');
 const Review = require('./review');
 const SessionStore = require('../stores/session_store');
 const foodImages = require('../constants/food_images');
+const hashHistory = require('react-router').hashHistory;
+const ReviewForm = require('./review_form');
 
 var Business = React.createClass({
   getInitialState() {
@@ -62,6 +64,24 @@ var Business = React.createClass({
       $("#business-image").show();
     }).attr('src', this.props.business[`img${nextPic}`]);
   },
+
+  showReviewForm() {
+    if(SessionStore.isUserLoggedIn()) {
+      $(".review-form").show();
+      // hashHistory.push(`/businesses/${this.props.business.id}/review`);
+      setTimeout(()=>{
+        $("#review-form").focus();
+      }, 0);
+    } else {
+      setTimeout(()=>{
+        $("#login").click();
+        $("#login-input").focus();
+        $(".login-form-box").prepend('<span id="require-login">Please Login</span>');
+      }, 100);
+    }
+  },
+
+
 
 
   render() {
@@ -126,6 +146,12 @@ var Business = React.createClass({
             <div className="reviews">
               <h3 style={{color: `rgba( ${r}, ${g}, ${b}, .9)`}}>Reviews</h3>
               { reviewText }
+
+              <button className="review-button" onClick={this.showReviewForm}>
+                ✎ Leave a Review
+              </button>
+              <ReviewForm business={this.props.business}
+                onEnter={ this._ensureLoggedIn }/>
             </div>
       </div>
 

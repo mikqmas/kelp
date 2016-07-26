@@ -66,6 +66,7 @@ const Filters = React.createClass({
           title={"★".repeat(this.props.filterParams.review) || "Stars"}
           id="bg-nested-dropdown">
           {reviewRatings}
+          <MenuItem key="" eventKey="">reset</MenuItem>
         </DropdownButton>
 
         <DropdownButton className="filter-buttons"
@@ -73,6 +74,7 @@ const Filters = React.createClass({
           title={this.props.filterParams.reviewCount || "# Reviews"}
           id="bg-nested-dropdown">
           {reviewCounts}
+          <MenuItem key="" eventKey="">reset</MenuItem>
         </DropdownButton>
 
         <Button onClick={this._createBusiness}>Create Business</Button>

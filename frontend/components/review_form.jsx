@@ -9,13 +9,13 @@ const ReviewForm = React.createClass({
   },
 
   navigateToBusinessShow() {
-    const businessUrl = "/businesses/" + this.props.params.businessId;
+    const businessUrl = "/businesses/" + this.props.business.id;
     hashHistory.push(businessUrl);
   },
 
   handleCancel(event) {
     event.preventDefault();
-    this.navigateToBusinessShow();
+    $(".review-form").hide();
   },
 
   handleSubmit(event) {
@@ -27,11 +27,12 @@ const ReviewForm = React.createClass({
     const review = Object.assign(
       {},
       this.state,
-      { business_id: this.props.params.businessId },
+      { business_id: this.props.business.id },
       { user_id: SessionStore.currentUser().id }
     );
     BusinessActions.createReview(review);
-    this.navigateToBusinessShow();
+    this.setState({rating: 0, body: ""});
+    $(".review-form").hide();
   },
 
   update(property) {

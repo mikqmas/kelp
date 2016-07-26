@@ -95,7 +95,7 @@ const Search = React.createClass({
                      renderSuggestion={renderSuggestion}
                      inputProps={inputProps} />
         <input type="text" id="location-search"
-          placeholder="New York, Chicago, LA, Seattle"
+          placeholder="SF, LA, New York"
           onFocus={this.removeSplash}
           />
       </div>

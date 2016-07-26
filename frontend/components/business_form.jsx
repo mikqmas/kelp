@@ -3,6 +3,9 @@ const React = require('react');
 const hashHistory = require('react-router').hashHistory;
 const Autosuggest = require('react-autosuggest');
 
+//Const
+const IMGS = require('../constants/food_images');
+
 //Actions
 const BusinessActions = require('../actions/business_actions');
 
@@ -26,6 +29,11 @@ const BusinessForm = React.createClass({
       city: "",
       state_code: "",
       postal_code: "",
+      img1: `https://i.imgur.com/${IMGS[Math.floor(Math.random() * IMGS.length)]}.jpg`,
+      img2: `https://i.imgur.com/${IMGS[Math.floor(Math.random() * IMGS.length)]}.jpg`,
+      img3: `https://i.imgur.com/${IMGS[Math.floor(Math.random() * IMGS.length)]}.jpg`,
+      img4: `https://i.imgur.com/${IMGS[Math.floor(Math.random() * IMGS.length)]}.jpg`,
+      img5: `https://i.imgur.com/${IMGS[Math.floor(Math.random() * IMGS.length)]}.jpg`,
     };
   },
   handleSubmit(event) {

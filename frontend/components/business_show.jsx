@@ -33,20 +33,7 @@ const BusinessShow = React.createClass({
     this.setState({ business });
   },
 
-  showReviewForm() {
-    if(SessionStore.isUserLoggedIn()) {
-      hashHistory.push(`/businesses/${this.state.business.id}/review`);
-      setTimeout(()=>{
-        $("#review-form").focus();
-      }, 0);
-    } else {
-      setTimeout(()=>{
-        $("#login").click();
-        $("#login-input").focus();
-        $(".login-form-box").prepend('<span id="require-login">Please Login</span>');
-      }, 100);
-    }
-  },
+
 
   render() {
     const reviewURL = "/businesses/" + this.state.business.id + "/review";
@@ -57,10 +44,7 @@ const BusinessShow = React.createClass({
         <div className="single-business-show panel">
           <BusinessDetail business={this.state.business}/>
           {
-            this.props.children ||
-              <button className="review-button" onClick={this.showReviewForm}>
-                ✎ Leave a Review
-              </button>
+            this.props.children
           }
         </div>
       );
