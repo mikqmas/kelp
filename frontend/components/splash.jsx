@@ -47,13 +47,13 @@ const Splash = React.createClass({
     this.filterListener = FilterParamsStore.addListener(this._filtersChanged);
     const filterParams = FilterParamsStore.params();
     this.playYoutube();
-    document.getElementById("splash-video").play();
-    // BusinessActions.fetchAllBusinesses(filterParams);
+    var myVideo = document.getElementById("splash-video");
+    myVideo.addEventListener("ended", this.hideVid);
+    myVideo.play();
   },
 
   playYoutube() {
     var video = document.querySelectorAll("video")[0];
-    console.log(video);
         var src = video.src || (function () {
             var sources = video.querySelectorAll("source");
             for (var j = 0, sl = sources.length; j < sl; j++) {
@@ -80,6 +80,13 @@ const Splash = React.createClass({
     this.businessListener.remove();
     this.filterListener.remove();
   },
+  hideVid() {
+    $('video').animate({
+      opacity: 0
+    }, 500, 'swing', () => {$('video').remove();});
+    $('#title-splash').animate({opacity: 0},500, 'swing',
+    () => {$('#title-splash').remove();});
+  },
 
   render() {
     return(
@@ -89,7 +96,7 @@ const Splash = React.createClass({
           <Header pathname={this.props.location.pathname}/>
         <div className="video-container">
           <div id="title-splash"><h1>Kelp</h1><h3>Eat with your Eyes</h3></div>
-            <video preload="auto" autoplay loop class="video-playing" id="splash-video">
+            <video autoplay='true' preload="auto" class="video-playing" id="splash-video">
               <source src="www.youtube.com/watch?v=FOLHgoRcMHU" type="video/mp4" />
             </video>
         </div>
