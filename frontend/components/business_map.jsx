@@ -32,7 +32,6 @@ const MapContainer = React.createClass({
     this.initMap();
     this.registerListeners();
     this._onChange();
-
   },
 
   initMap() {

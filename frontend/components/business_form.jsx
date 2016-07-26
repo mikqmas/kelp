@@ -36,6 +36,7 @@ const BusinessForm = React.createClass({
       img5: `https://i.imgur.com/${IMGS[Math.floor(Math.random() * IMGS.length)]}.jpg`,
     };
   },
+
   handleSubmit(event) {
     event.preventDefault();
     if(latLng === "") {
@@ -44,15 +45,23 @@ const BusinessForm = React.createClass({
       const business = Object.assign({}, this.state, latLng);
       BusinessActions.createBusiness(business);
     }
-    this.navigateToSearch();
+    const success = $('#success-notice')[0];
+    success.style.transition = 'all 0.5s';
+    success.style.opacity = 1;
+    setTimeout(()=>{
+      this.navigateToSearch();
+    },1000);
   },
+
   navigateToSearch() {
     hashHistory.push("/");
   },
+
   handleCancel(event) {
     event.preventDefault();
     this.navigateToSearch();
   },
+
   suggestAddresses() {
     const address = `${this.state.address}, california, usa `;
     geocoder.geocode( { 'address' : address,
@@ -118,6 +127,7 @@ const BusinessForm = React.createClass({
     const lat = this._coords().lat, lng = this._coords().lng;
     return (
         <div className="new-business-container">
+          <h3 id='success-notice'>Success!</h3>
           <div className="new-business-form">
             <h3 className="new-business-title">Add A Business!</h3>
             <form onSubmit={this.handleSubmit}>
