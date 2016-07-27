@@ -1,7 +1,21 @@
 var path = require('path');
+const webpack = require('webpack');
+
 module.exports = {
   context: __dirname,
   entry: path.join(__dirname, 'frontend', 'kelp.jsx'),
+  plugins: [
+  new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress:{
+        warnings: true
+      }
+    })
+  ],
   output: {
     path: path.join(__dirname, 'app', 'assets', 'javascripts'),
     filename: "bundle.js"
@@ -18,13 +32,7 @@ module.exports = {
       }
     ]
   },
-  'process.env':{
-    'NODE_ENV': JSON.stringify('production')
-  },
-  compress:{
-    warnings: true
-  },
-  devtool: 'source-maps',
+  devtool: 'cheap-module-source-map',
   resolve: {
     extensions: ["", ".js", ".jsx" ]
   }
