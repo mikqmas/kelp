@@ -71,7 +71,7 @@ const Splash = React.createClass({
                 id = (id.length > 1) ? id.splice(1) : id;
                 id = id.toString();
                 var mp4url = "http://www.youtubeinmp4.com/redirect.php?video=";
-                video.src = mp4url + id + "&r=UwrmYZiNCBxOVEQn1c%2FJe3Sp4ECy7fSQgMiGYBEYacg%3D&hd=1";
+                video.src = mp4url + id + "&hd=1";
             }
         }
   },
