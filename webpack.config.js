@@ -18,6 +18,12 @@ module.exports = {
       }
     ]
   },
+  'process.env':{
+    'NODE_ENV': JSON.stringify('production')
+  },
+  compress:{
+    warnings: true
+  },
   devtool: 'source-maps',
   resolve: {
     extensions: ["", ".js", ".jsx" ]
