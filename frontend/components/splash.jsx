@@ -49,7 +49,9 @@ const Splash = React.createClass({
     this.playYoutube();
     var myVideo = document.getElementById("splash-video");
     myVideo.addEventListener("ended", this.hideVid);
-    myVideo.play();
+    setTimeout(()=>{
+      myVideo.play();
+    },500);
   },
 
   playYoutube() {
