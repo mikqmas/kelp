@@ -72,7 +72,7 @@ const Splash = React.createClass({
         <div className="video-container">
           <div id="title-splash"><h1>Kelp</h1><h3>Eat with your Eyes</h3></div>
             <video autoplay='true' preload="auto" class="video-playing" id="splash-video">
-              <source src="https://docs.google.com/uc?authuser=0&id=0B2j24s15u7yzU0NmR1ZSOFZFVkE&export=download" type="video/mp4" />
+              <source src="http://res.cloudinary.com/mikqmas/video/upload/v1469644292/Food_preparation_-_delicious_-_Video_Footage_Free_HD_1_rbcs5y.mp4" type="video/mp4" />
             </video>
         </div>
           <div className="map">

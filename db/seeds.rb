@@ -23,6 +23,7 @@ zips = [
 94112, 94114, 94115, 94116, 94117, 94118, 94121, 94122, 94123, 94124,
 94127, 94129, 94130, 94131, 94132, 94133, 94134, 94158,
 
+
 # la
 90003, 90005, 90007,
 90011, 90013, 90014,
@@ -62,6 +63,7 @@ zips.each do |zip|
   thisCity = client.search("#{zip}", {term: 'food'})
 
   20.times do |i|
+    next if thisCity.businesses[i].location.coordinate == nil
     lat = thisCity.businesses[i].location.coordinate.latitude
     lng = thisCity.businesses[i].location.coordinate.longitude
     address = thisCity.businesses[i].location.display_address.join(", ")

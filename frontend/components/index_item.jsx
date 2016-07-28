@@ -5,8 +5,16 @@ const foodImages = require('../constants/food_images');
 
 const IndexItem = React.createClass({
   handleClick() {
+    if($('video').length > 0){this.hideVid();}
     const businessID = this.props.business.id;
     hashHistory.push("/businesses/" + businessID );
+  },
+  hideVid() {
+    $('video').animate({
+      opacity: 0
+    }, 500, 'swing', () => {$('video').remove();});
+    $('#title-splash').animate({opacity: 0},500, 'swing',
+    () => {$('#title-splash').remove();});
   },
   render() {
     const business = this.props.business;
