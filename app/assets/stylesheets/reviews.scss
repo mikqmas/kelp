@@ -13,4 +13,27 @@
   div {
     margin-bottom: 5px;
   }
+
+
+  .single-review {
+    display: inline;
+    margin-left: 10px;
+  }
+
+  .review-profile {
+    margin-rigth: 5px;
+    height: 32px;
+    border-radius: 50%;
+  }
+
+  .review-div {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+  }
+
+  .review-div:nth-child(even) {
+    background-color: #ddd;
+    padding: 10px 0 10px 10px;
+  }
 }

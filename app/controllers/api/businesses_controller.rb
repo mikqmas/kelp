@@ -13,19 +13,8 @@ class Api::BusinessesController < ApplicationController
     end
 
     if(params[:reviewCount])
-      #currently causing +n query. Should fix for bonus.
       businesses = businesses.joins(:reviews).group("businesses.id")
         .having("count(businesses.id) >= ?", params[:reviewCount].to_i)
-
-      # failed attempt at hand written sql query.
-      # businesses = Business.find_by_sql "
-      #   SELECT businesses.*
-      #   FROM businesses
-      #   JOIN reviews
-      #   ON businesses.id = reviews.business_id
-      #   GROUP BY businesses.id
-      #   HAVING COUNT(businesses.id) > 1
-      # "
     end
 
     if(params[:review])
@@ -49,7 +38,7 @@ class Api::BusinessesController < ApplicationController
       "lower(category) LIKE ? OR lower(name) LIKE ?",
       "%#{params[:category].downcase}%", "%#{params[:category].downcase}%")
     end
-    # @businesses = businesses.includes(:reviews)
+    @businesses = businesses.includes(:reviews)
     @businesses = businesses.limit(50)
     render :index
   end

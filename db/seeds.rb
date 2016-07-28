@@ -54,6 +54,10 @@ zips = [
 
 User.create(username: "sam", password: "testing")
 
+20.times do |i|
+  User.create(username: "", password: "testing", profile_url: "https://i.imgur.com/#{IMGS.sample}b.jpg")
+end
+
 zips.each do |zip|
   thisCity = client.search("#{zip}", {term: 'food'})
 
@@ -93,10 +97,11 @@ zips.each do |zip|
 
       (rand(6) + 4).times do
         Review.create(
-          user_id: rand(20),
+          user_id: (rand(20) + 1),
           business_id: Business.last.id,
           body: FAKEREVIEWS.sample,
           rating: (rand(5) + 1),
+          user_profile: "https://i.imgur.com/#{IMGS.sample}b.jpg"
         )
       end
   end

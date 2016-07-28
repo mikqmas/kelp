@@ -46,36 +46,9 @@ const Splash = React.createClass({
     this.businessListener = BusinessStore.addListener(this._businessesChanged);
     this.filterListener = FilterParamsStore.addListener(this._filtersChanged);
     const filterParams = FilterParamsStore.params();
-    this.playYoutube();
     var myVideo = document.getElementById("splash-video");
     myVideo.addEventListener("ended", this.hideVid);
-    setTimeout(()=>{
-      myVideo.play();
-    },500);
-  },
-
-  playYoutube() {
-    var video = document.querySelectorAll("video")[0];
-        var src = video.src || (function () {
-            var sources = video.querySelectorAll("source");
-            for (var j = 0, sl = sources.length; j < sl; j++) {
-                var source = sources[j];
-                var type = source.type;
-                var isMp4 = type.indexOf("mp4") !== -1;
-                if (isMp4) return source.src;
-            }
-            return null;
-        })();
-        if (src) {
-            var isYoutube = src && src.match(/(?:youtu|youtube)(?:\.com|\.be)\/([\w\W]+)/i);
-            if (isYoutube) {
-                var id = isYoutube[1].match(/watch\?v=|[\w\W]+/gi);
-                id = (id.length > 1) ? id.splice(1) : id;
-                id = id.toString();
-                var mp4url = "http://www.youtubeinmp4.com/redirect.php?video=";
-                video.src = mp4url + id;
-            }
-        }
+    myVideo.play();
   },
 
   componentWillUnmount() {
@@ -99,7 +72,7 @@ const Splash = React.createClass({
         <div className="video-container">
           <div id="title-splash"><h1>Kelp</h1><h3>Eat with your Eyes</h3></div>
             <video autoplay='true' preload="auto" class="video-playing" id="splash-video">
-              <source src="www.youtube.com/watch?v=FOLHgoRcMHU" type="video/mp4" />
+              <source src="https://docs.google.com/uc?authuser=0&id=0B2j24s15u7yzU0NmR1ZSOFZFVkE&export=download" type="video/mp4" />
             </video>
         </div>
           <div className="map">

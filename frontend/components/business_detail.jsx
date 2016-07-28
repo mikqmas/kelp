@@ -90,7 +90,7 @@ var Business = React.createClass({
     let reviewText = "no reviews yet";
     if(reviews.length > 0) {
       reviewText = reviews.map( (review) => {
-        return <Review key={review.id} {...review} />;
+        return <Review review={review} key={review.id} {...review} />;
       });
     }
     let stars;
