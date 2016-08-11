@@ -16,7 +16,7 @@ const mapOptions = {
   navigationControl: false,
   mapTypeControl: false,
   streetViewControl: false,
-  zoom: 13,
+  zoom: 14,
   zoomControl: true,
   zoomControlOptions: {
       position: google.maps.ControlPosition.LEFT_CENTER
@@ -59,7 +59,7 @@ const MapContainer = React.createClass({
        } else {
          this.map.setCenter(place.geometry.location);
        }
-       this.map.setZoom(13);
+       this.map.setZoom(14);
 
       //  marker.setIcon(/** @type {google.maps.Icon} */({
       //   url: place.icon,
