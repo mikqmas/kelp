@@ -39,7 +39,7 @@ class Api::BusinessesController < ApplicationController
       "%#{params[:category].downcase}%", "%#{params[:category].downcase}%")
     end
     @businesses = businesses.includes(:reviews)
-    @businesses = businesses.limit(50)
+    @businesses = businesses.order("RANDOM()").limit(50)
     render :index
   end
 
