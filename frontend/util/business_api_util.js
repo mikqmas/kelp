@@ -4,7 +4,7 @@ var timeout;
 const ApiUtil = {
   fetchAllBusinesses(filters, success){
     clearTimeout(timeout);
-    if(apiCall !== null){ apiCall.abort(); }
+    if(!apiCall){ apiCall.abort(); }
     timeout = setTimeout(function(){
       apiCall = $.get('api/businesses', filters, success);
     }, 200);
