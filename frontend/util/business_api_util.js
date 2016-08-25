@@ -1,6 +1,13 @@
+var apiCall = null;
+var timeout;
+
 const ApiUtil = {
   fetchAllBusinesses(filters, success){
-    $.get('api/businesses', filters, success);
+    clearTimeout(timeout);
+    if(apiCall !== null){ apiCall.abort(); }
+    timeout = setTimeout(function(){
+      apiCall = $.get('api/businesses', filters, success);
+    }, 200);
   },
   createBusiness(data, success){
     $.post('api/businesses', { business: data }, success);
