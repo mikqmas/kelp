@@ -4,7 +4,7 @@
 
 [heroku]: http://www.kelp.pw
 
-Kelp is a full-stack web application inspired by Yelp.  It utilizes Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Flux architectural framework on the frontend in addition to plain old Javascript and jQuery.
+Kelp is a full-stack web application inspired by Yelp.  It utilizes React, vanilla JS, jQuery, Ruby on Rails, Sass, and PostgreSQL.
 
 ## Features & Implementation
 
