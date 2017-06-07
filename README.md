@@ -165,4 +165,4 @@ Each businesses and reviews should have multiple descriptive tags.
 
 ### Likes
 
-Users should be able to bookmark and share businesses they like.
+Users should be able to bookmark and share businesses they like!
